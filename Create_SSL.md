@@ -19,7 +19,8 @@ Je vais faire simple, je vous montre pour le miroir Calculate CyberLiTeck les 2 
      AllowOverride All 
   </Directory> 
 </VirtualHost> 
- 
+```
+```
 <VirtualHost *:443> 
    DocumentRoot /home/miroir/public_html/ 
    ServerName miroir.CyberLiTeck.fr 
