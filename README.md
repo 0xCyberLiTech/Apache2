@@ -6,7 +6,7 @@
 | Cat | Etapes |
 |------|------|
 | - A. | [README.](README.md) |
-| - B. | [Create_VirtualHost.](Create_VirtualHost.md) |
+| - B. | [.]() |
 | - C. | [Acces_HTTP_HTTPS.](Acces_HTTP_HTTPS.md) |
 | - D. | [Forcer_HTTP_vers_HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
 | - E. | [Exemple_create_VirtualHost.](Exemple_create_VirtualHost.md) |
