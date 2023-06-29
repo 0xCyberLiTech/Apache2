@@ -5,7 +5,7 @@
 |------|------|
 | - A. | [README.](README.md) |
 | - B. | [Create_VirtualHost.md.](Create_VirtualHost.md) |
-| - C. | [Create_SSL.md.](Create_SSL.md.md) |
+| - C. | [Create_SSL.md.](Create_SSL.md) |
 
 # Exemples d'utilisations de VirtualHost :
 
