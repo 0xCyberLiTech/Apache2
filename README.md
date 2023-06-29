@@ -327,7 +327,7 @@ Configuration du serveur.
 ```
 Une requête vers une adresse non spécifiée sur le port 80 sera servie par le serveur virtuel par défaut, et toute autre requête vers une adresse et un port non spécifiés sera servie par le serveur principal.
 
-- Migration d'un serveur virtuel par nom en un serveur virtuel par IP.
+## Migration d'un serveur virtuel par nom en un serveur virtuel par IP.
 
 Le serveur virtuel par nom avec le nom de domaine www.example.org (de notre exemple par nom) devrait obtenir sa propre adresse IP. Pendant la phase de migration, il est possible d'éviter les problèmes avec les noms de serveurs et autres serveurs mandataires qui mémorisent les vielles adresses IP pour les serveurs virtuels par nom.
 
