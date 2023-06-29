@@ -1,7 +1,7 @@
 <a name="Forcer_HTTP_vers_HTTPS.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
-# Forcer le HTTP en HTTPS.
+# - D. Forcer le HTTP en HTTPS.
 
 Si on souhaite forcer le HTTP vers HTTPS, on ajoute ceci dans le bloc Virtualhost *:80.
 
