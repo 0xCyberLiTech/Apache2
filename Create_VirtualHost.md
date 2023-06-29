@@ -1,7 +1,7 @@
 <a name="Create_VirtualHost.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
-# Création des Virtual Hosts
+# Création d'un VirtualHost.
 
 Explications sur la structure de base.
 
