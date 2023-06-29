@@ -37,7 +37,6 @@ nano /etc/apache2/sites-available/000-default.conf
 
 </VirtualHost>
 ```
-Activation SSL
 ```
 nano /etc/apache2/sites-available/default-ssl.conf
 ```
