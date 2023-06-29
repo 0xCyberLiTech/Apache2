@@ -9,6 +9,8 @@
 | - B. | [Create_VirtualHost.](Create_VirtualHost.md) |
 | - C. | [Create_SSL.](Create_SSL.md) |
 | - D. | [Forcer_HTTP_vers_HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
+| - E. | [Exemple_create-VirtualHost.](Exemple_create_VirtualHost.md) |
+
 
 # Exemples d'utilisations de VirtualHost :
 
