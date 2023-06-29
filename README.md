@@ -1,5 +1,11 @@
 ![Apache_logo](./images/Apache_logo.png)
 
+| Cat | Etapes |
+|------|------|
+| - A. | [README.](README.md.md) |
+| - B. | [Create_VirtualHost.md.](Create_VirtualHost.md) |
+| - C. | [Create_SSL.md.](Create_SSL.md.md) |
+
 # Exemples d'utilisations de VirtualHost :
 
 Le but de ce document est d'essayer de répondre aux questions les plus répandues sur la configuration des serveurs virtuels. Les scénarios présentés ici se rencontrent quand plusieurs serveurs Webs doivent tourner sur une seule et même machine au moyen de serveurs virtuels par nom ou par IP.
