@@ -9,15 +9,15 @@ Note :
 
 La configuration de serveurs virtuels sous Apache ne provoque pas leur apparition magique dans la configuration du DNS. Il faut que leurs noms soient définis dans le DNS, et qu'ils y soient résolus sur l'adresse IP du serveur, faute de quoi personne ne pourra visiter votre site Web. Il est possible d'ajouter des entrées dans le fichier hosts pour tests locaux, mais qui ne fonctionneront que sur la machine possédant ces entrées :
 
-Configuration du serveur
+Configuration du serveur.
 
 Note complémentaire concernant l'instruction <-- NameVirtualHost -->
 
 Pour que cette méthode de reconnaissance du site via l’adresse URL (domaine ou sous-domaine) entrée fonctionne, il faut faire très attention que l’instruction NameVirtualHost qui se trouve parfois dans ports.conf, httpd.conf ou apache2.conf ai bien pour valeur, la même valeur que vous avez entrer dans <VirtualHost>, soit *:80 dans l’exemple précédent. Vous devez donc avoir :
-
+```
 NameVirtualHost *:80
-
-Exemple ficfier de .portsconf
+```
+Exemple ficfier de .portsconf.
 ```
 # If you just change the port or add more ports here, you will likely also
 # have to change the VirtualHost statement in
@@ -42,7 +42,7 @@ Listen 80
     Listen 443
 </IfModule>
 ```
-On n'y retrouve l'instruction NameVirtualHost *:80
+On n'y retrouve l'instruction "NameVirtualHost *:80".
 ```
 # Apache doit écouter sur le port 80
 Listen 80
@@ -94,7 +94,7 @@ Toutes les techniques présentées ici peuvent être étendues à un plus grand 
 
 Le serveur a deux adresses IP. Sur l'une (172.20.30.40), le serveur "principal" server.domain.com doit répondre, et sur l'autre (172.20.30.50), deux serveurs virtuels (ou plus) répondront.
 
-Configuration du serveur
+Configuration du serveur.
 
 ```
 Listen 80
@@ -130,7 +130,7 @@ La machine serveur dispose de deux adresses IP (192.168.1.1 et 172.20.30.40). Ce
 
 Le serveur peut être configuré pour répondre de la même manière aux requêtes internes et externes, au moyen d'une seule section VirtualHost.
 
-Configuration du serveur
+Configuration du serveur.
 ```
 NameVirtualHost 192.168.1.1
 NameVirtualHost 172.20.30.40
@@ -152,7 +152,7 @@ Notez également que dans l'exemple précédent, vous pouvez remplacer la liste 
 
 Vous disposez de plusieurs domaines pointant sur la même adresse IP et vous voulez également servir de multiples ports. Vous y parviendrez en définissant les ports dans la directive "NameVirtualHost". Si vous tentez d'utiliser <VirtualHost name:port> sans directive NameVirtualHost name:port, ou tentez d'utiliser la directive Listen, votre configuration ne fonctionnera pas.
 
-Configuration du serveur
+Configuration du serveur.
 ```
 Listen 80
 Listen 8080
@@ -183,6 +183,7 @@ NameVirtualHost 172.20.30.40:8080
 - Hébergement virtuel basé sur IP.
 
 Le serveur dispose de deux adresses IP (172.20.30.40 et 172.20.30.50) correspondant respectivement aux noms www.example.com et www.example.org.
+
 Configuration du serveur
 ```
 Listen 80
@@ -199,10 +200,11 @@ Listen 80
 ```
 Les requêtes provenant d'adresses non spécifiées dans l'une des directives <VirtualHost> (comme pour localhost par exemple) seront dirigées vers le serveur principal, s'il en existe un.
 
-- Hébergements virtuels mixtes basés sur les ports et sur les IP
+- Hébergements virtuels mixtes basés sur les ports et sur les IP.
 
 Le serveur dispose de deux adresses IP (172.20.30.40 et 172.20.30.50) correspondant respectivement aux noms www.example.com et www.example.org. Pour chacun d'eux, nous voulons un hébergement sur les ports 80 et 8080.
-Configuration du serveur
+
+Configuration du serveur.
 ```
 Listen 172.20.30.40:80
 Listen 172.20.30.40:8080
@@ -232,7 +234,8 @@ Listen 172.20.30.50:8080
 - Hébergements virtuels mixtes basé sur les noms et sur IP.
 
 Pour certaines adresses, des serveurs virtuels seront définis par nom, et pour d'autres, ils seront définis par IP.
-Configuration du serveur
+
+Configuration du serveur.
 ```
 Listen 80
 
@@ -264,7 +267,7 @@ NameVirtualHost 172.20.30.40
 	ServerName www.example.gov
 </VirtualHost>
 ```
-- Utilisation simultanée de Virtual_host et de mod_proxy
+- Utilisation simultanée de Virtual_host et de mod_proxy.
 
 L'exemple suivant montre comment une machine peut mandater un serveur virtuel fonctionnant sur le serveur d'une autre machine. Dans cet exemple, un serveur virtuel de même nom est configuré sur une machine à l'adresse 192.168.111.2. La directive ProxyPreserveHost On est employée pour permette au nom de domaine d'être préservé lors du transfert, au cas où plusieurs noms de domaines cohabitent sur une même machine.
 ```
@@ -277,10 +280,11 @@ ServerName hostname.example.com
 ```
 - Utilisation de serveurs virtuels _default_
 
-Serveurs virtuels _default_ pour tous les ports
+Serveurs virtuels _default_ pour tous les ports.
 
 Exemple de capture de toutes les requêtes émanant d'adresses IP ou de ports non connus, c'est-à-dire, d'un couple adresse/port non traité par aucun autre serveur virtuel.
-Configuration du serveur
+
+Configuration du serveur.
 ```
 <VirtualHost _default_:*>
 DocumentRoot /www/default
@@ -295,7 +299,7 @@ Serveurs virtuels _default_ pour des ports différents
 
 La configuration est similaire à l'exemple précédent, mais le serveur écoute sur plusieurs ports et un second serveur virtuel _default_ pour le port 80 est ajouté.
 
-Configuration du serveur
+Configuration du serveur.
 ```
 <VirtualHost _default_:80>
 	DocumentRoot /www/default80
@@ -312,7 +316,7 @@ Serveurs virtuels _default_ pour un seul port
 
 Nous voulons créer un serveur virtuel par défaut seulement pour le port 80.
 
-Configuration du serveur
+Configuration du serveur.
 ```
 <VirtualHost _default_:80>
 	DocumentRoot /www/default
@@ -326,7 +330,8 @@ Une requête vers une adresse non spécifiée sur le port 80 sera servie par le 
 Le serveur virtuel par nom avec le nom de domaine www.example.org (de notre exemple par nom) devrait obtenir sa propre adresse IP. Pendant la phase de migration, il est possible d'éviter les problèmes avec les noms de serveurs et autres serveurs mandataires qui mémorisent les vielles adresses IP pour les serveurs virtuels par nom.
 
 La solution est simple, car il suffit d'ajouter la nouvelle adresse IP (172.20.30.50) dans la directive VirtualHost.
-Configuration du serveur
+
+Configuration du serveur.
 ```
 Listen 80
 ServerName www.example.com
@@ -352,7 +357,8 @@ Le serveur virtuel peut maintenant être joint par la nouvelle adresse (comme un
 Utilisation de la directive ServerPath.
 
 Dans le cas où vous disposez de deux serveurs virtuels par nom, le client doit transmettre un en-tête Host: correct pour déterminer le serveur concerné. Les vieux clients HTTP/1.0 n'envoient pas un tel en-tête et Apache n'a aucun indice pour connaître le serveur virtuel devant être joint (il sert la requête à partir d'un serveur virtuel primaire). Dans un soucis de préserver la compatibilité descendante, il suffit de créer un serveur virtuel primaire chargé de retourner une page contenant des liens dont les URLs auront un préfixe identifiant les serveurs virtuels par nom.
-Configuration du serveur
+
+Configuration du serveur.
 ```
 NameVirtualHost 172.20.30.40
 
