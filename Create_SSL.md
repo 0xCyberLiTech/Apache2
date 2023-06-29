@@ -1,9 +1,9 @@
 <a name="Create_SSL.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
-Je vais faire simple, je vous montre pour le miroir Calculate CyberLiTeck les 2 Virtualhosts configurés (simultanément) afin que vous voyiez les différences (ce qui a été ajouté). A savoir le port d'écoute et les 3 lignes commençant par SSL.
+# Accès au site en HTTP et HTTPS.
 
-Accès au site en HTTP et HTTPS
+Je vais faire simple, je vous montre pour le miroir Calculate CyberLiTeck les 2 Virtualhosts configurés (simultanément) afin que vous voyiez les différences (ce qui a été ajouté). A savoir le port d'écoute et les 3 lignes commençant par SSL.
 
 ```
 <VirtualHost *:80> 
@@ -38,12 +38,11 @@ Accès au site en HTTP et HTTPS
   </Directory> 
 </VirtualHost>
 ```
-
 Dans ce cas, l'accès en HTTP reste en HTTP.
 
 L'accès HTTPS reste HTTPS.
 
-Forcer le HTTP en HTTPS
+Forcer le HTTP en HTTPS.
 
 Si on souhaite forcer le HTTP vers HTTPS, on ajoute ceci dans le bloc Virtualhost *:80.
 
@@ -56,9 +55,10 @@ RewriteCond %{HTTP:X-Forwarded-Proto} =http
 RewriteRule (.*) https://www.CyberLiTeck.fr$1 [R=301,L]
 ```
 La première ligne RewriteCond permet de conserver du HTTP simple pour les requêtes Lets Encrypt (dossier .well-known/acme-challenge à la racine du site).
+
 La deuxième ligne RewriteCond permet de vérifier en amont qu'on n'est pas en https.
 
-## Ecouter sur plusieurs ports
+## Ecouter sur plusieurs ports.
 
 Si on souhaite ajouter un vhost qui écoute sur un autre port, il suffit d'ajouter une directive listen en plus dans le fichier de configuration du vhost :
 
@@ -69,11 +69,9 @@ Listen 8080
 </VirtualHost> 
 ```
 
-## Les Virtualhosts qui doivent écouter que sur une seule IP
+## Les Virtualhosts qui doivent écouter que sur une seule IP.
 
 Si on dispose de plusieurs adresses IP sur le serveur, on peut avoir besoin de spécifier que le VirtualHost n'écoute sur qu'une adresse IP.
-
-Précédemment, on a vu
 
 ```
 <VirtualHost *:443>
@@ -82,7 +80,7 @@ Précédemment, on a vu
 ```
 Le * signifie toutes les IP.
 
-Filtrer avec une seule IPv4
+Filtrer avec une seule IPv4.
 
 En IPv4, on procédera ainsi :
 ```
@@ -90,7 +88,7 @@ En IPv4, on procédera ainsi :
 
 </VirtualHost>
 ```
-## Filtrer avec une seule IPv6
+## Filtrer avec une seule IPv6.
 
 En IPv6, on mettra l'IP entre crochets :
 ```
