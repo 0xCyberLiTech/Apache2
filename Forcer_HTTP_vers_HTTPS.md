@@ -12,5 +12,5 @@ RewriteCond %{REQUEST_URI} !^/.well-known/acme-challenge/
 RewriteCond %{HTTP:X-Forwarded-Proto} =http
 RewriteRule (.*) https://www.CyberLiTech.fr$1 [R=301,L]
 ```
-La première ligne RewriteCond permet de conserver du HTTP simple pour les requêtes Lets Encrypt (dossier .well-known/acme-challenge à la racine du site).
-La deuxième ligne RewriteCond permet de vérifier en amont qu'on n'est pas en https.
+- La première ligne RewriteCond permet de conserver du HTTP simple pour les requêtes Lets Encrypt (dossier .well-known/acme-challenge à la racine du site).
+- La deuxième ligne RewriteCond permet de vérifier en amont qu'on n'est pas en https.
