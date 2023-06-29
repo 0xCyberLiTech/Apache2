@@ -13,6 +13,7 @@ Exemple concernant le VirtualHost 000-default.conf
 # /etc/apache2/sites-available/
 # --------------------------------------------------------------------------
 <VirtualHost *:80>
+
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
 
@@ -49,6 +50,7 @@ Exemple concernant le VirtualHost default-ssl.conf
 # /etc/apache2/sites-available/
 # --------------------------------------------------------------------------
 <VirtualHost *:443>
+
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
 
@@ -109,6 +111,7 @@ Exemple concernant le VirtualHost default-ssl.conf
         <Directory /usr/lib/cgi-bin>
                 SSLOptions +StdEnvVars
         </Directory>
+
 </VirtualHost>
 ```
 L'accès en HTTP reste en HTTP.
