@@ -3,7 +3,7 @@
 
 | Cat | Etapes |
 |------|------|
-| - A. | [README.](README.md.md) |
+| - A. | [README.](README.md) |
 | - B. | [Create_VirtualHost.md.](Create_VirtualHost.md) |
 | - C. | [Create_SSL.md.](Create_SSL.md.md) |
 
