@@ -1,7 +1,7 @@
 <a name="README.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
-# - A. README
+# - A. Sommaire :
 
 | Cat | Etapes |
 |------|------|
