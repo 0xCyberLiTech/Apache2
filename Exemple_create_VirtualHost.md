@@ -14,6 +14,7 @@ nano /etc/apache2/sites-available/000-default.conf
 # /etc/apache2/sites-available/
 # --------------------------------------------------------------------------
 <VirtualHost *:80>
+
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
 
@@ -49,6 +50,7 @@ nano /etc/apache2/sites-available/default-ssl.conf
 # /etc/apache2/sites-available/
 # --------------------------------------------------------------------------
 <VirtualHost *:443>
+
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
 
@@ -109,6 +111,7 @@ nano /etc/apache2/sites-available/default-ssl.conf
         <Directory /usr/lib/cgi-bin>
                 SSLOptions +StdEnvVars
         </Directory>
+
 </VirtualHost>
 ```
 All steps on Debian require to run as root. To become root simply run :
