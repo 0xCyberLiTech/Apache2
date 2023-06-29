@@ -4,8 +4,9 @@
 | Cat | Etapes |
 |------|------|
 | - A. | [README.](README.md) |
-| - B. | [Create_VirtualHost.md.](Create_VirtualHost.md) |
-| - C. | [Create_SSL.md.](Create_SSL.md) |
+| - B. | [Create_VirtualHost.](Create_VirtualHost.md) |
+| - C. | [Create_SSL.](Create_SSL.md) |
+| - D. | [Forcer_HTTP_vers_HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
 
 # Exemples d'utilisations de VirtualHost :
 
