@@ -85,3 +85,6 @@ nano /etc/apache2/vhosts.d/OxCLT.CyberLiTech.fr.conf
         </Directory>
 </VirtualHost>
 ```
+Dans ce cas, l'accès en HTTP reste en HTTP.
+
+L'accès HTTPS reste HTTPS.
