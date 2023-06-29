@@ -2,7 +2,7 @@
 
 Le but de ce document est d'essayer de répondre aux questions les plus répandues sur la configuration des serveurs virtuels. Les scénarios présentés ici se rencontrent quand plusieurs serveurs Webs doivent tourner sur une seule et même machine au moyen de serveurs virtuels par nom ou par IP.
 
-### Fonctionnement de plusieurs serveurs virtuels par nom sur une seule adresse IP.
+- Fonctionnement de plusieurs serveurs virtuels par nom sur une seule adresse IP.
 
 Votre serveur ne dispose que d'une seule adresse IP, et de nombreux alias (CNAMES) pointent vers cette adresse dans le DNS. Pour l'exemple, www.example.com et www.example.org doivent tourner sur cette machine.
 Note :
@@ -43,13 +43,13 @@ Listen 80
 </IfModule>
 ```
 On n'y retrouve l'instruction NameVirtualHost *:80
-
+```
 # Apache doit écouter sur le port 80
 Listen 80
 
 # Toutes les adresses IP doivent répondre aux requêtes sur les
 # serveurs virtuels
-```
+
 NameVirtualHost *:80
 
 <VirtualHost *:80>
@@ -86,7 +86,7 @@ En général, il est commode d'utiliser * sur les systèmes dont l'adresse IP n'
 
 La configuration ci-dessus est en pratique utilisée dans la plupart des cas pour les serveurs virtuels par nom. En fait, le seul cas où cette configuration ne fonctionne pas est lorsque différents contenus doivent être servis en fonction de l'adresse IP et du port contactés par le client.
 
-### Serveurs virtuels par nom sur plus d'une seule adresse IP.
+- Serveurs virtuels par nom sur plus d'une seule adresse IP.
 
 Note :
 
@@ -124,7 +124,7 @@ NameVirtualHost 172.20.30.50
 ```
 Toute requête arrivant sur une autre adresse que 172.20.30.50 sera servie par le serveur principal. Les requêtes vers 172.20.30.50 avec un nom de serveur inconnu, ou sans en-tête Host:, seront servies par www.example.com.
 
-### Servir le même contenu sur des adresses IP différentes (telle qu'une adresse interne et une externe).
+- Servir le même contenu sur des adresses IP différentes (telle qu'une adresse interne et une externe).
 
 La machine serveur dispose de deux adresses IP (192.168.1.1 et 172.20.30.40). Cette machine est placée à la fois sur le réseau interne (l'Intranet) et le réseau externe (Internet). Sur Internet, le nom server.example.com pointe vers l'adresse externe (172.20.30.40), mais sur le réseau interne, ce même nom pointe vers l'adresse interne (192.168.1.1).
 
@@ -148,7 +148,7 @@ Sur le réseau interne, il est possible d'utiliser le nom raccourci server au li
 
 Notez également que dans l'exemple précédent, vous pouvez remplacer la liste des adresses IP par des * afin que le serveur réponde de la même manière sur toutes ses adresses.
 
-### Servir différents sites sur différents ports.
+- Servir différents sites sur différents ports.
 
 Vous disposez de plusieurs domaines pointant sur la même adresse IP et vous voulez également servir de multiples ports. Vous y parviendrez en définissant les ports dans la directive "NameVirtualHost". Si vous tentez d'utiliser <VirtualHost name:port> sans directive NameVirtualHost name:port, ou tentez d'utiliser la directive Listen, votre configuration ne fonctionnera pas.
 
@@ -180,7 +180,7 @@ NameVirtualHost 172.20.30.40:8080
 	DocumentRoot /www/otherdomain-8080
 </VirtualHost> 
 ```
-### Hébergement virtuel basé sur IP.
+- Hébergement virtuel basé sur IP.
 
 Le serveur dispose de deux adresses IP (172.20.30.40 et 172.20.30.50) correspondant respectivement aux noms www.example.com et www.example.org.
 Configuration du serveur
@@ -199,7 +199,7 @@ Listen 80
 ```
 Les requêtes provenant d'adresses non spécifiées dans l'une des directives <VirtualHost> (comme pour localhost par exemple) seront dirigées vers le serveur principal, s'il en existe un.
 
-### Hébergements virtuels mixtes basés sur les ports et sur les IP
+- Hébergements virtuels mixtes basés sur les ports et sur les IP
 
 Le serveur dispose de deux adresses IP (172.20.30.40 et 172.20.30.50) correspondant respectivement aux noms www.example.com et www.example.org. Pour chacun d'eux, nous voulons un hébergement sur les ports 80 et 8080.
 Configuration du serveur
@@ -229,11 +229,11 @@ Listen 172.20.30.50:8080
 	ServerName www.example.org
 </VirtualHost>
 ```
-### Hébergements virtuels mixtes basé sur les noms et sur IP.
+- Hébergements virtuels mixtes basé sur les noms et sur IP.
 
 Pour certaines adresses, des serveurs virtuels seront définis par nom, et pour d'autres, ils seront définis par IP.
 Configuration du serveur
-````
+```
 Listen 80
 
 NameVirtualHost 172.20.30.40
@@ -264,7 +264,7 @@ NameVirtualHost 172.20.30.40
 	ServerName www.example.gov
 </VirtualHost>
 ```
-### Utilisation simultanée de Virtual_host et de mod_proxy
+- Utilisation simultanée de Virtual_host et de mod_proxy
 
 L'exemple suivant montre comment une machine peut mandater un serveur virtuel fonctionnant sur le serveur d'une autre machine. Dans cet exemple, un serveur virtuel de même nom est configuré sur une machine à l'adresse 192.168.111.2. La directive ProxyPreserveHost On est employée pour permette au nom de domaine d'être préservé lors du transfert, au cas où plusieurs noms de domaines cohabitent sur une même machine.
 ```
@@ -275,7 +275,7 @@ ProxyPassReverse / http://192.168.111.2/
 ServerName hostname.example.com
 </VirtualHost>
 ```
-### Utilisation de serveurs virtuels _default_
+- Utilisation de serveurs virtuels _default_
 
 Serveurs virtuels _default_ pour tous les ports
 
@@ -321,7 +321,7 @@ Configuration du serveur
 ```
 Une requête vers une adresse non spécifiée sur le port 80 sera servie par le serveur virtuel par défaut, et toute autre requête vers une adresse et un port non spécifiés sera servie par le serveur principal.
 
-### Migration d'un serveur virtuel par nom en un serveur virtuel par IP.
+- Migration d'un serveur virtuel par nom en un serveur virtuel par IP.
 
 Le serveur virtuel par nom avec le nom de domaine www.example.org (de notre exemple par nom) devrait obtenir sa propre adresse IP. Pendant la phase de migration, il est possible d'éviter les problèmes avec les noms de serveurs et autres serveurs mandataires qui mémorisent les vielles adresses IP pour les serveurs virtuels par nom.
 
