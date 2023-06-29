@@ -1,7 +1,7 @@
 <a name="Create_SSL.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
-# Accès au site en HTTP et HTTPS.
+# - C. Accès au site en HTTP et HTTPS.
 
 Je vais faire simple, je vous montre pour le miroir Calculate CyberLiTeck les 2 Virtualhosts configurés (simultanément) afin que vous voyiez les différences (ce qui a été ajouté). A savoir le port d'écoute et les 3 lignes commençant par SSL.
 
