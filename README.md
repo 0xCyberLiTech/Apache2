@@ -6,8 +6,9 @@
 |------|------|
 | - A. | [Configuration des serveurs Virtuels.](README.md) |
 | - B. | [Acces en HTTP & HTTPS.](Acces_en_HTTP_&_HTTPS.md) |
-| - C. | [Forcer HTTP vers HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
-| - D. | [Exemple create VirtualHost.](Exemple_create_VirtualHost.md) |
+| - C. | [Exemple create VirtualHost.](Exemple_create_VirtualHost.md) |
+| - D. | [Forcer HTTP vers HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
+
 
 
 
