@@ -13,7 +13,7 @@
 
 Le but de ce document est d'essayer de répondre aux questions les plus répandues sur la configuration des serveurs virtuels. Les scénarios présentés ici se rencontrent quand plusieurs serveurs Webs doivent tourner sur une seule et même machine au moyen de serveurs virtuels par nom ou par IP.
 
-## Fonctionnement de plusieurs serveurs virtuels par nom sur une seule adresse IP.
+## - A. Fonctionnement de plusieurs serveurs virtuels par nom sur une seule adresse IP.
 
 Votre serveur ne dispose que d'une seule adresse IP, et de nombreux alias (CNAMES) pointent vers cette adresse dans le DNS. Pour l'exemple, www.example.com et www.example.org doivent tourner sur cette machine.
 Note :
