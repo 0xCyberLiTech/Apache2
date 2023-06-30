@@ -234,11 +234,9 @@ nano /etc/apache2/sites-available/default-ssl.conf
 ```
 Trouvez ces lignes et mettez-les à jour comme suit :
 ```
-SSLCertificateFile    /etc/ssl/certs/certfile.crt
-SSLCertificateKeyFile /etc/ssl/private/keyfile.key
+SSLCertificateFile        /etc/ssl/certs/certfile.crt
+SSLCertificateKeyFile     /etc/ssl/private/keyfile.key
 ```
-Astuce : taper /eFile et appuyer sur Entrée dans vi devrait vous amener directement à cette section du fichier.
-
 Enregistrez les modifications, vous avez terminé de modifier ce fichier.
 
 Ouvrez le fichier suivant dans vi en exécutant la commande suivante :
