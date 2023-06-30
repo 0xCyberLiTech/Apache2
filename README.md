@@ -8,7 +8,7 @@
 | - B. | [Acces en HTTP & HTTPS.](Acces_en_HTTP_&_HTTPS.md) |
 | - C. | [Création de deux VirtualHosts par l'exemple.](Exemple_create_VirtualHost.md) |
 | - D. | [Forcer HTTP vers HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
-| - E. | [Mise en place d'un Reverse Proxy.](Installer_reverse_proxy.md) |
+| - E. | [Installer un reverse proxy.](Installer_reverse_proxy.md) |
 
 Reverse_Proxy.md
 
