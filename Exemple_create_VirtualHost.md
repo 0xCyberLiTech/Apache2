@@ -120,8 +120,9 @@ Pour devenir root lancez simplement :
 
 ```
 su - root
+ou
+su -
 ```
-
 - Conditions préalables.
 
 Effectuez ces étapes pour installer les packages prérequis.
@@ -141,8 +142,6 @@ La première étape consiste à générer le fichier de clé privée, exécutez 
 ```
 openssl genrsa -out keyfile.key 2048
 ```
-Cela aurait généré du texte aléatoire.
-
 - Générer un fichier de demande de certificat.
 
 Ensuite, vous allez générer le fichier de demande de certificat en exécutant la commande suivante :
@@ -151,15 +150,15 @@ openssl req -new -key keyfile.key -out certrequest.csr
 ```
 Vous devrez fournir certaines valeurs, certaines peuvent être laissées vides, mais la valeur la plus importante est le nom commun. Dans l'exemple ci-dessous, vous pouvez voir que core-033.domain.local a été utilisé, ce qui signifie que lorsque vous accédez au serveur Nagios Core dans votre navigateur Web, c'est l'adresse que vous devrez utiliser. 
 
-Ceci est particulièrement important, si ceux-ci ne correspondent pas, vous recevrez des avertissements dans votre navigateur Web. Des informations plus détaillées à ce sujet peuvent être trouvées dans l'article suivant de la base de connaissances :
+Ceci est particulièrement important, si ceux-ci ne correspondent pas, vous recevrez des avertissements dans votre navigateur Web.
 
-Ce qui suit est un exemple:
+Ce qui suit est un exemple :
 
 Vous êtes sur le point d'être invité à saisir des informations qui seront intégrées à votre demande de certificat.
 
 Ce que vous êtes sur le point d'entrer est ce qu'on appelle un nom distinctif ou un DN.
-Il y a pas mal de champs mais vous pouvez en laisser des vides
-Pour certains champs, il y aura une valeur par défaut,
+Il y a pas mal de champs mais vous pouvez en laisser des vides.
+Pour certains champs, il y aura une valeur par défaut.
 Si vous entrez '.', le champ sera laissé vide.
 
 ```
@@ -184,14 +183,14 @@ Comme vous pouvez le voir ci-dessus un mot de passe n'a pas été fourni, il n'e
 
 - Utilisation d'une société CA de confiance.
 
-Si vous envisagez d'utiliser une société de confiance telle que VeriSign pour vous fournir un certificat, vous devrez lui envoyer une copie de la demande de certificat. Cela peut être visualisé en exécutant la commande suivante :
+Si vous envisagez d'utiliser une société de confiance telle que VeriSign pour vous fournir un certificat, vous devrez lui envoyer une copie de la demande de certificat. 
+Cela peut être visualisé en exécutant la commande suivante :
 ```
 cat certrequest.csr
  
 You'll get a lot of random text, this is what you will need to provide to your trusted CA. You must provide the CA with everything including the -----BEGIN CERTIFICATE REQUEST----- and -----END CERTIFICATE REQUEST----- lines.
 ```
 Une fois qu'ils vous ont envoyé le certificat signé, vous devrez copier le certificat dans un nouveau fichier appelé certfile.crt. Le certificat que vous recevrez contiendra également beaucoup de texte aléatoire, vous pouvez donc simplement coller ce texte dans le nouveau fichier que vous pouvez ouvrir avec l'éditeur nano :
-
 ```
 nano certfile.crt
 ```
@@ -228,7 +227,8 @@ Activez le module mod_ssl dans Apache en exécutant la commande suivante :
 a2enmod ssl
 a2enmod rewrite
 ```
-Vous devez maintenant indiquer au serveur Web Apache où le rechercher. Ouvrez le fichier suivant dans vi en exécutant la commande suivante :
+Vous devez maintenant indiquer au serveur Web Apache où le rechercher. 
+Ouvrez le fichier suivant dans vi en exécutant la commande suivante :
 ```
 nano /etc/apache2/sites-available/default-ssl.conf
 ```
@@ -237,15 +237,13 @@ Trouvez ces lignes et mettez-les à jour comme suit :
 SSLCertificateFile    /etc/ssl/certs/certfile.crt
 SSLCertificateKeyFile /etc/ssl/private/keyfile.key
 ```
-Astuce : taper /eFile et appuyer sur Entrée dans vi devrait vous amener directement à cette section du fichier.
-
 Enregistrez les modifications, vous avez terminé de modifier ce fichier.
 
-Ouvrez le fichier suivant dans vi en exécutant la commande suivante :
+Ouvrez le fichier suivant dans nano en exécutant la commande suivante :
 ```
 nano /etc/apache2/sites-available/000-default.conf
 ```
-Naviguez jusqu'à la fin du fichier (appuyez sur SHIFT + G), et avant </VirtualHost> ajoutez ce qui suit :
+Naviguez jusqu'à la fin du fichier et avant </VirtualHost> ajoutez ce qui suit :
 ```
 RewriteEngine On
 RewriteCond %{HTTPS} off
@@ -279,7 +277,8 @@ Testez maintenant votre connexion au serveur en dirigeant votre navigateur Web v
 
 Remarque : il n'y a pas d'extension nagios/ dans l'URL, vous testez simplement une connexion à Apache pour voir si le certificat fonctionne.
 
-Vous pouvez recevoir un avertissement de certificat auto-signé, mais ce n'est pas grave, vous pouvez simplement ajouter une exception de sécurité. Si cela fonctionne, vous verrez la page Web de test Apache.
+Vous pouvez recevoir un avertissement de certificat auto-signé, mais ce n'est pas grave, vous pouvez simplement ajouter une exception de sécurité. 
+Si cela fonctionne, vous verrez la page Web de test Apache.
 
 Vous pourrez désormais accéder à votre serveur Nagios Core en dirigeant votre navigateur Web vers https://yourservername/nagios/.
 
