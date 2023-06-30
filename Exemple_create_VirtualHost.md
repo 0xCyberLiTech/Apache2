@@ -1,7 +1,7 @@
-<a name="Exemple_create_VirtualHost.md"></a>
+<a name="Exemple_create_nanortualHost.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
-# - C. Exemples concernant la mise en place de deux VirtualHosts (HTTP & HTTPS) sur DEBIAN 11 & 12.
+# - C. Exemples concernant la mise en place de deux nanortualHosts (HTTP & HTTPS) sur DEBIAN 11 & 12.
 ```
 nano /etc/apache2/sites-available/000-default.conf
 ```
@@ -10,10 +10,10 @@ nano /etc/apache2/sites-available/000-default.conf
 # 0xCyberLiTech
 # Date de création : le 29-06-2023
 # Date de modification : le 29-06-2023
-# 000-default.conf - Exemple concernant le VirtualHost 000-default.conf
+# 000-default.conf - Exemple concernant le nanortualHost 000-default.conf
 # /etc/apache2/sites-available/
 # --------------------------------------------------------------------------
-<VirtualHost *:80>
+<nanortualHost *:80>
 
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
@@ -36,7 +36,7 @@ nano /etc/apache2/sites-available/000-default.conf
         RewriteCond %{HTTPS} off
         RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
-</VirtualHost>
+</nanortualHost>
 ```
 ```
 nano /etc/apache2/sites-available/default-ssl.conf
@@ -46,10 +46,10 @@ nano /etc/apache2/sites-available/default-ssl.conf
 # 0xCyberLiTech
 # Date de création : le 29-06-2023
 # Date de modification : le 29-06-2023
-# default_ssl.conf - Exemple concernant le VirtualHost default-ssl.conf
+# default_ssl.conf - Exemple concernant le nanortualHost default-ssl.conf
 # /etc/apache2/sites-available/
 # --------------------------------------------------------------------------
-<VirtualHost *:443>
+<nanortualHost *:443>
 
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
@@ -69,7 +69,7 @@ nano /etc/apache2/sites-available/default-ssl.conf
         </Directory>
 
         # SSL Engine Switch:
-        # Enable/Disable SSL for this virtual host.
+        # Enable/Disable SSL for this nanortual host.
         SSLEngine on
 
         # A self-signed (snakeoil) certificate can be created by installing
@@ -89,16 +89,16 @@ nano /etc/apache2/sites-available/default-ssl.conf
         #   Note that no password is obtained from the user. Every entry in the user
         #   file needs this password: `xxj31ZMTZzkVA'.
         # o ExportCertData:
-        #   This exports two additional environment variables: SSL_CLIENT_CERT and
+        #   This exports two additional ennanoronment variables: SSL_CLIENT_CERT and
         #   SSL_SERVER_CERT. These contain the PEM-encoded certificates of the
         #   server (always existing) and the client (only existing when client
         #   authentication is used). This can be used to import the certificates
         #   into CGI scripts.
         # o StdEnvVars:
-        #   This exports the standard SSL/TLS related `SSL_*' environment variables.
+        #   This exports the standard SSL/TLS related `SSL_*' ennanoronment variables.
         #   Per default this exportation is switched off for performance reasons,
         #   because the extraction step is an expensive operation and is usually
-        #   useless for serving static content. So one usually enables the
+        #   useless for sernanong static content. So one usually enables the
         #   exportation for CGI and SSI requests only.
         # o OptRenegotiate:
         #   This enables optimized SSL connection renegotiation handling when SSL
@@ -112,7 +112,7 @@ nano /etc/apache2/sites-available/default-ssl.conf
                 SSLOptions +StdEnvVars
         </Directory>
 
-</VirtualHost>
+</nanortualHost>
 ```
 Toutes les étapes doivent être exécutées en tant que root. 
 
@@ -149,22 +149,22 @@ Ensuite, vous allez générer le fichier de demande de certificat en exécutant 
 ```
 openssl req -new -key keyfile.key -out certrequest.csr
 ```
-Vous devrez fournir certaines valeurs, certaines peuvent être laissées vides, mais la valeur la plus importante est le nom commun. Dans l'exemple ci-dessous, vous pouvez voir que core-033.domain.local a été utilisé, ce qui signifie que lorsque vous accédez au serveur Nagios Core dans votre navigateur Web, c'est l'adresse que vous devrez utiliser. 
+Vous devrez fournir certaines valeurs, certaines peuvent être laissées nanodes, mais la valeur la plus importante est le nom commun. Dans l'exemple ci-dessous, vous pouvez voir que core-033.domain.local a été utilisé, ce qui signifie que lorsque vous accédez au serveur Nagios Core dans votre nananogateur Web, c'est l'adresse que vous devrez utiliser. 
 
-Ceci est particulièrement important, si ceux-ci ne correspondent pas, vous recevrez des avertissements dans votre navigateur Web. Des informations plus détaillées à ce sujet peuvent être trouvées dans l'article suivant de la base de connaissances :
+Ceci est particulièrement important, si ceux-ci ne correspondent pas, vous recevrez des avertissements dans votre nananogateur Web. Des informations plus détaillées à ce sujet peuvent être trouvées dans l'article suivant de la base de connaissances :
 
 Ce qui suit est un exemple:
 
-Vous êtes sur le point d'être invité à saisir des informations qui seront intégrées à votre demande de certificat.
+Vous êtes sur le point d'être innanoté à saisir des informations qui seront intégrées à votre demande de certificat.
 
 Ce que vous êtes sur le point d'entrer est ce qu'on appelle un nom distinctif ou un DN.
-Il y a pas mal de champs mais vous pouvez en laisser des vides
+Il y a pas mal de champs mais vous pouvez en laisser des nanodes
 Pour certains champs, il y aura une valeur par défaut,
-Si vous entrez '.', le champ sera laissé vide.
+Si vous entrez '.', le champ sera laissé nanode.
 
 ```
 Country Name (2 letter code) [AU]:AU
-State or Province Name (full name) [Some-State]:NSW
+State or Pronanonce Name (full name) [Some-State]:NSW
 Locality Name (eg, city) []:Sydney
 Organization Name (eg, company) [Internet Widgits Pty Ltd]:My Company Pty Ltd
 Organizational Unit Name (eg, section) []:
@@ -184,11 +184,11 @@ Comme vous pouvez le voir ci-dessus un mot de passe n'a pas été fourni, il n'e
 
 - Utilisation d'une société CA de confiance.
 
-Si vous envisagez d'utiliser une société de confiance telle que VeriSign pour vous fournir un certificat, vous devrez lui envoyer une copie de la demande de certificat. Cela peut être visualisé en exécutant la commande suivante :
+Si vous ennanosagez d'utiliser une société de confiance telle que VeriSign pour vous fournir un certificat, vous devrez lui envoyer une copie de la demande de certificat. Cela peut être nanosualisé en exécutant la commande suivante :
 ```
 cat certrequest.csr
  
-You'll get a lot of random text, this is what you will need to provide to your trusted CA. You must provide the CA with everything including the -----BEGIN CERTIFICATE REQUEST----- and -----END CERTIFICATE REQUEST----- lines.
+You'll get a lot of random text, this is what you will need to pronanode to your trusted CA. You must pronanode the CA with everything including the -----BEGIN CERTIFICATE REQUEST----- and -----END CERTIFICATE REQUEST----- lines.
 ```
 Une fois qu'ils vous ont envoyé le certificat signé, vous devrez copier le certificat dans un nouveau fichier appelé certfile.crt. Le certificat que vous recevrez contiendra également beaucoup de texte aléatoire, vous pouvez donc simplement coller ce texte dans le nouveau fichier que vous pouvez ouvrir avec l'éditeur nano :
 
@@ -209,7 +209,7 @@ openssl x509 -req -days 365 -in certrequest.csr -signkey keyfile.key -out certfi
 ```
 Ce qui devrait produire une sortie indiquant que la signature était OK et qu'il s'agissait d'obtenir la clé privée.
 
-Remarque : Lorsque vous signez vous-même un certificat, vous recevez des avertissements dans votre navigateur Web.
+Remarque : Lorsque vous signez vous-même un certificat, vous recevez des avertissements dans votre nananogateur Web.
 
 - Copier des fichiers
 
@@ -228,7 +228,7 @@ Activez le module mod_ssl dans Apache en exécutant la commande suivante :
 a2enmod ssl
 a2enmod rewrite
 ```
-Vous devez maintenant indiquer au serveur Web Apache où le rechercher. Ouvrez le fichier suivant dans vi en exécutant la commande suivante :
+Vous devez maintenant indiquer au serveur Web Apache où le rechercher. Ouvrez le fichier suivant dans nano en exécutant la commande suivante :
 ```
 nano /etc/apache2/sites-available/default-ssl.conf
 ```
@@ -239,11 +239,11 @@ SSLCertificateKeyFile     /etc/ssl/private/keyfile.key
 ```
 Enregistrez les modifications, vous avez terminé de modifier ce fichier.
 
-Ouvrez le fichier suivant dans vi en exécutant la commande suivante :
+Ouvrez le fichier suivant dans nano en exécutant la commande suivante :
 ```
 nano /etc/apache2/sites-available/000-default.conf
 ```
-Naviguez jusqu'à la fin du fichier (appuyez sur SHIFT + G), et avant </VirtualHost> ajoutez ce qui suit :
+Nananoguez jusqu'à la fin du fichier (appuyez sur SHIFT + G), et avant </nanortualHost> ajoutez ce qui suit :
 ```
 RewriteEngine On
 RewriteCond %{HTTPS} off
@@ -261,7 +261,7 @@ a2ensite default-ssl.conf
 Vous devez recharger Apache pour que la nouvelle clé de certificat soit utilisée.
 
 ```
-systemctl reload apache2.service
+systemctl reload apache2.sernanoce
 ```
 - Règles de pare-feu.
 
@@ -269,29 +269,29 @@ Vous devez autoriser le trafic entrant du port 443 sur le pare-feu local afin de
 ```
 iptables -I INPUT -p tcp --destination-port 443 -j ACCEPT
 apt-get install -y iptables-persistent
-If prompted, answer yes to saving existing rules
+If prompted, answer yes to sananong existing rules
 ```
 - Test Certificate.
 
-Testez maintenant votre connexion au serveur en dirigeant votre navigateur Web vers https://votrenomdeserveur/.
+Testez maintenant votre connexion au serveur en dirigeant votre nananogateur Web vers https://votrenomdeserveur/.
 
 Remarque : il n'y a pas d'extension nagios/ dans l'URL, vous testez simplement une connexion à Apache pour voir si le certificat fonctionne.
 
 Vous pouvez recevoir un avertissement de certificat auto-signé, mais ce n'est pas grave, vous pouvez simplement ajouter une exception de sécurité. Si cela fonctionne, vous verrez la page Web de test Apache.
 
-Vous pourrez désormais accéder à votre serveur Nagios Core en dirigeant votre navigateur Web vers https://yourservername/nagios/.
+Vous pourrez désormais accéder à votre serveur Nagios Core en dirigeant votre nananogateur Web vers https://yourservername/nagios/.
 
 S'il renvoie une erreur, vérifiez votre pare-feu et revenez en arrière dans ce document, en vous assurant que vous avez effectué toutes les étapes répertoriées.
 
 - Remarques sur la redirection.
 
-Avec cette configuration, si un utilisateur tape http://yourservername dans son navigateur Web, il le redirigera vers https://yourservername, ce qui peut provoquer des avertissements de certificat. 
+Avec cette configuration, si un utilisateur tape http://yourservername dans son nananogateur Web, il le redirigera vers https://yourservername, ce qui peut provoquer des avertissements de certificat. 
 
 Si vous souhaitez les rediriger vers https://votrenomdeserveur.votredomaine.com, il vous suffit de modifier la règle de réécriture.
 ```
 RewriteRule (.*) https://yourservername.yourdomain.com%{REQUEST_URI}
 ```
-Rechargez ensuite le service apache2.
+Rechargez ensuite le sernanoce apache2.
 ```
-systemctl restart apache2.service
+systemctl restart apache2.sernanoce
 ```
