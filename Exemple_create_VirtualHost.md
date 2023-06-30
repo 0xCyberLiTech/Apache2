@@ -126,7 +126,7 @@ su - root
 
 Effectuez ces étapes pour installer les packages prérequis.
 ```
-apt-get update
+apt-get update && apt upgrade -y
 apt-get install -y openssl
 ```
 Toutes les étapes restantes seront effectuées à partir du répertoire de base de l'utilisateur root pour s'assurer que les fichiers que vous créez ne sont accessibles à personne d'autre qu'à l'utilisateur root.
