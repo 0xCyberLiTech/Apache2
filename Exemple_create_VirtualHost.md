@@ -228,7 +228,8 @@ Activez le module mod_ssl dans Apache en exécutant la commande suivante :
 a2enmod ssl
 a2enmod rewrite
 ```
-Vous devez maintenant indiquer au serveur Web Apache où le rechercher. Ouvrez le fichier suivant dans nano en exécutant la commande suivante :
+Vous devez maintenant indiquer au serveur Web Apache où le rechercher. 
+Ouvrez le fichier suivant dans nano en exécutant la commande suivante :
 ```
 nano /etc/apache2/sites-available/default-ssl.conf
 ```
