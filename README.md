@@ -1,18 +1,15 @@
-<a name="README.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
 # - A. Sommaire :
 
 | Cat | Etapes |
 |------|------|
-| - A. | [README.](README.md) |
-| - B. | [.]() |
-| - C. | [Acces_HTTP_HTTPS.](Acces_HTTP_HTTPS.md) |
-| - D. | [Forcer_HTTP_vers_HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
-| - E. | [Exemple_create_VirtualHost.](Exemple_create_VirtualHost.md) |
+
+| - A. | [Acces_HTTP_HTTPS.](Acces_HTTP_HTTPS.md) |
+| - B. | [Forcer_HTTP_vers_HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
+| - C. | [Exemple_create_VirtualHost.](Exemple_create_VirtualHost.md) |
 
 
-# Exemples d'utilisations de VirtualHost :
 
 Le but de ce document est d'essayer de répondre aux questions les plus répandues sur la configuration des serveurs virtuels. Les scénarios présentés ici se rencontrent quand plusieurs serveurs Webs doivent tourner sur une seule et même machine au moyen de serveurs virtuels par nom ou par IP.
 
