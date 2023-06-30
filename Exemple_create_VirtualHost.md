@@ -114,45 +114,53 @@ nano /etc/apache2/sites-available/default-ssl.conf
 
 </VirtualHost>
 ```
-All steps on Debian require to run as root. To become root simply run :
+Toutes les étapes doivent être exécutées en tant que root. 
 
-All commands from this point onwards will be as root.
+Pour devenir root lancez simplement :
 
-- Prerequisites.
+```
+su - root
+```
 
-Perform these steps to install the pre-requisite packages.
+- Conditions préalables.
+
+Effectuez ces étapes pour installer les packages prérequis.
 ```
 apt-get update
 apt-get install -y openssl
 ```
-All of the remaining steps will be performed from within the root user's home directory to ensure the files you create are not accessible to anyone except the root user. Change into the home directory with this command: 
+Toutes les étapes restantes seront effectuées à partir du répertoire de base de l'utilisateur root pour s'assurer que les fichiers que vous créez ne sont accessibles à personne d'autre qu'à l'utilisateur root.
+
+Accédez au répertoire personnel avec cette commande :
 ```
 cd ~
 ```
-- Generate Private Key File.
+- Générer un fichier de clé privée.
 
-The first step is to generate the private key file, execute the following command :
+La première étape consiste à générer le fichier de clé privée, exécutez la commande suivante :
 ```
 openssl genrsa -out keyfile.key 2048
 ```
-That would have generated some random text.
+Cela aurait généré du texte aléatoire.
 
-- Generate Certificate Request File.
+- Générer un fichier de demande de certificat.
 
-Next you will generate the certificate request file by executing the following command:
+Ensuite, vous allez générer le fichier de demande de certificat en exécutant la commande suivante :
 ```
 openssl req -new -key keyfile.key -out certrequest.csr
 ```
-You will need to supply some values, some can be left blank, however the most important value is the Common Name. In the example below you can see that core-033.domain.local has been used which means that when you access the Nagios Core server in your web browser, this is the address you will need to use. This is particularly important, if these don't match then you will get warnings in your web browser. More detailed information about this can be found in the following KB article: https://support.nagios.com/kb/article.php?id=598
+Vous devrez fournir certaines valeurs, certaines peuvent être laissées vides, mais la valeur la plus importante est le nom commun. Dans l'exemple ci-dessous, vous pouvez voir que core-033.domain.local a été utilisé, ce qui signifie que lorsque vous accédez au serveur Nagios Core dans votre navigateur Web, c'est l'adresse que vous devrez utiliser. 
 
-The following is an example:
+Ceci est particulièrement important, si ceux-ci ne correspondent pas, vous recevrez des avertissements dans votre navigateur Web. Des informations plus détaillées à ce sujet peuvent être trouvées dans l'article suivant de la base de connaissances :
 
-You are about to be asked to enter information that will be incorporated into your certificate request.
+Ce qui suit est un exemple:
 
-What you are about to enter is what is called a Distinguished Name or a DN.
-There are quite a few fields but you can leave some blank 
-For some fields there will be a default value,
-If you enter '.', the field will be left blank.
+Vous êtes sur le point d'être invité à saisir des informations qui seront intégrées à votre demande de certificat.
+
+Ce que vous êtes sur le point d'entrer est ce qu'on appelle un nom distinctif ou un DN.
+Il y a pas mal de champs mais vous pouvez en laisser des vides
+Pour certains champs, il y aura une valeur par défaut,
+Si vous entrez '.', le champ sera laissé vide.
 
 ```
 Country Name (2 letter code) [AU]:AU
@@ -168,103 +176,98 @@ to be sent with your certificate request
 A challenge password []:
 An optional company name []:
 ```
-As you can see above a password was not supplied, it is not necessary.
+Comme vous pouvez le voir ci-dessus un mot de passe n'a pas été fourni, il n'est pas nécessaire.
 
-- Sign Certificate Request.
+- Signer la demande de certificat.
 
-At this point you have created a certificate request that needs to be signed by a CA.
+À ce stade, vous avez créé une demande de certificat qui doit être signée par une autorité de certification.
 
-- Using A Trusted CA Company.
+- Utilisation d'une société CA de confiance.
 
-If you are going to use a trusted company like VeriSign to provide you with a certificate you will need to send them a copy of the certificate request. This can be viewed by executing the following command:
+Si vous envisagez d'utiliser une société de confiance telle que VeriSign pour vous fournir un certificat, vous devrez lui envoyer une copie de la demande de certificat. Cela peut être visualisé en exécutant la commande suivante :
 ```
 cat certrequest.csr
  
 You'll get a lot of random text, this is what you will need to provide to your trusted CA. You must provide the CA with everything including the -----BEGIN CERTIFICATE REQUEST----- and -----END CERTIFICATE REQUEST----- lines.
-
-Once they send you the signed certificate you will need to copy the certificate into a new file called certfile.crt. The certificate you receive will also be a lot of random text, so you can just paste that text into the new file which you can open with the vi editor:
 ```
+Une fois qu'ils vous ont envoyé le certificat signé, vous devrez copier le certificat dans un nouveau fichier appelé certfile.crt. Le certificat que vous recevrez contiendra également beaucoup de texte aléatoire, vous pouvez donc simplement coller ce texte dans le nouveau fichier que vous pouvez ouvrir avec l'éditeur nano :
+
 ```
 nano certfile.crt
 ```
 You must paste everything including the -----BEGIN CERTIFICATE----- and -----END CERTIFICATE----- lines when pasting them into the file.
 
-Save the file and close nano.
+Enregistrez le fichier et fermez nano.
 
-You can now proceed to the Copy Files step.
+Vous pouvez maintenant passer à l'étape Copier les fichiers.
 
-- Using A Microsoft Windows CA
+- Auto-signature du certificat.
 
-If you are going to use a Microsoft Windows CA to sign your certificate request please follow the steps in this KB article :
-
-https://support.nagios.com/kb/article.php?id=597
-
-After following the KB article you will have the certfile.crt file and you can proceed to the Copy Files step.
-
-- Self Signing The Certificate.
-
-You can also self-sign the certificate by executing the following command :
+Vous pouvez également auto-signer le certificat en exécutant la commande suivante :
 ```
 openssl x509 -req -days 365 -in certrequest.csr -signkey keyfile.key -out certfile.crt
 ```
-Which should produce output saying the Signature was OK and it was Getting Private Key.
+Ce qui devrait produire une sortie indiquant que la signature était OK et qu'il s'agissait d'obtenir la clé privée.
 
-Note: When you self sign a certificate you will get warnings in your web browser. More detailed information about this can be found in the following KB article: https://support.nagios.com/kb/article.php?id=598
+Remarque : Lorsque vous signez vous-même un certificat, vous recevez des avertissements dans votre navigateur Web.
 
-- Copy Files
+- Copier des fichiers
 
-You need to copy the certificate files to the correct location and set permissions, execute the following commands:
+Vous devez copier les fichiers de certificat à l'emplacement correct et définir les autorisations, exécutez les commandes suivantes :
+
 ```
 cp certfile.crt /etc/ssl/certs/
 cp keyfile.key /etc/ssl/private/
 chmod go-rwx /etc/ssl/certs/certfile.crt
 chmod go-rwx /etc/ssl/private/keyfile.key
 ```
-- Update Apache Configuration.
+- Mettre à jour la configuration d'Apache.
 
-Enable the mod_ssl module in Apache by executing the following command :
+Activez le module mod_ssl dans Apache en exécutant la commande suivante :
 ```
 a2enmod ssl
 a2enmod rewrite
 ```
-Now you have to tell the Apache web server where to look for it. Open the following file in vi by executing the following command :
+Vous devez maintenant indiquer au serveur Web Apache où le rechercher. Ouvrez le fichier suivant dans vi en exécutant la commande suivante :
 ```
 nano /etc/apache2/sites-available/default-ssl.conf
 ```
-Find these lines and update them as follows :
+Trouvez ces lignes et mettez-les à jour comme suit :
 ```
 SSLCertificateFile    /etc/ssl/certs/certfile.crt
 SSLCertificateKeyFile /etc/ssl/private/keyfile.key
 ```
-Tip: typing /eFile and pressing Enter in vi should take you directly to this section in the file.
+Astuce : taper /eFile et appuyer sur Entrée dans vi devrait vous amener directement à cette section du fichier.
 
-Save the changes, you have finished editing this file. 
+Enregistrez les modifications, vous avez terminé de modifier ce fichier.
 
-Open the following file in vi by executing the following command:
+Ouvrez le fichier suivant dans vi en exécutant la commande suivante :
 ```
 nano /etc/apache2/sites-available/000-default.conf
 ```
-Navigate to the end of the file (press SHIFT + G), and before </VirtualHost> add the following::
+Naviguez jusqu'à la fin du fichier (appuyez sur SHIFT + G), et avant </VirtualHost> ajoutez ce qui suit :
 ```
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 ```
-Save the changes, you have finished editing this file.
+Enregistrez les modifications, vous avez terminé de modifier ce fichier.
 
-Now you have to enable this configuration in Apache by executing the following command:
+Vous devez maintenant activer cette configuration dans Apache en exécutant la commande suivante :
+
 ```
 a2ensite default-ssl.conf
 ```
-- Reload Apache Web Server.
+- Rechargez le serveur Web Apache.
 
-You need to reload Apache for the new certificate key to be used.
+Vous devez recharger Apache pour que la nouvelle clé de certificat soit utilisée.
+
 ```
 systemctl reload apache2.service
 ```
-- Firewall Rules.
+- Règles de pare-feu.
 
-You need to allow port 443 inbound traffic on the local firewall so you can reach the Nagios Core web interface.
+Vous devez autoriser le trafic entrant du port 443 sur le pare-feu local afin de pouvoir accéder à l'interface Web de Nagios Core.
 ```
 iptables -I INPUT -p tcp --destination-port 443 -j ACCEPT
 apt-get install -y iptables-persistent
@@ -272,20 +275,25 @@ If prompted, answer yes to saving existing rules
 ```
 - Test Certificate.
 
-Now test your connection to the server by directing your web browser to https://yourservername/.
+Testez maintenant votre connexion au serveur en dirigeant votre navigateur Web vers https://votrenomdeserveur/.
 
-Note: There is no nagios/ extension in the URL, you are just testing a connection to Apache to see if the certificate works.
+Remarque : il n'y a pas d'extension nagios/ dans l'URL, vous testez simplement une connexion à Apache pour voir si le certificat fonctionne.
 
-You may get a self signed certificate warning, but that is OK, you can just add a security exception. If is working you'll see the Apache test web page. You will now be able to access your Nagios Core server by directing your web browser to https://yourservername/nagios/. More detailed information about this can be found in the following KB article: https://support.nagios.com/kb/article.php?id=598
+Vous pouvez recevoir un avertissement de certificat auto-signé, mais ce n'est pas grave, vous pouvez simplement ajouter une exception de sécurité. Si cela fonctionne, vous verrez la page Web de test Apache.
 
-If it returns an error check your firewall and backtrack through this document, making sure you've performed all the steps listed.
+Vous pourrez désormais accéder à votre serveur Nagios Core en dirigeant votre navigateur Web vers https://yourservername/nagios/.
 
-- Notes On Redirecting.
+S'il renvoie une erreur, vérifiez votre pare-feu et revenez en arrière dans ce document, en vous assurant que vous avez effectué toutes les étapes répertoriées.
 
-With this configuration, if a user types http://yourservername in their web browser, it will redirect them to https://yourservername which can cause certificate warnings. If you wanted to redirect them to https://yourservername.yourdomain.com then you simply need to change the RewriteRule.
+- Remarques sur la redirection.
+
+Avec cette configuration, si un utilisateur tape http://yourservername dans son navigateur Web, il le redirigera vers https://yourservername, ce qui peut provoquer des avertissements de certificat. 
+
+Si vous souhaitez les rediriger vers https://votrenomdeserveur.votredomaine.com, il vous suffit de modifier la règle de réécriture.
 ```
 RewriteRule (.*) https://yourservername.yourdomain.com%{REQUEST_URI}
 ```
-Then reload the apache2 service.
-
-More detailed information about this can be found in the following KB article: https://support.nagios.com/kb/article.php?id=598 
+Rechargez ensuite le service apache2.
+```
+systemctl restart apache2.service
+```
