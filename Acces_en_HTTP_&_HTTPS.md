@@ -1,7 +1,7 @@
 <a name="Acces_en_HTTP_&_HTTPS.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
-# - C. Acces en HTTP & HTTPS.
+# - B. Acces en HTTP & HTTPS.
 
 Exemple concernant le VirtualHost 000-default.conf
 ```
