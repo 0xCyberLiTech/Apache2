@@ -262,7 +262,7 @@ a2ensite default-ssl.conf
 Vous devez recharger Apache pour que la nouvelle clé de certificat soit utilisée.
 
 ```
-systemctl reload apache2.sernanoce
+systemctl reload apache2.service
 ```
 - Règles de pare-feu.
 
@@ -292,7 +292,7 @@ Si vous souhaitez les rediriger vers https://votrenomdeserveur.votredomaine.com,
 ```
 RewriteRule (.*) https://yourservername.yourdomain.com%{REQUEST_URI}
 ```
-Rechargez ensuite le sernanoce apache2.
+Rechargez ensuite le service apache2.
 ```
-systemctl restart apache2.sernanoce
+systemctl restart apache2.service
 ```
