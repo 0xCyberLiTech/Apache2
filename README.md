@@ -1,10 +1,10 @@
 ![Apache_logo](./images/Apache_logo.png)
 
-# - A. Sommaire :
+# Fondamentaux sur la configuration des serveurs virtuels (Apache) :
 
 | Cat | Etapes |
 |------|------|
-
+| - A. | [Configurations_sur_les_serveurs_virtuels.](Configurations_serveurs_virtuels.md) |
 | - A. | [Acces_HTTP_HTTPS.](Acces_HTTP_HTTPS.md) |
 | - B. | [Forcer_HTTP_vers_HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
 | - C. | [Exemple_create_VirtualHost.](Exemple_create_VirtualHost.md) |
