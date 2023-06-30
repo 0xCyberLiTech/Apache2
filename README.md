@@ -5,9 +5,9 @@
 | Cat | Etapes |
 |------|------|
 | - A. | [Configuration des serveurs Virtuels.](README.md) |
-| - A. | [Acces en HTTP & HTTPS.](Acces_en_HTTP_&_HTTPS.md) |
-| - B. | [Forcer HTTP vers HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
-| - C. | [Exemple create VirtualHost.](Exemple_create_VirtualHost.md) |
+| - B. | [Acces en HTTP & HTTPS.](Acces_en_HTTP_&_HTTPS.md) |
+| - C. | [Forcer HTTP vers HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
+| - D. | [Exemple create VirtualHost.](Exemple_create_VirtualHost.md) |
 
 
 
