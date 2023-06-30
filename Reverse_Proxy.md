@@ -1,7 +1,7 @@
 <a name="Reverse_Proxy.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
-# Installer un Reverse Proxy Apache2 sur Debian 11 & 12 :
+# Installer d'un Reverse Proxy sur Debian 11 & 12 :
 
 Depuis une machine Debian 11 ou Debian 12 qui ne va servir qu’a ça (recommandation mais pas obligé), nous allons saisir les instructions suivantes :
 
