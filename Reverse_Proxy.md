@@ -9,16 +9,20 @@ Mise à jour du système :
 ```
 apt update && apt full-upgrade -y
 ```
-Installation des Apache2 :
+Installation du paquet pour Apache2 :
 ```
 apt-get install apache2
 ```
-Afin de bénéficier du mode reverse sur Apache2, il faut activer les module : proxy et proxy_http.
+Afin de bénéficier du mode reverse sur Apache2, il faut activer les module : 
+
+- proxy
+- proxy_http.
+
 Pour activer ces 2 modules saisissez la commande :
 ```
 a2enmod proxy proxy_http
 ```
-Pour que l’activation de ces modules soient pris en compte redémarrer le service d’apache2 :
+Pour que l’activation de ces modules soient pris en compte redémarrer le service apache2 :
 ```
 systemctl restart apache2
 ```
