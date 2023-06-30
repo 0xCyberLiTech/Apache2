@@ -1,7 +1,7 @@
 <a name="Create_SSL.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
-# - C. Accès au site en HTTP et HTTPS.
+# - C. Acces en HTTP & HTTPS.
 
 Exemple concernant le VirtualHost 000-default.conf
 ```
