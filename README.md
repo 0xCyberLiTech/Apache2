@@ -6,7 +6,7 @@
 |------|------|
 | - A. | [Configuration des serveurs Virtuels.](README.md) |
 | - B. | [Acces en HTTP & HTTPS.](Acces_en_HTTP_&_HTTPS.md) |
-| - C. | [Création de deux VirtualHost port 80 & port 443.](Exemple_create_VirtualHost.md) |
+| - C. | [Création de deux VirtualHost par l'exemple.](Exemple_create_VirtualHost.md) |
 | - D. | [Forcer HTTP vers HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
 
 Le but de ce document est d'essayer de répondre aux questions les plus répandues sur la configuration des serveurs virtuels. Les scénarios présentés ici se rencontrent quand plusieurs serveurs Webs doivent tourner sur une seule et même machine au moyen de serveurs virtuels par nom ou par IP.
