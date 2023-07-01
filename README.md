@@ -15,6 +15,19 @@
 
 Le but de ce document est d'essayer de répondre aux questions les plus répandues sur la configuration des serveurs virtuels. Les scénarios présentés ici se rencontrent quand plusieurs serveurs Webs doivent tourner sur une seule et même machine au moyen de serveurs virtuels par nom ou par IP.
 
+| Cat | Etapes |
+|------|------|
+| - A. | [Fonctionnement de plusieurs serveurs virtuels par nom sur une seule adresse IP.](#balise_01) |
+| - B. | [Serveurs virtuels par nom sur plus d'une seule adresse IP.](#balise_02) |
+| - C. | [Servir le même contenu sur des adresses IP différentes (telle qu'une adresse interne et une externe).](#balise_03) |
+| - D. | [Servir différents sites sur différents ports.](#balise_04) |
+| - E. | [Hébergement virtuel basé sur IP.](#balise_05) |
+| - G. | [Hébergements virtuels mixtes basés sur les ports et sur les IP.](#balise_01) |
+| - H. | [Hébergements virtuels mixtes basé sur les noms et sur IP.](#balise_01) |
+| - I. | [Utilisation simultanée de Virtual_host et de mod_proxy.](#balise_01) |
+| - J. | [Utilisation de serveurs virtuels _default_](#balise_01) |
+| - K. | [Migration d'un serveur virtuel par nom en un serveur virtuel par IP.](#balise_01) |
+
 ## Fonctionnement de plusieurs serveurs virtuels par nom sur une seule adresse IP.
 
 Votre serveur ne dispose que d'une seule adresse IP, et de nombreux alias (CNAMES) pointent vers cette adresse dans le DNS. Pour l'exemple, www.example.com et www.example.org doivent tourner sur cette machine.
