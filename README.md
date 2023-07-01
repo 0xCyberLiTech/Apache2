@@ -9,7 +9,7 @@
 | - C. | [Création de deux VirtualHosts par l'exemple.](Exemple_create_VirtualHost.md) |
 | - D. | [Forcer HTTP vers HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
 | - E. | [Installer un reverse proxy.](Installer_reverse_proxy.md) |
-| - D. | [Cinq exemples HTACCESS.](Exemple_HTACCESS.md) |
+| - F. | [Cinq exemples HTACCESS.](Exemple_HTACCESS.md) |
 
 Le but de ce document est d'essayer de répondre aux questions les plus répandues sur la configuration des serveurs virtuels. Les scénarios présentés ici se rencontrent quand plusieurs serveurs Webs doivent tourner sur une seule et même machine au moyen de serveurs virtuels par nom ou par IP.
 
