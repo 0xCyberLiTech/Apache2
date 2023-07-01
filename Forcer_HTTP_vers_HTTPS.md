@@ -1,7 +1,7 @@
 <a name="Forcer_HTTP_vers_HTTPS.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
-# - D. Forcer HTTP en HTTPS.
+# - D. Forcer HTTP en HTTPS sur DEBIAN 11 & 12.
 
 Si on souhaite forcer le HTTP vers HTTPS, on ajoute ceci dans le bloc Virtualhost *:80.
 
