@@ -4,15 +4,15 @@
 
 | Cat | Etapes |
 |------|------|
-| - 1. | [Rediriger les pages en http vers celles en https.](#balise_1) |
-| - 2. | [Enlever le www.](#balise_02) |
-| - 3. | [Rediriger une page spécifique d’un serveur sur une page spécifique d’un autre serveur.](#balise_03) |
-| - 4. | [Rediriger toutes les URL d’un site lors d’un changement de nom de domaine.](#balise_04) |
-| - 5. | [Rediriger toutes les URLs d’un site vers une seule et unique URL.](#balise_05) |
+| - A. | [Rediriger les pages en http vers celles en https.](#balise_02) |
+| - B. | [Enlever le www.](#balise_02) |
+| - C. | [Rediriger une page spécifique d’un serveur sur une page spécifique d’un autre serveur.](#balise_03) |
+| - D. | [Rediriger toutes les URL d’un site lors d’un changement de nom de domaine.](#balise_04) |
+| - E. | [Rediriger toutes les URLs d’un site vers une seule et unique URL.](#balise_05) |
 
 Dans tous nos exemples, nous allons utiliser le fichier .htaccess, qui permet de modifier la configuration de notre serveur. Pour y accéder, nous allons donc devoir nous connecter à notre projet web en FTP. Si vous utilisez WordPress, le fichier est créé automatiquement dans le répertoire racine de votre site. Sinon, à vous de l’ajouter manuellement..
 
-<a name="#balise_1"></a>
+<a name="#balise_01"></a>
 # - 1. Rediriger les pages en http vers celles en https.
 
 Forcer les utilisateurs à utiliser la version https de votre site est important pour leur offrir une sécurité convenable.
@@ -29,7 +29,7 @@ Si vous rencontrez une erreur de boucle, cela indique que le HTTP/2 est actif su
 ```
 RewriteCond %{HTTPS} off
 ```
-<a name="#balise_2"></a>
+<a name="#balise_02"></a>
 # - 2. Enlever le www.
 
 La mode du www est clairement derrière nous. Cependant, il arrive encore que des personnes le tape dans la barre d’URL. Afin de ne pas les abandonner, redirigeons-les, et quel que soit la page désirée, en enlevant le www.
@@ -40,7 +40,7 @@ RewriteEngine on
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ http://%1%{REQUEST_URI} [R=301,QSA,NC,L]
 ```
-<a name="#balise_3"></a>
+<a name="#balise_03"></a>
 # - 3. Rediriger une page spécifique d’un serveur sur une page spécifique d’un autre serveur.
 
 Depuis le panneau de configuration de votre hébergeur, évitez de créer une redirection 301. Créez-y plutôt un alias lié au serveur dont IP est celle où se trouve notre fichier .htaccess.
@@ -59,7 +59,7 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^(www\.)? exemple.com
 RewriteRule ^ non-final/? https://cyberlitech.0x/final/ [R=301,L]
 ```
-<a name="#balise_4"></a>
+<a name="#balise_04"></a>
 # - 4. Rediriger toutes les URL d’un site lors d’un changement de nom de domaine.
 
 Vous devez changer le nom de domaine d’un de vos sites, et vous vous rendez compte que vous avez plus de 1000 URLs différentes ? Ne paniquez pas ! Il existe une méthode permettant de résoudre ce problème en 3 lignes. Et ça se passe toujours dans notre cher fichier .htaccess.
@@ -71,7 +71,7 @@ RewriteCond %{HTTP_HOST} ^exemple.com$ [OR]
 RewriteCond %{HTTP_HOST} ^www.exemple.com$
 RewriteRule (.*)$ https://cyberlitech.0x/$1 [R=301,L]
 ```
-<a name="#balise_5"></a>
+<a name="#balise_05"></a>
 # - 5. Rediriger toutes les URLs d’un site vers une seule et unique URL.
 Pour cela, il va falloir modifier le fichier .htaccess du site qui sera redirigé.
 
