@@ -1,3 +1,6 @@
+<a name="Exemple_htaccess.md"></a>
+![Apache_logo](./images/Apache_logo.png)
+
 # .HTACCESS
 
 Exemple :
