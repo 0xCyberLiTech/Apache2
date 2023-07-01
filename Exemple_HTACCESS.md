@@ -4,11 +4,11 @@
 
 | Cat | Etapes |
 |------|------|
-| - A. | [Rediriger les pages en http vers celles en https.](#balise_02) |
-| - B. | [Enlever le www.](#balise_02) |
-| - C. | [Rediriger une page spécifique d’un serveur sur une page spécifique d’un autre serveur.](#balise_03) |
-| - D. | [Rediriger toutes les URL d’un site lors d’un changement de nom de domaine.](#balise_04) |
-| - E. | [Rediriger toutes les URLs d’un site vers une seule et unique URL.](#balise_05) |
+| - 1. | [Rediriger les pages en http vers celles en https.](#balise_02) |
+| - 2. | [Enlever le www.](#balise_02) |
+| - 3. | [Rediriger une page spécifique d’un serveur sur une page spécifique d’un autre serveur.](#balise_03) |
+| - 4. | [Rediriger toutes les URL d’un site lors d’un changement de nom de domaine.](#balise_04) |
+| - 5. | [Rediriger toutes les URLs d’un site vers une seule et unique URL.](#balise_05) |
 
 Dans tous nos exemples, nous allons utiliser le fichier .htaccess, qui permet de modifier la configuration de notre serveur. Pour y accéder, nous allons donc devoir nous connecter à notre projet web en FTP. Si vous utilisez WordPress, le fichier est créé automatiquement dans le répertoire racine de votre site. Sinon, à vous de l’ajouter manuellement..
 
