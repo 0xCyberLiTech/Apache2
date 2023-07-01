@@ -1,7 +1,7 @@
 <a name="Exemple_htaccess.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
-# Les fichiers .HTACCESS/
+# Les fichiers .HTACCESS.
 
 Prérequis :
 ```
