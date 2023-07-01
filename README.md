@@ -11,6 +11,8 @@
 | - E. | [Installer un reverse proxy.](Installer_reverse_proxy.md) |
 | - F. | [Cinq exemples HTACCESS.](Exemple_HTACCESS.md) |
 
+## Introduction :
+
 Le but de ce document est d'essayer de répondre aux questions les plus répandues sur la configuration des serveurs virtuels. Les scénarios présentés ici se rencontrent quand plusieurs serveurs Webs doivent tourner sur une seule et même machine au moyen de serveurs virtuels par nom ou par IP.
 
 ## Fonctionnement de plusieurs serveurs virtuels par nom sur une seule adresse IP.
