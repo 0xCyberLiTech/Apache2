@@ -1,16 +1,14 @@
 <a name="Exemple_htaccess.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
-# .HTACCESS
-
-Exemple :
+# Les fichiers .HTACCESS/
 
 Prérequis :
 ```
 apt-get update && apt upgrade -y
 apt-get install apache2
 ```
-Nous allons sécuriser l'accès au dossier /var/www/dowsloads
+Nous allons sécuriser l'accès au dossier /var/www/downloads
 
 1 Activer la prise en charge .htaccess sur DeBian 11 & Debian 12.
 2 Redémarrer apache2 et créer le dossier downloads vers /var/www/.
