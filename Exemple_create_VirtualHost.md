@@ -2,7 +2,6 @@
 ![Apache_logo](./images/Apache_logo.png)
 
 # - C. Exemples concernant la mise en place de deux VirtualHosts (HTTP & HTTPS) sur DEBIAN 11 & 12.
-Nous partons du principe qu'Apache2 est installé et fonctionnel.
 
 ```
 nano /etc/apache2/sites-available/000-default.conf
