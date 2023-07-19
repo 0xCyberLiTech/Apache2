@@ -121,14 +121,14 @@ Pour devenir root lancez simplement :
 
 ```
 su - root
-ou
-su -
 ```
 - Conditions préalables.
 
 Effectuez ces étapes pour installer les packages prérequis.
 ```
 apt-get update && apt upgrade -y
+```
+```
 apt-get install -y openssl
 ```
 Toutes les étapes restantes seront effectuées à partir du répertoire de base de l'utilisateur root pour s'assurer que les fichiers que vous créez ne sont accessibles à personne d'autre qu'à l'utilisateur root.
@@ -188,7 +188,7 @@ Si vous envisagez d'utiliser une société de confiance telle que VeriSign pour 
 Cela peut être visualisé en exécutant la commande suivante :
 ```
 cat certrequest.csr
- 
+```
 You'll get a lot of random text, this is what you will need to provide to your trusted CA. You must provide the CA with everything including the -----BEGIN CERTIFICATE REQUEST----- and -----END CERTIFICATE REQUEST----- lines.
 ```
 Une fois qu'ils vous ont envoyé le certificat signé, vous devrez copier le certificat dans un nouveau fichier appelé certfile.crt. Le certificat que vous recevrez contiendra également beaucoup de texte aléatoire, vous pouvez donc simplement coller ce texte dans le nouveau fichier que vous pouvez ouvrir avec l'éditeur nano :
@@ -196,7 +196,7 @@ Une fois qu'ils vous ont envoyé le certificat signé, vous devrez copier le cer
 nano certfile.crt
 ```
 You must paste everything including the -----BEGIN CERTIFICATE----- and -----END CERTIFICATE----- lines when pasting them into the file.
-
+```
 Enregistrez le fichier et fermez nano.
 
 Vous pouvez maintenant passer à l'étape Copier les fichiers.
@@ -217,8 +217,14 @@ Vous devez copier les fichiers de certificat à l'emplacement correct et défini
 
 ```
 cp certfile.crt /etc/ssl/certs/
+```
+```
 cp keyfile.key /etc/ssl/private/
+```
+```
 chmod go-rwx /etc/ssl/certs/certfile.crt
+```
+```
 chmod go-rwx /etc/ssl/private/keyfile.key
 ```
 - Mettre à jour la configuration d'Apache.
@@ -226,6 +232,8 @@ chmod go-rwx /etc/ssl/private/keyfile.key
 Activez le module mod_ssl dans Apache en exécutant la commande suivante :
 ```
 a2enmod ssl
+```
+```
 a2enmod rewrite
 ```
 Vous devez maintenant indiquer au serveur Web Apache où le rechercher. 
@@ -264,12 +272,26 @@ Vous devez recharger Apache pour que la nouvelle clé de certificat soit utilis�
 ```
 systemctl reload apache2.service
 ```
+Une petite ligne de commande fort utile qui permet de tester sa conf apache2 sans le redemarer.
+```
+apachectl -t
+Syntax OK
+```
+Aussi,
+```
+apachectl configtest
+Syntax OK
+```
 - Règles de pare-feu.
 
 Vous devez autoriser le trafic entrant du port 443 sur le pare-feu local afin de pouvoir accéder à l'interface Web de Nagios Core.
 ```
 iptables -I INPUT -p tcp --destination-port 443 -j ACCEPT
+```
+```
 apt-get install -y iptables-persistent
+```
+```
 If prompted, answer yes to saving existing rules
 ```
 - Test Certificate.
