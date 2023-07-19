@@ -275,11 +275,17 @@ systemctl reload apache2.service
 Une petite ligne de commande fort utile qui permet de tester sa conf apache2 sans le redemarer.
 ```
 apachectl -t
+```
+```
+Retour :
 Syntax OK
 ```
 Aussi,
 ```
 apachectl configtest
+```
+```
+Retour :
 Syntax OK
 ```
 - Règles de pare-feu.
