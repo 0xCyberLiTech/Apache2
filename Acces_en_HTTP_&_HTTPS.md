@@ -114,6 +114,4 @@ Exemple concernant le VirtualHost default-ssl.conf
 
 </VirtualHost>
 ```
-L'accès en HTTP reste en HTTP.
 
-L'accès HTTPS reste HTTPS.
