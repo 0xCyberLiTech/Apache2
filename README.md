@@ -2,19 +2,11 @@
 
 # - A. Fondamentaux sur la configuration des serveurs Virtuels.
 
-| Cat | Sujet abordé |
-|------|-------------|
-| - A. | [- A. Créé deux VirtualHosts HTTP & HTTPS..](Créé-deux-VirtualHosts-HTTP-HTTPS.md) |
-| - B. | [HTACCESS cinq exemples.](HTACCESS-cinq-exemples.md) |
-| - C. | [HTACCESS sécuriser l'accès à un dossier.](HTACCESS-sécuriser-un-dossier.md) |
+👋 Sommaire des sujets traités :
 
-# - OS Debian 12.
-
-👋 Sommaire des sujet traités :
-
-- [Sujet abordé - Créé deux VirtualHosts HTTP & HTTPS.](https://github.com/0xCyberLiTech/NTPsec)
-- [Sujet abordé - Apache2.](HTACCESS-cinq-exemples.md)
-- [Sujet abordé - Docker.](HTACCESS-sécuriser-un-dossier.md)
+- [Sujet abordé - Créé deux VirtualHosts HTTP & HTTPS.](Créé-deux-VirtualHosts-HTTP-HTTPS.md)
+- [Sujet abordé - HTACCESS cinq exemples.](HTACCESS-cinq-exemples.md)
+- [Sujet abordé - HTACCESS sécuriser l'accès à un dossier.](HTACCESS-sécuriser-un-dossier.md)
 
 
 ## Introduction :
