@@ -23,4 +23,4 @@ Générer une clé de protection :
 
 https://hostingcanada.org/htpasswd-generator/
 
-
+Puis coller celle-ci dans le fichier caché .htpasswd.
