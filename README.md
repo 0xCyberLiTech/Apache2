@@ -8,7 +8,15 @@
 | - B. | [HTACCESS cinq exemples.](HTACCESS-cinq-exemples.md) |
 | - C. | [HTACCESS sécuriser l'accès à un dossier.](HTACCESS-sécuriser-un-dossier.md) |
 
- HTACCESS-sécuriser-un-dossier.md
+# - OS Debian 12.
+
+👋 Sommaire des sujet traités :
+
+- [Sujet abordé - NTPsec](https://github.com/0xCyberLiTech/NTPsec)
+- [Sujet abordé - Apache2.](https://github.com/0xCyberLiTech/Apache2)
+- [Sujet abordé - Docker.](https://github.com/0xCyberLiTech/Docker)
+- [Sujet abordé - Nagios.](https://github.com/0xCyberLiTech/Nagios)
+
 ## Introduction :
 
 Le but de ce document est d'essayer de répondre aux questions les plus répandues sur la configuration des serveurs virtuels. Les scénarios présentés ici se rencontrent quand plusieurs serveurs Webs doivent tourner sur une seule et même machine au moyen de serveurs virtuels par nom ou par IP.
