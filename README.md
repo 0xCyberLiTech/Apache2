@@ -2,14 +2,12 @@
 
 # - A. Fondamentaux sur la configuration des serveurs Virtuels.
 
-| Cat | Etapes |
-|------|------|
-| - A. | [Configuration des serveurs Virtuels.](README.md) |
-| - B. | [Acces en HTTP & HTTPS.](Acces_en_HTTP_&_HTTPS.md) |
-| - C. | [Créé deux VirtualHosts HTTP & HTTPS.](Créé-deux-VirtualHosts-HTTP-HTTPS.md) |
-| - D. | [Forcer HTTP vers HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
-| - E. | [Installer un reverse proxy.](Installer_reverse_proxy.md) |
-| - F. | [Cinq exemples HTACCESS.](Exemple_HTACCESS.md) |
+| Cat | Sujet abordé |
+|------|-------------|
+| - A. | [Créé deux VirtualHosts HTTP & HTTPS.](Créé-deux-VirtualHosts-HTTP-HTTPS.md) |
+| - B. | [Forcer HTTP vers HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
+| - C. | [Installer un reverse proxy.](Installer_reverse_proxy.md) |
+| - D. | [Cinq exemples HTACCESS.](Exemple_HTACCESS.md) |
 
 ## Introduction :
 
