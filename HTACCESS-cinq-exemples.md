@@ -1,7 +1,7 @@
-<a name="Exemple_HTACCESS.md"></a>
+<a name="HTACCESS-cinq-exemples.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
-# - F. HTACCESS, cinq exemples sur DEBIAN 11 & 12.
+# - F. HTACCESS, cinq exemples.
 
 | Cat | Etapes |
 |------|------|
