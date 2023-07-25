@@ -1,6 +1,6 @@
 ![Apache_logo](./images/Apache_logo.png)
 
-# - F. HTACCESS, cinq exemples.
+# - HTACCESS, cinq exemples.
 
 | Cat | Etapes |
 |------|------|
