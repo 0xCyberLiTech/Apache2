@@ -4,13 +4,11 @@
 
 ## Introduction.
 
-Le but de ce document est d'essayer de répondre aux questions les plus répandues sur la configuration des serveurs virtuels. Les scénarios présentés ici se rencontrent quand plusieurs serveurs Webs doivent tourner sur une seule et même machine au moyen de serveurs virtuels par nom ou par IP.
-
-| Cat | Etapes |
-|------|------|
+| Cat | Sujet abordé |
+|------|-------------|
 | - A. | [Fonctionnement de plusieurs serveurs virtuels par nom sur une seule adresse IP.](#balise_01) |
 | - B. | [Serveurs virtuels par nom sur plus d'une seule adresse IP.](#balise_02) |
-| - C. | [Servir le même contenu sur des adresses IP différentes (telle qu'une adresse interne et une externe).](#balise_03) |
+| - C. | [Servir le même contenu sur des adresses IP différentes (telle qu'une adresse interne et une adresse externe).](#balise_03) |
 | - D. | [Servir différents sites sur différents ports.](#balise_04) |
 | - E. | [Hébergement virtuel basé sur IP.](#balise_05) |
 | - F. | [Hébergements virtuels mixtes basés sur les ports et sur les IP.](#balise_06) |
@@ -25,13 +23,17 @@ Le but de ce document est d'essayer de répondre aux questions les plus répandu
 Votre serveur ne dispose que d'une seule adresse IP, et de nombreux alias (CNAMES) pointent vers cette adresse dans le DNS. Pour l'exemple, www.example.com et www.example.org doivent tourner sur cette machine.
 Note :
 
-La configuration de serveurs virtuels sous Apache ne provoque pas leur apparition magique dans la configuration du DNS. Il faut que leurs noms soient définis dans le DNS, et qu'ils y soient résolus sur l'adresse IP du serveur, faute de quoi personne ne pourra visiter votre site Web. Il est possible d'ajouter des entrées dans le fichier hosts pour tests locaux, mais qui ne fonctionneront que sur la machine possédant ces entrées :
+La configuration de serveurs virtuels sous Apache ne provoque pas leur apparition magique dans la configuration du DNS.
+
+Il faut que leurs noms soient définis dans le DNS, et qu'ils y soient résolus sur l'adresse IP du serveur, faute de quoi personne ne pourra visiter votre site Web.
+
+Il est possible d'ajouter des entrées dans le fichier hosts pour tests locaux, mais qui ne fonctionneront que sur la machine possédant ces entrées :
 
 Configuration du serveur.
 
 Note complémentaire concernant l'instruction <-- NameVirtualHost -->
 
-Pour que cette méthode de reconnaissance du site via l’adresse URL (domaine ou sous-domaine) entrée fonctionne, il faut faire très attention que l’instruction NameVirtualHost qui se trouve parfois dans ports.conf, httpd.conf ou apache2.conf ai bien pour valeur, la même valeur que vous avez entrer dans <VirtualHost>, soit *:80 dans l’exemple précédent. Vous devez donc avoir :
+Pour que cette méthode de reconnaissance du site via l’adresse URL (domaine ou sous-domaine) entrée fonctionne, il faut faire très attention que l’instruction NameVirtualHost qui se trouve parfois dans ports.conf, httpd.conf ou apache2.conf a bien pour valeur, la même valeur que vous avez entrée dans , soit *:80 dans l’exemple précédent. Vous devez donc avoir :
 ```
 NameVirtualHost *:80
 ```
@@ -87,12 +89,13 @@ NameVirtualHost *:80
 
 </VirtualHost> 
 ```
-Les astérisques correspondent à toutes les adresses, si bien que le serveur principal ne répondra jamais à aucune requête. 
+Les astérisques correspondent à toutes les adresses, si bien que le serveur principal ne répondra jamais à aucune requête.
+
 Comme www.example.com se trouve en premier dans le fichier de configuration, il a la plus grande priorité et peut être vu comme serveur par défaut ou primaire ; ce qui signifie que toute requête reçue ne correspondant à aucune des directives ServerName sera servie par ce premier VirtualHost.
 
 Note :
 
-Si vous le souhaitez, vous pouvez remplacer * par l'adresse IP du système. 
+Si vous le souhaitez, vous pouvez remplacer * par l'adresse IP du système.
 Dans ce cas, l'argument de VirtualHost doit correspondre à l'argument de NameVirtualHost :
 ```
 NameVirtualHost 172.20.30.40
@@ -100,9 +103,13 @@ NameVirtualHost 172.20.30.40
 <VirtualHost 172.20.30.40>
 # etc ... 
 ```
-En général, il est commode d'utiliser * sur les systèmes dont l'adresse IP n'est pas constante - par exemple, pour des serveurs dont l'adresse IP est attribuée dynamiquement par le FAI, et où le DNS est géré au moyen d'un DNS dynamique quelconque. Comme * signifie n'importe quelle adresse, cette configuration fonctionne sans devoir être modifiée quand l'adresse IP du système est modifiée.
+En général, il est commandé d'utiliser * sur les systèmes dont l'adresse IP n'est pas constante - par exemple, pour des serveurs dont l'adresse IP est attribuée dynamiquement par le FAI, et où le DNS est géré au moyen d'un DNS dynamique quelconque.
 
-La configuration ci-dessus est en pratique utilisée dans la plupart des cas pour les serveurs virtuels par nom. En fait, le seul cas où cette configuration ne fonctionne pas est lorsque différents contenus doivent être servis en fonction de l'adresse IP et du port contactés par le client.
+Comme * signifie n'importe quelle adresse, cette configuration fonctionne sans devoir être modifiée quand l'adresse IP du système est modifiée.
+
+La configuration ci-dessus est en pratique utilisée dans la plupart des cas pour les serveurs virtuels par nom. 
+
+En fait, le seul cas où cette configuration ne fonctionne pas est lorsque différents contenus doivent être servis en fonction de l'adresse IP et du port contacté par le client.
 
 <a name="balise_02"></a>
 ## - B. Serveurs virtuels par nom sur plus d'une seule adresse IP.
@@ -141,12 +148,14 @@ NameVirtualHost 172.20.30.50
 
 </VirtualHost>
 ```
-Toute requête arrivant sur une autre adresse que 172.20.30.50 sera servie par le serveur principal. Les requêtes vers 172.20.30.50 avec un nom de serveur inconnu, ou sans en-tête Host:, seront servies par www.example.com.
+Toute requête arrivant sur une autre adresse que 172.20.30.50 sera servie par le serveur principal.
+
+Les requêtes vers 172.20.30.50 avec un nom de serveur inconnu, ou sans en-tête Host: elles seront servies par www.example.com.
 
 <a name="balise_03"></a>
 ## - C. Servir le même contenu sur des adresses IP différentes (telle qu'une adresse interne et une externe).
 
-La machine serveur dispose de deux adresses IP (192.168.1.1 et 172.20.30.40). Cette machine est placée à la fois sur le réseau interne (l'Intranet) et le réseau externe (Internet). Sur Internet, le nom server.example.com pointe vers l'adresse externe (172.20.30.40), mais sur le réseau interne, ce même nom pointe vers l'adresse interne (192.168.1.1).
+Le serveur dispose de deux adresses IP (192.168.1.1 et 172.20.30.40). Cette machine est placée à la fois sur le réseau interne (l'Intranet) et le réseau externe (Internet). Sur Internet, le nom server.example.com pointe vers l'adresse externe (172.20.30.40), mais sur le réseau interne, ce même nom pointe vers l'adresse interne (192.168.1.1).
 
 Le serveur peut être configuré pour répondre de la même manière aux requêtes internes et externes, au moyen d'une seule section VirtualHost.
 
@@ -255,7 +264,7 @@ Listen 172.20.30.50:8080
 </VirtualHost>
 ```
 <a name="balise_07"></a>
-## - G. Hébergements virtuels mixtes basé sur les noms et sur IP.
+## - G. Hébergements virtuels mixtes basés sur les noms et sur IP.
 
 Pour certaines adresses, des serveurs virtuels seront définis par nom, et pour d'autres, ils seront définis par IP.
 
@@ -294,7 +303,7 @@ NameVirtualHost 172.20.30.40
 <a name="balise_08"></a>
 ## - H. Utilisation simultanée de Virtual_host et de mod_proxy.
 
-L'exemple suivant montre comment une machine peut mandater un serveur virtuel fonctionnant sur le serveur d'une autre machine. Dans cet exemple, un serveur virtuel de même nom est configuré sur une machine à l'adresse 192.168.111.2. La directive ProxyPreserveHost On est employée pour permette au nom de domaine d'être préservé lors du transfert, au cas où plusieurs noms de domaines cohabitent sur une même machine.
+L'exemple suivant montre comment une machine peut mandater un serveur virtuel fonctionnant sur le serveur d'une autre machine. Dans cet exemple, un serveur virtuel de même nom est configuré sur une machine à l'adresse 192.168.111.2. La directive ProxyPreserveHost est employée pour permettre au nom de domaine d'être préservée lors du transfert, au cas où plusieurs noms de domaines cohabitent sur une même machine.
 ```
 <VirtualHost *:*>
 ProxyPreserveHost On
