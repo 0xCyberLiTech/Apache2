@@ -1,7 +1,7 @@
 <a name="Exemple_create_VirtualHost.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
-# - C. Exemples concernant la mise en place de deux VirtualHosts (HTTP & HTTPS) sur DEBIAN 11 & 12.
+# - C. Créé deux VirtualHosts HTTP & HTTPS.
 
 ```
 nano /etc/apache2/sites-available/000-default.conf
