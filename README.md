@@ -1,7 +1,5 @@
 ![Apache_logo](./images/Apache_logo.png)
 
-# - A. Fondamentaux sur la configuration des serveurs Virtuels.
-
 👋 Sommaire des sujets abordés :
 
 - [Sujet abordé - Créé deux VirtualHosts HTTP & HTTPS.](Créé-deux-VirtualHosts-HTTP-HTTPS.md)
