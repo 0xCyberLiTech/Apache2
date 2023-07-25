@@ -5,8 +5,7 @@
 | Cat | Sujet abordé |
 |------|-------------|
 | - A. | [Créé deux VirtualHosts HTTP & HTTPS.](Créé-deux-VirtualHosts-HTTP-HTTPS.md) |
-| - C. | [Installer un reverse proxy.](Installer_reverse_proxy.md) |
-| - D. | [HTACCESS cinq exemples.](HTACCESS-cinq-exemples.md) |
+| - B. | [HTACCESS cinq exemples.](HTACCESS-cinq-exemples.md) |
 
 ## Introduction :
 
