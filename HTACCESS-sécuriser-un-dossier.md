@@ -77,4 +77,3 @@ Ce qui correspond au nom d’utilisateur (login) et son mot de passe crypté.
 
 Il y aura une ligne pour chaque utilisateur.
 
-https://hostingcanada.org/htpasswd-generator/
