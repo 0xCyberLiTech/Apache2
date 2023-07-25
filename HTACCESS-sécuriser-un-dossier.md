@@ -14,14 +14,10 @@ Le fichier (.htaccess) est un fichier texte contenant des commandes Apache.
 
 Voici un exemple :
 ```
-AuthUserFile /home/login/admin/.htpasswd
-AuthGroupFile /dev/null
-AuthName "Veuillez vous identifier"
 AuthType Basic
-
-<Limit GET POST>
-     require valid-user
-</Limit>
+AuthName "Zone protégée par mot de passe."
+AuthUserFile /var/www/.htpasswd
+Require valid-user
 ```
 Quelques explications :
 
@@ -54,16 +50,31 @@ Require herve jacques : limite l’accès à un ou plusieurs utilisateurs préci
 Une fois le fichier (.htaccess) créé, il faut le placer dans le répertoire à protéger. Maintenant, il nous faut créer le fichier (.htpasswd)
 
 Sous unix et inux il existe un l’utilitaire : (htpasswd).
-
 ```
-htpasswd -c .htpasswd herve
+htpasswd -Bc [Nom de fichier] [Nom d'utilisateur]
 ```
-après validation Linux vous demande un mot de passe, puis une deuxième fois pour confirmation.
+```
+htpasswd -Bc /var/www/.htpasswd 0xCLT
+```
+Votre mot de passe vous sera demandé, puis une deuxième fois pour confirmation.
 
+Le mot de passe est stocké crypté avec bcrypt dans le fichier que vous avez créé.
+```
+cat /var/www/.htpasswd
+```
 Si l’on édite le fichier .htpasswd obtient une ligne du style :
+```
+0xCLT:$2ypopojmlm$05$RxuLau6X2SbRidfsdfzpFLKheEeXfgdylsVBWgI
+```
+Notez que l'option -c crée un nouveau fichier et supprime les entrées existantes.
 
-herve:x3l0HLu5v6mOF
+Si vous souhaitez modifier une entrée existante ou ajouter une nouvelle entrée, utilisez uniquement l'option -B.
 
-Ce qui correspond au nom d’utilisateur (login) et son mot de passe crypté. Il y aura une ligne pour chaque utilisateur.
+```
+htpasswd -B [Nom de fichier] [Nom d'utilisateur]
+```
+Ce qui correspond au nom d’utilisateur (login) et son mot de passe crypté.
+
+Il y aura une ligne pour chaque utilisateur.
 
 https://hostingcanada.org/htpasswd-generator/
