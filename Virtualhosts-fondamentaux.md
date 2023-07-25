@@ -325,9 +325,9 @@ Configuration du serveur.
 DocumentRoot /www/default
 </VirtualHost> 
 ```
-L'utilisation d'un tel serveur virtuel avec un joker pour le port empêche de manière efficace qu'une requête n'atteigne le serveur principal.
+L'utilisation d'un tel serveur virtuel avec un joker pour le port empêche de manière efficace qu'une requête n'atteigne pas le serveur principal.
 
-Un serveur virtuel par défaut ne servira jamais une requête qui est envoyée vers un couple adresse/port utilisée par un serveur virtuel par nom. Si la requête contient un en-tête Host: inconnu, ou si celui-ci est absent, elle sera toujours servie par le serveur virtuel primaire par nom (celui correspondant à ce couple adresse/port trouvé en premier dans le fichier de configuration).
+Un serveur virtuel par défaut ne servira jamais une requête qui est envoyée vers un couple adresse/port utilisé par un serveur virtuel par nom. Si la requête contient un en-tête Host: inconnu, ou si celui-ci est absent, elle sera toujours servie par le serveur virtuel primaire par nom (celui correspondant à ce couple adresse/port trouvé en premier dans le fichier de configuration.).
 
 Vous pouvez utiliser une directive AliasMatch ou RewriteRule afin de réécrire une requête pour une unique page d'information (ou pour un script).
 Serveurs virtuels _default_ pour des ports différents
@@ -347,6 +347,7 @@ Configuration du serveur.
 </VirtualHost> 
 ```
 Le serveur virtuel par défaut défini pour le port 80 (il doit impérativement être placé avant un autre serveur virtuel par défaut traitant tous les ports grâce au joker *) capture toutes les requêtes envoyées sur une adresse IP non spécifiée. Le serveur principal n'est jamais utilisé pour servir une requête.
+
 Serveurs virtuels _default_ pour un seul port
 
 Nous voulons créer un serveur virtuel par défaut seulement pour le port 80.
@@ -363,7 +364,7 @@ Une requête vers une adresse non spécifiée sur le port 80 sera servie par le 
 <a name="balise_10"></a>
 ## - J. Migration d'un serveur virtuel par nom en un serveur virtuel par IP.
 
-Le serveur virtuel par nom avec le nom de domaine www.example.org (de notre exemple par nom) devrait obtenir sa propre adresse IP. Pendant la phase de migration, il est possible d'éviter les problèmes avec les noms de serveurs et autres serveurs mandataires qui mémorisent les vielles adresses IP pour les serveurs virtuels par nom.
+Le serveur virtuel par nom avec le nom de domaine www.example.org (de notre exemple par nom) devrait obtenir sa propre adresse IP. Pendant la phase de migration, il est possible d'éviter les problèmes avec les noms de serveurs et autres serveurs, mandataires qui mémorisent les vielles adresses IP pour les serveurs virtuels par nom.
 
 La solution est simple, car il suffit d'ajouter la nouvelle adresse IP (172.20.30.50) dans la directive VirtualHost.
 
@@ -392,8 +393,7 @@ Le serveur virtuel peut maintenant être joint par la nouvelle adresse (comme un
 
 Utilisation de la directive ServerPath.
 
-Dans le cas où vous disposez de deux serveurs virtuels par nom, le client doit transmettre un en-tête Host: correct pour déterminer le serveur concerné. Les vieux clients HTTP/1.0 n'envoient pas un tel en-tête et Apache n'a aucun indice pour connaître le serveur virtuel devant être joint (il sert la requête à partir d'un serveur virtuel primaire). Dans un soucis de préserver la compatibilité descendante, il suffit de créer un serveur virtuel primaire chargé de retourner une page contenant des liens dont les URLs auront un préfixe identifiant les serveurs virtuels par nom.
-
+Dans le cas où vous disposeriez de deux serveurs virtuels par nom, le client doit transmettre un en-tête Host: correct pour déterminer le serveur concerné. Les vieux clients HTTP/1.0 n'envoient pas un tel en-tête et Apache n'a aucun indice pour connaître le serveur virtuel devant être joint (il sert la requête à partir d'un serveur virtuel primaire.). Dans un soucis de préserver la compatibilité descendante, il suffit de créer un serveur virtuel primaire chargé de retourner une page contenant des liens dont les URLs auront un préfixe identifiant les serveurs virtuels par nom.
 Configuration du serveur.
 ```
 NameVirtualHost 172.20.30.40
@@ -427,6 +427,6 @@ NameVirtualHost 172.20.30.40
 À cause de la directive ServerPath, une requête sur une URL http://www.sub1.domain.tld/sub1/ est toujours servie par le serveur sub1-vhost.
 Une requête sur une URL http://www.sub1.domain.tld/ n'est servie par le serveur sub1-vhost que si le client envoie un en-tête Host: correct. Si aucun en-tête Host: n'est transmis, le serveur primaire sera utilisé.
 
-Notez qu'il y a une singularité : une requête sur http://www.sub2.domain.tld/sub1/ est également servie par le serveur sub1-vhost si le client n'envoie pas d'en-tête Host:.
+Notez qu'il y a une singularité : une requête sur http://www.sub2.domain.tld/sub1/ est également servie par le serveur sub1-vhost si le client n'envoie pas d'en-tête Host.
 
 Les directives RewriteRule sont employées pour s'assurer que le client qui envoie un en-tête Host: correct puisse utiliser d'autres variantes d'URLs, c'est-à-dire avec ou sans préfixe d'URL.
