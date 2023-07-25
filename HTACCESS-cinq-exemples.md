@@ -1,4 +1,3 @@
-<a name="HTACCESS-cinq-exemples.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
 # - F. HTACCESS, cinq exemples.
