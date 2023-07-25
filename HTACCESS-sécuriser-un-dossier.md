@@ -1,6 +1,10 @@
 ![Apache_logo](./images/Apache_logo.png)
 
-# - Protéger l'accès à dossier ex : /var/www/html/
+# - Protéger l'accès à un dossier avec .HTACCESS
+
+Exemple : /var/www/html/
+
+Nous allons protéger l'accès au dossier /var/www/html/
 
 Créer un fichier caché nommé (.htaccess) dans /var/www/html.
 
