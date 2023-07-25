@@ -1,3 +1,5 @@
+![Apache_logo](./images/Apache_logo.png)
+
 # C’est quoi exactement un fichier .htaccess ?
 
 Le terme .htaccess désigne un fichier texte dont l’utilisateur ayant les droits d’administration se sert pour configurer un serveur Web compatible à NCSA. 
