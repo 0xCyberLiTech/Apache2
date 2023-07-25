@@ -1,6 +1,6 @@
 ![Apache_logo](./images/Apache_logo.png)
 
-# - C. HTACCESS sécuriser l'accès à un dossier.
+# - HTACCESS sécuriser l'accès à un dossier.
 
 Exemple : /var/www/html/
 
