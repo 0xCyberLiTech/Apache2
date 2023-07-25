@@ -53,10 +53,7 @@ Require herve jacques : limite l’accès à un ou plusieurs utilisateurs préci
 
 Une fois le fichier (.htaccess) créé, il faut le placer dans le répertoire à protéger. Maintenant, il nous faut créer le fichier (.htpasswd)
 
-Sous unix et inux il existe un l’utilitaire : (htpasswd). Voici un exemple d’utilisation :
-https://hostingcanada.org/htpasswd-generator/
-
-Saisir ceux-ci dans le fichier (.htpasswd).
+Sous unix et inux il existe un l’utilitaire : (htpasswd).
 
 ```
 htpasswd -c .htpasswd herve
@@ -68,3 +65,5 @@ Si l’on édite le fichier .htpasswd obtient une ligne du style :
 herve:x3l0HLu5v6mOF
 
 Ce qui correspond au nom d’utilisateur (login) et son mot de passe crypté. Il y aura une ligne pour chaque utilisateur.
+
+https://hostingcanada.org/htpasswd-generator/
