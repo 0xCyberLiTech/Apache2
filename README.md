@@ -6,7 +6,7 @@
 |------|------|
 | - A. | [Configuration des serveurs Virtuels.](README.md) |
 | - B. | [Acces en HTTP & HTTPS.](Acces_en_HTTP_&_HTTPS.md) |
-| - C. | [Créé deux VirtualHosts HTTP HTTPS.](Créé-deux-VirtualHosts-HTTP-HTTPS.md) |
+| - C. | [Créé deux VirtualHosts HTTP & HTTPS.](Créé-deux-VirtualHosts-HTTP-HTTPS.md) |
 | - D. | [Forcer HTTP vers HTTPS.](Forcer_HTTP_vers_HTTPS.md) |
 | - E. | [Installer un reverse proxy.](Installer_reverse_proxy.md) |
 | - F. | [Cinq exemples HTACCESS.](Exemple_HTACCESS.md) |
