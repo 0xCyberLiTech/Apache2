@@ -4,7 +4,7 @@
 
 | Cat | Sujet abordé |
 |------|-------------|
-| - A. | [Créé deux VirtualHosts HTTP & HTTPS.](Créé-deux-VirtualHosts-HTTP-HTTPS.md) |
+| - A. | [- A. Créé deux VirtualHosts HTTP & HTTPS..](Créé-deux-VirtualHosts-HTTP-HTTPS.md) |
 | - B. | [HTACCESS cinq exemples.](HTACCESS-cinq-exemples.md) |
 | - C. | [HTACCESS sécuriser l'accès à un dossier.](HTACCESS-sécuriser-un-dossier.md) |
 
@@ -12,10 +12,10 @@
 
 👋 Sommaire des sujet traités :
 
-- [Sujet abordé - NTPsec](https://github.com/0xCyberLiTech/NTPsec)
-- [Sujet abordé - Apache2.](https://github.com/0xCyberLiTech/Apache2)
-- [Sujet abordé - Docker.](https://github.com/0xCyberLiTech/Docker)
-- [Sujet abordé - Nagios.](https://github.com/0xCyberLiTech/Nagios)
+- [Sujet abordé - Créé deux VirtualHosts HTTP & HTTPS.](https://github.com/0xCyberLiTech/NTPsec)
+- [Sujet abordé - Apache2.](HTACCESS-cinq-exemples.md)
+- [Sujet abordé - Docker.](HTACCESS-sécuriser-un-dossier.md)
+
 
 ## Introduction :
 
