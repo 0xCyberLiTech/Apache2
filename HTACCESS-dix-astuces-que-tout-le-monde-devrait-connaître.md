@@ -33,7 +33,7 @@ Les utilisateurs autorisés par les administrateurs ont la possibilité via les 
 
 <a name="balise-01"></a>
 
-01 - Les pages d’erreur personnalisables.
+01) - Les pages d’erreur personnalisables.
 
 Les serveurs Web peuvent afficher par défaut des fichiers HTML standards voire des avertissements codés si une erreur survient lors d’un accès à un site Internet. Ces messages d’erreurs sont souvent bruts et ne sont pas agréables pour les utilisateurs. Il est possible avec le fichier .htaccess de créer des pages personnalisées qui se marieront mieux avec la charte graphique de votre site Internet. Voici le code à intégrer dans ce cas :
 ```
