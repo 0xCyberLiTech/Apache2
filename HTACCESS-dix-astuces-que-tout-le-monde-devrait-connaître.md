@@ -1,8 +1,8 @@
 ![Apache_logo](./images/Apache_logo.png)
 
-👋 Sommaire des sujets abordés :
-
 # - HTACCESS dix astuces que tout le monde devrait connaître.
+
+👋 Sommaire des sujets abordés :
 
 - [Les pages d’erreur personnalisables.](#balise-01)
 - [Redirection.](#balise-02)
