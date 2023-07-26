@@ -10,8 +10,7 @@
 | - 4. | [](#balise_04) |
 | - 5. | [](#balise_05) |
 
-
-Dix astuces .htaccess que tout le monde devrait connaître
+Dix astuces .htaccess que tout le monde devrait connaître :
 
 Les fichiers de configuration .htaccess (en français : accès hypertexte) permettent aux Webmasters de paramétrer leurs règles relatives aux répertoires de leurs sites sur des serveurs NCSA tels que le HTTP d’Apache. Ces fichiers définissent par exemple quels utilisateurs ont le droit d’accès à certaines données. Un autre exemple typique d’astuce .htaccess serait la mise en place d’une redirection automatique.  
 C’est quoi exactement un fichier .htaccess ?
