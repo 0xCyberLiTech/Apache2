@@ -1,6 +1,6 @@
 ![Apache_logo](./images/Apache_logo.png)
 
-# Virtualhosts fondamentaux :
+## Virtualhosts fondamentaux :
 
 ## Introduction.
 
