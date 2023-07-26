@@ -1,7 +1,7 @@
 <a name="Exemple_create_VirtualHost.md"></a>
 ![Apache_logo](./images/Apache_logo.png)
 
-# - Créé deux VirtualHosts HTTP & HTTPS.
+## Créé deux VirtualHosts HTTP & HTTPS.
 
 ```
 nano /etc/apache2/sites-available/000-default.conf
