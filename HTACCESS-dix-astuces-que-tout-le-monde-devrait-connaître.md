@@ -70,6 +70,13 @@ AuthUserFile /< chemin absolu vers le fichier mot de passe >/.htpasswd
 AuthPGAuthoritative Off
 require user User1 User2 User3
 ```
+Autre exemple :
+```
+AuthType Basic
+AuthName "Zone protégée par mot de passe."
+AuthUserFile /var/www/.htpasswd
+Require valid-user
+```
 Le .htpasswd est créé en même temps que les nouveaux mots de passe codés des utilisateurs :
 ```
 # données .htpasswd, identifiants et mots de passe
@@ -119,6 +126,12 @@ Si vous utilisez un certificat SSL pour votre domaine, il est possible de le red
 RewriteEngine On
 RewriteCond %{Server_Port} !=443
 RewriteRule ^(.*)$ https://votre-domaine.fr/$1 [R=301,L]
+```
+Autre exemple :
+```
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 ```
 <a name="balise-08"></a>
 ### 08 - Activer l‘accès à des données sur un navigateur.
