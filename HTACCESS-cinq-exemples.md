@@ -4,84 +4,31 @@
 
 | Cat | Etapes |
 |------|------|
-| - 1. | [Rediriger les pages en http vers celles en https.](#balise_02) |
-| - 2. | [Enlever le www.](#balise_02) |
-| - 3. | [Rediriger une page spécifique d’un serveur sur une page spécifique d’un autre serveur.](#balise_03) |
-| - 4. | [Rediriger toutes les URL d’un site lors d’un changement de nom de domaine.](#balise_04) |
-| - 5. | [Rediriger toutes les URLs d’un site vers une seule et unique URL.](#balise_05) |
+| - 1. | [](#balise_02) |
+| - 2. | [](#balise_02) |
+| - 3. | [](#balise_03) |
+| - 4. | [](#balise_04) |
+| - 5. | [](#balise_05) |
 
-Dans tous nos exemples, nous allons utiliser le fichier .htaccess, qui permet de modifier la configuration de notre serveur. Pour y accéder, nous allons donc devoir nous connecter à notre projet web en FTP. Si vous utilisez un CMS, le fichier est créé automatiquement dans le répertoire racine de votre site. Si celui-ci n'existe pas ajouter le manuellement.
 
-<a name="balise_01"></a>
-# - 1. Rediriger les pages en http vers celles en https.
+Dix astuces .htaccess que tout le monde devrait connaître
 
-Forcer les utilisateurs à utiliser la version https de votre site est important pour leur offrir une sécurité convenable.
+Les fichiers de configuration .htaccess (en français : accès hypertexte) permettent aux Webmasters de paramétrer leurs règles relatives aux répertoires de leurs sites sur des serveurs NCSA tels que le HTTP d’Apache. Ces fichiers définissent par exemple quels utilisateurs ont le droit d’accès à certaines données. Un autre exemple typique d’astuce .htaccess serait la mise en place d’une redirection automatique.  
+C’est quoi exactement un fichier .htaccess ?
 
-Pour ce faire, il vous suffit d’insérer ci-dessous dans votre fichier (.htaccess), en remplaçant « exemple.com » par votre nom de domaine :
+Le terme .htaccess désigne un fichier texte dont l’utilisateur ayant les droits d’administration se sert pour configurer un serveur Web compatible à NCSA. Cette technique a été inventée dans les années 90 pour le serveur Web NCSA HTTPD, très innovant pour l’époque. Actuellement, elle intervient avant tout sur le serveur HTTP Apache dont l’exploitation est gérée par plusieurs fichiers centraux, les « httpd.conf ». Ces données de configuration supérieures sont enregistrées en règle générale dans un répertoire du programme du serveur Web et définis par l’administrateur du serveur. Ils déterminent si un utilisateur a le droit de modifier la configuration du serveur grâce à des astuces .htaccess. Si oui, celui-ci peut alors créer et modifier des fichiers .htaccess pour chaque nouveau répertoire et écraser quelques parties de la configuration via des répertoires de niveau supérieur.
 
-Exemple : rediriger http://exemple.com vers httsp://exemple.com.
-```
-RewriteEngine on
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteRule (.*) https://exemple.com/$1 [R=301,L]
-```
-Si vous rencontrez une erreur de boucle, cela indique que le HTTP/2 est actif sur votre site.
+A chaque consultation de page, le serveur Web scanne la totalité de ces répertoires supérieurs sans en sauvegarder les informations (le .htaccess d’un sous répertoire écrase donc celui d’un supérieur). Les réglages du serveur qui ont été réalisés avec un fichier .htaccess sont valables dès que celui-ci est déposé sur le répertoire approprié, sans nécessiter de redémarrer le serveur. L’écriture ne doit comporter aucune erreur car elle pourrait empêcher l’accès à tout le serveur. L’application de ces astuces .htaccess à la lettre peut vraiment faciliter la gestion d’un serveur. Étant donné l’aisance et la rapidité de leur insertion dans la structure existante, on parle aussi souvent d’astuces .htaccess.
+Comment créer un fichier .htaccess
 
-Il vous suffit alors de remplacer la deuxième ligne par :
-```
-RewriteCond %{HTTPS} off
-```
-```
-RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
-```
-<a name="balise_02"></a>
-# - 2. Enlever le www.
+Étant donné qu’il s’agit de fichiers textes purs, il est possible de les créer et de les modifier avec n’importe quel éditeur. Le processus de création d’un fichier .htaccess est différent en fonction des accès disponibles sur le serveur Web. Les serveurs Telnet ou SSH proposent de le créer et de le modifier directement sur la plateforme serveur. Si vous n'avez qu’un accès FTP à disposition, le fichier devra alors être créé localement et ensuite être téléchargé. Si le nom commence par un point, c’est qu’il s’agit d’un fichier de répertoire de système Unix. Celui-ci sera alors considéré comme « caché » et apparaîtra invisible lors de l’utilisation de clients FTP.
 
-La mode du www est clairement derrière nous. Cependant, il arrive encore que des personnes le tapent dans la barre d’URL.
+Ce point peut engendrer un problème lors de la création d’un .htaccess local sur un système Windows mais se résout rapidement. Ainsi, l’éditeur n’attachera pas l’extension .txt si le fichier est enregistré sous « tout fichier ». Si le fichier .htaccess contient la bonne directive, il sera expédié dans le bon répertoire et sera tout de suite valide. Cela concerne aussi tout le sous-répertoire.
+Configurer un serveur via une astuce (.htaccess).
 
-Afin de ne pas les abandonner, redirigeons-les, et quelle que soit la page désirée, en enlevant le www.
+Les utilisateurs autorisés par les administrateurs ont la possibilité via les fichiers .htaccess d’influencer rapidement la configuration de serveurs Web. Ils peuvent par exemple protéger des répertoires entiers d’accès illégaux via une authentification HTTP. Par ailleurs, des pages d’erreurs ou de redirection peuvent s’afficher. Il existe un certain nombre de conseils avec .htaccess. En voici les dix principaux.
+1. Les pages d’erreur personnalisables.
 
-Exemple : rediriger www.exemple.com/test/03 vers exemple.com/test/03.
-```
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ http://%1%{REQUEST_URI} [R=301,QSA,NC,L]
-```
-<a name="balise_03"></a>
-# - 3. Quand cela est fait, toujours dans votre panneau de gestion de votre hébergeur, mettez à jour le certificat SSL de votre site.
+Les serveurs Web peuvent afficher par défaut des fichiers HTML standards voire des avertissements codés si une erreur survient lors d’un accès à un site Internet. Ces messages d’erreurs sont souvent bruts et ne sont pas agréables pour les utilisateurs. Il est possible avec le fichier .htaccess de créer des pages personnalisées qui se marieront mieux avec la charte graphique de votre site Internet. Voici le code à intégrer dans ce cas :
 
-Si vous utilisez une solution WordPress, au moment où vous configurez un alias via le panneau de gestion de votre hébergeur, WordPress ajoutera automatiquement la redirection 301. Pratique non ?
 
-Passons au code. Celui-ci doit être ajouté dans le fichier (.htaccess) de votre site de destination.
-
-Exemple : rediriger exemple.com/non-final vers karac.ch/final.
-```
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^(www\.)? exemple.com
-RewriteRule ^ non-final/? https://karac.ch/final/ [R=301,L]
-```
-<a name="balise_04"></a>
-# - 4. Rediriger toutes les URL d’un site lors d’un changement de nom de domaine.
-
-Vous devez changer le nom de domaine d’un de vos sites, et vous vous rendez compte que vous avez plus de 1000 URLs différentes ?
-
-Ne paniquez pas ! Il existe une méthode permettant de résoudre ce problème en 3 lignes. Et ça se passe toujours dans notre cher fichier (.htaccess).
-
-Exemple : rediriger exemple.com/post1 vers karac.ch/post1 mais également exemple.com/news1 vers karac.ch/news1, etc…
-```
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^exemple.com$ [OR]
-RewriteCond %{HTTP_HOST} ^www.exemple.com$
-RewriteRule (.*)$ https://karac.ch/$1 [R=301,L]
-```
-<a name="balise_05"></a>
-# - 5. Rediriger toutes les URLs d’un site vers une seule et unique URL.
-
-Pour cela, il va falloir modifier le fichier (.htaccess) du site qui sera redirigé.
-
-Exemple : rediriger exemple.com/post1 vers karac.ch mais également exemple.com/new1 vers karac.ch, etc…
-```
-Redirect 301 "/" "https://karac.ch"
-```
