@@ -1,9 +1,8 @@
 ![Apache_logo](./images/Apache_logo.png)
 
-# - HTACCESS, cinq exemples.
+# - HTACCESS dix astuces que tout le monde devrait connaître.
 
-| Cat | Etapes |
-|------|------|
+
 | - 1. | [Les pages d’erreur personnalisables.](#balise-01) |
 | - 2. | [Redirection.](#balise-02) |
 | - 3. | [Protection par mot de passe.](#balise-03) |
