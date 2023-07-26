@@ -4,16 +4,16 @@
 
 👋 Sommaire des sujets abordés :
 
-- [ 01) Les pages d’erreur personnalisables.](#balise-01)
-- [ 02) Redirection.](#balise-02)
-- [ 03) Protection par mot de passe.](#balise-03)
-- [ 04) Augmenter la mémoire PHP.](#balise-04)
-- [ 05) Changer le fuseau horaire du serveur Web.](#balise-05)
-- [ 06) Bloquer des adresses IP.](#balise-06)
-- [ 07) Rediriger sa présence sur le Web de HTTP à HTTPS.](#balise-07)
-- [ 08) Activer l‘accès à des données sur un navigateur.](#balise-08)
-- [ 09) Interdire le Hotlinking d’images.](#balise-09)
-- [ 10) Définir la police de documents.](#balise-10)
+- [ 01) - Les pages d’erreur personnalisables.](#balise-01)
+- [ 02) - Redirection.](#balise-02)
+- [ 03) - Protection par mot de passe.](#balise-03)
+- [ 04) - Augmenter la mémoire PHP.](#balise-04)
+- [ 05) - Changer le fuseau horaire du serveur Web.](#balise-05)
+- [ 06) - Bloquer des adresses IP.](#balise-06)
+- [ 07) - Rediriger sa présence sur le Web de HTTP à HTTPS.](#balise-07)
+- [ 08) - Activer l‘accès à des données sur un navigateur.](#balise-08)
+- [ 09) - Interdire le Hotlinking d’images.](#balise-09)
+- [ 10) - Définir la police de documents.](#balise-10)
 
 Les fichiers de configuration .htaccess (en français : accès hypertexte) permettent aux Webmasters de paramétrer leurs règles relatives aux répertoires de leurs sites sur des serveurs NCSA tels que le HTTP d’Apache. Ces fichiers définissent par exemple quels utilisateurs ont le droit d’accès à certaines données. Un autre exemple typique d’astuce .htaccess serait la mise en place d’une redirection automatique.  
 
