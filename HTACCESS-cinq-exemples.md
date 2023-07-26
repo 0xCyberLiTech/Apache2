@@ -100,5 +100,4 @@ Order deny,allow
 Deny from .aol.com
 Deny from 192.168
 Allow from 192.168.220.102`
-
 ```
