@@ -1,6 +1,6 @@
 ![Apache_logo](./images/Apache_logo.png)
 
-# - Protéger l’accès d’un répertoire, d’une page par (.htaccess), (.htpasswd).
+## - Protéger l’accès d’un répertoire, d’une page par (.htaccess), (.htpasswd).
  
 Il est parfois nécessaire de protéger l’accès à une page, à un répertoire sur un serveur web (Ex : répertoire d’administration, contenant des données sensibles) afin d’éviter que n’importe qui puisse y accéder.
 
@@ -76,4 +76,3 @@ htpasswd -B [Nom de fichier] [Nom d'utilisateur]
 Ce qui correspond au nom d’utilisateur (login) et son mot de passe crypté.
 
 Il y aura une ligne pour chaque utilisateur.
-
