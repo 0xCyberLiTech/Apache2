@@ -27,8 +27,78 @@ Ce point peut engendrer un problème lors de la création d’un .htaccess local
 Configurer un serveur via une astuce (.htaccess).
 
 Les utilisateurs autorisés par les administrateurs ont la possibilité via les fichiers .htaccess d’influencer rapidement la configuration de serveurs Web. Ils peuvent par exemple protéger des répertoires entiers d’accès illégaux via une authentification HTTP. Par ailleurs, des pages d’erreurs ou de redirection peuvent s’afficher. Il existe un certain nombre de conseils avec .htaccess. En voici les dix principaux.
+
 1. Les pages d’erreur personnalisables.
 
 Les serveurs Web peuvent afficher par défaut des fichiers HTML standards voire des avertissements codés si une erreur survient lors d’un accès à un site Internet. Ces messages d’erreurs sont souvent bruts et ne sont pas agréables pour les utilisateurs. Il est possible avec le fichier .htaccess de créer des pages personnalisées qui se marieront mieux avec la charte graphique de votre site Internet. Voici le code à intégrer dans ce cas :
 
+```
+# Votre message d’erreur de l’emplacement local
+ErrorDocument 404 / erreur/404.html
+```
+Si la page d’erreur se trouve au niveau supérieur du répertoire racine ou d’une URL externe, l’URL complète peut aussi être incorporée dans le .htaccess qui se trouve dans ce cas dans le répertoire racine :
+```
+# Votre message d’erreur de l’emplacement externe
+ErrorDocument 404 / http://www.nom-de-votre-site.com/erreur/404.html
+```
+2. Redirection :
 
+Une des possibilités d’action des fichiers .htaccess est de rediriger les utilisateurs vers d’autres pages. Vous pouvez par exemple transférer des données uniques à l’intérieur d’un même site Web mais aussi vers un autre domaine. C’est pratique avant tout si vous changez de site Internet. Le code suivant est enregistré dans le répertoire racine et veille à ce que les demandes au domaine premier soient redirigées vers le nouveau :
+
+```
+# Redirection simple
+Redirect / http://www.nouveau-domaine.fr/
+```
+Les données uniques peuvent être transférées via la même méthode à l’intérieur d’un même site Internet, par exemple si celui-ci change de nom :
+```
+# Redirection de données uniques
+Redirect /ancienne-page.html nouvelle-page.html
+```
+3. Protection par mot de passe :
+
+Vous ne souhaitez pas écrire de scripts trop compliqués avec PHP mais vous avez besoin d’un répertoire ou de fichiers protégés sur votre serveur Web ? Vous pouvez alors à la place utiliser des astuces .htaccess pour la création de votre domaine. Pour bénéficier de cette protection de mots de passe, il vous faudra un deuxième fichier avec le nom .htpasswd dans lequel les mots de passe seront enregistrés. Ceux-ci peuvent être encodés sous le système Unix, il existe pour cela différents générateurs de .htpasswd sur la Toile. Ces répertoires protégés peuvent être créés ainsi :
+```
+# Protection simple de mot de passe avec .htaccess
+AuthType Basic
+AuthName "fichiers réservés"
+AuthUserFile /< chemin absolu vers le fichier mot de passe >/.htpasswd
+AuthPGAuthoritative Off
+require user User1 User2 User3
+```
+Le .htpasswd est créé en même temps que les nouveaux mots de passe codés des utilisateurs :
+```
+# données .htpasswd, identifiants et mots de passe
+User1:duCmo1zxkKx6Y
+User2:mou3IYjSLpGWI
+User3:HGKS9XzDXXAXQ
+```
+Pendant que le fichier .htpasswd est classé en haut du répertoire racine, le .htaccess doit se trouver dans le celui qui est protégé.
+
+4. Augmenter la mémoire PHP :
+
+L’utilisation d’applications PHP est soumise à une limite de mémoire causée par les scripts PHP sur le serveur. Celle-ci peut être augmentée en fonction des besoins en utilisant la directive suivante :
+```
+# PHP Memory Limit
+php_value memory_limit 128M
+```
+La valeur de 128 M équivaut dans ce cas à une limite de 128 MegaBytes. D’autres limites peuvent être réglées en tenant compte des besoins de stockage et des exigences en matière de serveurs.
+
+5. Changer le fuseau horaire du serveur Web :
+
+Il est possible d’adapter le fuseau horaire sur le .htaccess si le serveur Web est réglé sur une heure erronée :
+```
+# Insérer le fuseau horaire
+SetEnv TZ Europe/Paris
+```
+6. Bloquer des adresses IP :
+
+Il est possible de refuser l’accès de sites Internet à des adresses ou domaines IP. Avec le code adéquat, il est même possible d’interdire l’accès à toutes les adresses IP tout en le garantissant à une poignée. Ainsi, l’offre Internet peut être mise à la disposition de seulement quelques employés sur l’intranet d’une entreprise. La directive suivante résume certaines des limitations d’accès possibles :
+
+``
+# Fichiers pour réguler les zones IP
+Order deny,allow
+Deny from .aol.com
+Deny from 192.168
+Allow from 192.168.220.102`
+
+```
