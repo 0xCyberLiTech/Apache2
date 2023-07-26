@@ -94,10 +94,61 @@ SetEnv TZ Europe/Paris
 
 Il est possible de refuser l’accès de sites Internet à des adresses ou domaines IP. Avec le code adéquat, il est même possible d’interdire l’accès à toutes les adresses IP tout en le garantissant à une poignée. Ainsi, l’offre Internet peut être mise à la disposition de seulement quelques employés sur l’intranet d’une entreprise. La directive suivante résume certaines des limitations d’accès possibles :
 
-``
+```
 # Fichiers pour réguler les zones IP
 Order deny,allow
 Deny from .aol.com
 Deny from 192.168
 Allow from 192.168.220.102`
 ```
+L’entrée « Order » permet de définir l’ordre de l’interprétation des données, le sens n’est donc pas important. Les autres entrées communiquent au serveur que tous les utilisateurs de aol.com ainsi que ceux dont l’adresse de domaine est 192.168 n’ont pas le droit d’utiliser le site Internet. L’exception est pour l’utilisateur de l’adresse IP 192.168.220.102.
+
+7. Rediriger sa présence sur le Web de HTTP à HTTPS
+
+Si vous utilisez un certificat SSL pour votre domaine, il est possible de le rediriger via une directive .htaccess sur une requête HTTPS codé.
+
+```
+# Activez HTTPS
+RewriteEngine On
+RewriteCond %{Server_Port} !=443
+RewriteRule ^(.*)$ https://votre-domaine.fr/$1 [R=301,L]
+```
+8. Activer l‘accès à des données sur un navigateur :
+
+Grâce à cette directive, vous pouvez afficher le contenu du répertoire et proposer à d’autres utilisateurs de le télécharger :
+
+```
+# Montrez le contenu du répertoire
+Options +Indexes
+```
+9. Interdire le Hotlinking d’images :
+
+Le Hotlinking permet à une tierce personne d’utiliser l’adresse d’un fichier publié sur un site Internet, le plus souvent une image, et de l’afficher sur un autre site sans l’enregistrer sur son propre serveur. Cela entraîne une augmentation du volume de données sur le site d’origine, sans que son propriétaire ne puisse l’influencer. Cette astuce .htaccess permet de bloquer ces liens grâce à la directive suivante :
+
+```
+# Hotlinking interdit 
+RewriteEngine on 
+RewriteCond %{HTTP_REFERER} !^$ 
+RewriteCond %{HTTP_REFERER} !^http:// www.votre-domaine-d-hebergement/.*$ [NC] [OR]
+RewriteCond %{HTTP_REFERER} !^http://www.votre-domaine-d-hebergement /.*$ [NC] [OR]
+RewriteRule .*\.(gif|GIF|jpg|JPG|bmp|BMP|wav|mp3|wmv|avi|mpeg)$ - [F]
+```
+10. Définir la police de documents :
+
+Les accents peuvent poser problème si aucun codage de caractères n’existe. Il est possible de définir avec un fichier .htaccess quel codage de caractère doit être utilisé pour chaque document type. La directive suivante caractérise le codage UTF-8 pour tous les documents :
+
+```
+# Définir le codage de caractères
+AddDefaultCharset utf-8
+```
+Voici la directive à intégrer au cas où seuls quelques types de documents doivent être définis par codage :
+
+```
+# Définir le codage de caractères pour certains fichiers 
+AddDefaultCharset utf-8 .css .htm .html .xhtml .php 
+```
+Les astuces .htaccess : pratiques et simples à utiliser :
+
+Voici une partie de la longue liste d’astuces .htaccess possibles. Ces fichiers pratiques servent à configurer les serveurs. Toutes les directives sont directement dirigées par le serveur Web sans nécessiter de redémarrage complet.
+
+Source : https://www.ionos.fr/digitalguide/hebergement/aspects-techniques/les-meilleures-astuces-htaccess/
