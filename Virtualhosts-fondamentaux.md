@@ -1,8 +1,8 @@
 ![Apache_logo](./images/Apache_logo.png)
 
-👋 Sommaire des sujets abordés :
+## VirtualHosts Fondamentaux.
 
-## VirtualHosts Fondamentaux :
+👋 Sommaire des sujets abordés :
 
 - 01 - [Fonctionnement de plusieurs serveurs virtuels par nom sur une seule adresse IP.](#balise_01)
 - 02 - [Serveurs virtuels par nom sur plus d'une seule adresse IP.](#balise_02)
