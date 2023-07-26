@@ -32,6 +32,7 @@ Configurer un serveur via une astuce (.htaccess).
 Les utilisateurs autorisés par les administrateurs ont la possibilité via les fichiers .htaccess d’influencer rapidement la configuration de serveurs Web. Ils peuvent par exemple protéger des répertoires entiers d’accès illégaux via une authentification HTTP. Par ailleurs, des pages d’erreurs ou de redirection peuvent s’afficher. Il existe un certain nombre de conseils avec .htaccess. En voici les dix principaux.
 
 <a name="balise-01"></a>
+
 01) Les pages d’erreur personnalisables.
 
 Les serveurs Web peuvent afficher par défaut des fichiers HTML standards voire des avertissements codés si une erreur survient lors d’un accès à un site Internet. Ces messages d’erreurs sont souvent bruts et ne sont pas agréables pour les utilisateurs. Il est possible avec le fichier .htaccess de créer des pages personnalisées qui se marieront mieux avec la charte graphique de votre site Internet. Voici le code à intégrer dans ce cas :
