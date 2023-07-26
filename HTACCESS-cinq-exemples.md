@@ -4,11 +4,16 @@
 
 | Cat | Etapes |
 |------|------|
-| - 1. | [](#balise_02) |
-| - 2. | [](#balise_02) |
-| - 3. | [](#balise_03) |
-| - 4. | [](#balise_04) |
-| - 5. | [](#balise_05) |
+| - 1. | [Les pages d’erreur personnalisables.](#balise-01) |
+| - 2. | [Redirection.](#balise-02) |
+| - 3. | [Protection par mot de passe.](#balise-03) |
+| - 4. | [Augmenter la mémoire PHP.](#balise-04) |
+| - 5. | [Changer le fuseau horaire du serveur Web.](#balise-05) |
+| - 6. | [Bloquer des adresses IP.](#balise-06) |
+| - 7. | [Rediriger sa présence sur le Web de HTTP à HTTPS.](#balise-07) |
+| - 8. | [Activer l‘accès à des données sur un navigateur.](#balise-08) |
+| - 9. | [Interdire le Hotlinking d’images.](#balise-09) |
+| - 10. | [Définir la police de documents.](#balise-10) |
 
 Dix astuces .htaccess que tout le monde devrait connaître :
 
@@ -27,6 +32,7 @@ Configurer un serveur via une astuce (.htaccess).
 
 Les utilisateurs autorisés par les administrateurs ont la possibilité via les fichiers .htaccess d’influencer rapidement la configuration de serveurs Web. Ils peuvent par exemple protéger des répertoires entiers d’accès illégaux via une authentification HTTP. Par ailleurs, des pages d’erreurs ou de redirection peuvent s’afficher. Il existe un certain nombre de conseils avec .htaccess. En voici les dix principaux.
 
+<a name="balise-01"></a>
 1. Les pages d’erreur personnalisables.
 
 Les serveurs Web peuvent afficher par défaut des fichiers HTML standards voire des avertissements codés si une erreur survient lors d’un accès à un site Internet. Ces messages d’erreurs sont souvent bruts et ne sont pas agréables pour les utilisateurs. Il est possible avec le fichier .htaccess de créer des pages personnalisées qui se marieront mieux avec la charte graphique de votre site Internet. Voici le code à intégrer dans ce cas :
@@ -40,7 +46,8 @@ Si la page d’erreur se trouve au niveau supérieur du répertoire racine ou d�
 # Votre message d’erreur de l’emplacement externe
 ErrorDocument 404 / http://www.nom-de-votre-site.com/erreur/404.html
 ```
-2. Redirection :
+<a name="balise-02"></a>
+2. Redirection.
 
 Une des possibilités d’action des fichiers .htaccess est de rediriger les utilisateurs vers d’autres pages. Vous pouvez par exemple transférer des données uniques à l’intérieur d’un même site Web mais aussi vers un autre domaine. C’est pratique avant tout si vous changez de site Internet. Le code suivant est enregistré dans le répertoire racine et veille à ce que les demandes au domaine premier soient redirigées vers le nouveau :
 
@@ -53,7 +60,8 @@ Les données uniques peuvent être transférées via la même méthode à l’in
 # Redirection de données uniques
 Redirect /ancienne-page.html nouvelle-page.html
 ```
-3. Protection par mot de passe :
+<a name="balise-03"></a>
+3. Protection par mot de passe.
 
 Vous ne souhaitez pas écrire de scripts trop compliqués avec PHP mais vous avez besoin d’un répertoire ou de fichiers protégés sur votre serveur Web ? Vous pouvez alors à la place utiliser des astuces .htaccess pour la création de votre domaine. Pour bénéficier de cette protection de mots de passe, il vous faudra un deuxième fichier avec le nom .htpasswd dans lequel les mots de passe seront enregistrés. Ceux-ci peuvent être encodés sous le système Unix, il existe pour cela différents générateurs de .htpasswd sur la Toile. Ces répertoires protégés peuvent être créés ainsi :
 ```
@@ -73,7 +81,8 @@ User3:HGKS9XzDXXAXQ
 ```
 Pendant que le fichier .htpasswd est classé en haut du répertoire racine, le .htaccess doit se trouver dans le celui qui est protégé.
 
-4. Augmenter la mémoire PHP :
+<a name="balise-04"></a>
+4. Augmenter la mémoire PHP.
 
 L’utilisation d’applications PHP est soumise à une limite de mémoire causée par les scripts PHP sur le serveur. Celle-ci peut être augmentée en fonction des besoins en utilisant la directive suivante :
 ```
@@ -82,14 +91,17 @@ php_value memory_limit 128M
 ```
 La valeur de 128 M équivaut dans ce cas à une limite de 128 MegaBytes. D’autres limites peuvent être réglées en tenant compte des besoins de stockage et des exigences en matière de serveurs.
 
-5. Changer le fuseau horaire du serveur Web :
+<a name="balise-05"></a>
+5. Changer le fuseau horaire du serveur Web.
 
 Il est possible d’adapter le fuseau horaire sur le .htaccess si le serveur Web est réglé sur une heure erronée :
 ```
 # Insérer le fuseau horaire
 SetEnv TZ Europe/Paris
 ```
-6. Bloquer des adresses IP :
+
+<a name="balise-06"></a>
+6. Bloquer des adresses IP.
 
 Il est possible de refuser l’accès de sites Internet à des adresses ou domaines IP. Avec le code adéquat, il est même possible d’interdire l’accès à toutes les adresses IP tout en le garantissant à une poignée. Ainsi, l’offre Internet peut être mise à la disposition de seulement quelques employés sur l’intranet d’une entreprise. La directive suivante résume certaines des limitations d’accès possibles :
 
@@ -102,7 +114,8 @@ Allow from 192.168.220.102`
 ```
 L’entrée « Order » permet de définir l’ordre de l’interprétation des données, le sens n’est donc pas important. Les autres entrées communiquent au serveur que tous les utilisateurs de aol.com ainsi que ceux dont l’adresse de domaine est 192.168 n’ont pas le droit d’utiliser le site Internet. L’exception est pour l’utilisateur de l’adresse IP 192.168.220.102.
 
-7. Rediriger sa présence sur le Web de HTTP à HTTPS
+<a name="balise-07"></a>
+7. Rediriger sa présence sur le Web de HTTP à HTTPS.
 
 Si vous utilisez un certificat SSL pour votre domaine, il est possible de le rediriger via une directive .htaccess sur une requête HTTPS codé.
 
@@ -112,7 +125,8 @@ RewriteEngine On
 RewriteCond %{Server_Port} !=443
 RewriteRule ^(.*)$ https://votre-domaine.fr/$1 [R=301,L]
 ```
-8. Activer l‘accès à des données sur un navigateur :
+<a name="balise-08"></a>
+8. Activer l‘accès à des données sur un navigateur.
 
 Grâce à cette directive, vous pouvez afficher le contenu du répertoire et proposer à d’autres utilisateurs de le télécharger :
 
@@ -120,7 +134,9 @@ Grâce à cette directive, vous pouvez afficher le contenu du répertoire et pro
 # Montrez le contenu du répertoire
 Options +Indexes
 ```
-9. Interdire le Hotlinking d’images :
+
+<a name="balise-09"></a>
+9. Interdire le Hotlinking d’images.
 
 Le Hotlinking permet à une tierce personne d’utiliser l’adresse d’un fichier publié sur un site Internet, le plus souvent une image, et de l’afficher sur un autre site sans l’enregistrer sur son propre serveur. Cela entraîne une augmentation du volume de données sur le site d’origine, sans que son propriétaire ne puisse l’influencer. Cette astuce .htaccess permet de bloquer ces liens grâce à la directive suivante :
 
@@ -132,7 +148,9 @@ RewriteCond %{HTTP_REFERER} !^http:// www.votre-domaine-d-hebergement/.*$ [NC] [
 RewriteCond %{HTTP_REFERER} !^http://www.votre-domaine-d-hebergement /.*$ [NC] [OR]
 RewriteRule .*\.(gif|GIF|jpg|JPG|bmp|BMP|wav|mp3|wmv|avi|mpeg)$ - [F]
 ```
-10. Définir la police de documents :
+
+<a name="balise-10"></a>
+10. Définir la police de documents.
 
 Les accents peuvent poser problème si aucun codage de caractères n’existe. Il est possible de définir avec un fichier .htaccess quel codage de caractère doit être utilisé pour chaque document type. La directive suivante caractérise le codage UTF-8 pour tous les documents :
 
