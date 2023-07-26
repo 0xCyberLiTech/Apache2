@@ -2,17 +2,16 @@
 
 # - HTACCESS dix astuces que tout le monde devrait connaître.
 
-
-| - 1. | [Les pages d’erreur personnalisables.](#balise-01) |
-| - 2. | [Redirection.](#balise-02) |
-| - 3. | [Protection par mot de passe.](#balise-03) |
-| - 4. | [Augmenter la mémoire PHP.](#balise-04) |
-| - 5. | [Changer le fuseau horaire du serveur Web.](#balise-05) |
-| - 6. | [Bloquer des adresses IP.](#balise-06) |
-| - 7. | [Rediriger sa présence sur le Web de HTTP à HTTPS.](#balise-07) |
-| - 8. | [Activer l‘accès à des données sur un navigateur.](#balise-08) |
-| - 9. | [Interdire le Hotlinking d’images.](#balise-09) |
-| - 10. | [Définir la police de documents.](#balise-10) |
+[Les pages d’erreur personnalisables.](#balise-01)
+[Redirection.](#balise-02)
+[Protection par mot de passe.](#balise-03)
+[Augmenter la mémoire PHP.](#balise-04)
+[Changer le fuseau horaire du serveur Web.](#balise-05)
+[Bloquer des adresses IP.](#balise-06)
+[Rediriger sa présence sur le Web de HTTP à HTTPS.](#balise-07)
+[Activer l‘accès à des données sur un navigateur.](#balise-08)
+[Interdire le Hotlinking d’images.](#balise-09)
+[Définir la police de documents.](#balise-10)
 
 Dix astuces .htaccess que tout le monde devrait connaître :
 
