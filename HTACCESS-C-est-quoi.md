@@ -1,6 +1,6 @@
 ![Apache_logo](./images/Apache_logo.png)
 
-# C’est quoi exactement un fichier .htaccess ?
+## C’est quoi exactement un fichier .htaccess ?
 
 Le terme .htaccess désigne un fichier texte dont l’utilisateur ayant les droits d’administration se sert pour configurer un serveur Web compatible à NCSA. 
 
@@ -22,7 +22,7 @@ L’application de ces astuces .htaccess à la lettre peut vraiment faciliter la
 
 Étant donné l’aisance et la rapidité de leur insertion dans la structure existante, on parle aussi souvent d’astuces .htaccess.
 
-# Comment créer un fichier .htaccess ?
+## Comment créer un fichier .htaccess ?
 
 Étant donné qu’il s’agit de fichiers textes purs, il est possible de les créer et de les modifier avec n’importe quel éditeur. 
 
