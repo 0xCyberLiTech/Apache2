@@ -29,7 +29,7 @@ Quelques explications :
 
 AuthUserFile : c’est le nom et le chemin d’accès du fichier qui contiendra les noms des utilisateurs et les mots de passe associés. Ce chemin doit partir de la racine du site.
 
-Ici, les mots de passe seront dans (/home/login/admin/.htpasswd).
+Ici, les mots de passe seront dans (/var/www/.htpasswd).
 
 On peut, et il est même conseillé de choisir un autre nom que .htpasswd pour le fichier qui contiendra le couple utilisateur/mot de passe.
 
@@ -38,22 +38,30 @@ Il est également recommandé de mettre le fichier des mots de passe en dehors d
 
 AuthGroupFile : permet de définir un droit d’accès à un groupe d’utilisateur.
 Cette solution n’est que rarement utilisée pour un site Web.
+
 Le reste du temps, il pointe vers (/dev/null). Il faut que cette ligne soit présente.
 
 AuthName : c’est le texte qui apparaîtra dans la fenêtre demandant le mot de passe.
 
 AuthType : l’authentification est en général « basic ». Les mots de passe sont alors envoyés en clair sur le réseau.
 
-Pour sécuriser davantage l’accès, on peut utiliser la méthode d’authentification « digest » qui crypte les mots de passe en MD5 . Ce système n’est supporté que par certains navigateurs.
+Ce système n’est supporté que par certains navigateurs.
 
 Limit : c’est ici qu’on va indiquer ce qui est autorisé et interdit dans le répertoire.
-Les commandes GET et POST indiquent la récupération de pages web et la réponse à certains formulaires. POST est utilisé pour autoriser l’upload de fichiers sous le protocole http
+
+Les commandes GET et POST indiquent la récupération de pages web et la réponse à certains formulaires.
+
+POST est utilisé pour autoriser l’upload de fichiers sous le protocole http.
 
 Require valid-user : accepte tous les utilisateurs qui ont un login : mot de passe dans (.htpasswd).
 
-Require herve jacques : limite l’accès à un ou plusieurs utilisateurs précis, ici herve et jacques. A noter que les utilisateurs sont séparés par des espaces.
+Require herve jacques : limite l’accès à un ou plusieurs utilisateurs précis, ici herve et jacques.
 
-Une fois le fichier (.htaccess) créé, il faut le placer dans le répertoire à protéger. Maintenant, il nous faut créer le fichier (.htpasswd)
+A noter que les utilisateurs sont séparés par des espaces.
+
+Une fois le fichier (.htaccess) créé, il faut le placer dans le répertoire à protéger.
+
+Maintenant, il nous faut créer le fichier (.htpasswd)
 
 Sous unix et inux il existe un l’utilitaire : (htpasswd).
 ```
@@ -63,7 +71,12 @@ htpasswd -Bc [Nom de fichier] [Nom d'utilisateur]
 htpasswd -Bc /var/www/.htpasswd 0xCLT
 ```
 Votre mot de passe vous sera demandé, puis une deuxième fois pour confirmation.
-
+```
+    @0xCLT:~# htpasswd -Bc /var/www/.htpasswd 0xCLT
+New password:
+Re-type new password:
+Adding password for user 0xCLT
+```
 Le mot de passe est stocké crypté avec bcrypt dans le fichier que vous avez créé.
 ```
 cat /var/www/.htpasswd
@@ -75,7 +88,6 @@ Si l’on édite le fichier .htpasswd obtient une ligne du style :
 Notez que l'option -c crée un nouveau fichier et supprime les entrées existantes.
 
 Si vous souhaitez modifier une entrée existante ou ajouter une nouvelle entrée, utilisez uniquement l'option -B.
-
 ```
 htpasswd -B [Nom de fichier] [Nom d'utilisateur]
 ```
