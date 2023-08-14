@@ -12,7 +12,13 @@ C’est-à-dire effectuer une protection à l’aide des fichiers (.htaccess et 
 
 Le fichier (.htaccess) est un fichier texte contenant des commandes Apache.
 
-Voici un exemple :
+Voici un exemple, nous allons protéger l'accès au sous-dossier /var/www/html.
+
+Nous allons créer le fichier suivant :
+```
+touch /var/www/html/.htaccess
+```
+Nous y déposerons le contenu suivant :
 ```
 AuthType Basic
 AuthName "Zone protégée par mot de passe."
