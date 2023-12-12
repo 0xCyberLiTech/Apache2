@@ -9,12 +9,12 @@ nano /etc/apache2/sites-available/000-default.conf
 ```
 # --------------------------------------------------------------------------
 # 0xCyberLiTech
-# Date de création : le 29-06-2023
-# Date de modification : le 29-06-2023
+# Date de création : le 12-12-2023
+# Date de modification : le 12-12-2023
 # 000-default.conf - Exemple concernant le VirtualHost 000-default.conf
 # /etc/apache2/sites-available/
 # --------------------------------------------------------------------------
-<VirtualHost *:80>
+<VirtualHost x.x.x.x:80>
 
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
@@ -45,12 +45,12 @@ nano /etc/apache2/sites-available/default-ssl.conf
 ```
 # --------------------------------------------------------------------------
 # 0xCyberLiTech
-# Date de création : le 29-06-2023
-# Date de modification : le 29-06-2023
+# Date de création : le 12-12-2023
+# Date de modification : le 12-12-2023
 # default_ssl.conf - Exemple concernant le VirtualHost default-ssl.conf
 # /etc/apache2/sites-available/
 # --------------------------------------------------------------------------
-<VirtualHost *:443>
+<VirtualHost x.x.x.x:443>
 
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
@@ -122,6 +122,10 @@ Pour devenir root lancez simplement :
 ```
 su - root
 ```
+ou
+```
+su -
+```
 - Conditions préalables.
 
 Effectuez ces étapes pour installer les packages prérequis.
@@ -137,6 +141,12 @@ Accédez au répertoire personnel avec cette commande :
 ```
 cd ~
 ```
+```
+mkdir -p Certs/
+```
+```
+cd Certs/
+```
 - Générer un fichier de clé privée.
 
 La première étape consiste à générer le fichier de clé privée, exécutez la commande suivante :
@@ -149,7 +159,7 @@ Ensuite, vous allez générer le fichier de demande de certificat en exécutant 
 ```
 openssl req -new -key keyfile.key -out certrequest.csr
 ```
-Vous devrez fournir certaines valeurs, certaines peuvent être laissées vides, mais la valeur la plus importante est le nom commun. Dans l'exemple ci-dessous, vous pouvez voir que core-033.domain.local a été utilisé, ce qui signifie que lorsque vous accédez au serveur Nagios Core dans votre navigateur Web, c'est l'adresse que vous devrez utiliser. 
+Vous devrez fournir certaines valeurs, certaines peuvent être laissées vides, mais la valeur la plus importante est le nom commun.
 
 Ceci est particulièrement important, si ceux-ci ne correspondent pas, vous recevrez des avertissements dans votre navigateur Web.
 
@@ -163,12 +173,12 @@ Pour certains champs, il y aura une valeur par défaut.
 Si vous entrez '.', le champ sera laissé vide.
 
 ```
-Country Name (2 letter code) [AU]:AU
-State or Province Name (full name) [Some-State]:NSW
-Locality Name (eg, city) []:Sydney
-Organization Name (eg, company) [Internet Widgits Pty Ltd]:My Company Pty Ltd
+Country Name (2 letter code) [FR]:FR
+State or Province Name (full name) [Some-State]:departement
+Locality Name (eg, city) []:Ville
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Mon entreprise Ltd
 Organizational Unit Name (eg, section) []:
-Common Name (e.g. server FQDN or YOUR name) []:core-033.domain.local
+Common Name (e.g. server FQDN or YOUR name) []:host.domain.local
 Email Address []:
 
 Please enter the following 'extra' attributes
@@ -184,8 +194,9 @@ Comme vous pouvez le voir ci-dessus un mot de passe n'a pas été fourni, il n'e
 
 - Utilisation d'une société CA de confiance.
 
-Si vous envisagez d'utiliser une société de confiance telle que VeriSign pour vous fournir un certificat, vous devrez lui envoyer une copie de la demande de certificat. 
-Cela peut être visualisé en exécutant la commande suivante :
+Si vous envisagez d'utiliser une société de confiance telle que VeriSign pour vous fournir un certificat, vous devrez lui envoyer une copie de la demande de certificat.
+
+- Cela peut être visualisé en exécutant la commande suivante :
 ```
 cat certrequest.csr
 ```
