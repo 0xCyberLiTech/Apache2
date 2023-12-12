@@ -2,7 +2,6 @@
 ![Apache_logo](./images/Apache_logo.png)
 
 ## Créé deux VirtualHosts HTTP & HTTPS.
-
 ```
 nano /etc/apache2/sites-available/000-default.conf
 ```
@@ -171,7 +170,6 @@ Ce que vous êtes sur le point d'entrer est ce qu'on appelle un nom distinctif o
 Il y a pas mal de champs mais vous pouvez en laisser des vides.
 Pour certains champs, il y aura une valeur par défaut.
 Si vous entrez '.', le champ sera laissé vide.
-
 ```
 Country Name (2 letter code) [FR]:FR
 State or Province Name (full name) [Some-State]:departement
@@ -225,7 +223,6 @@ Remarque : Lorsque vous signez vous-même un certificat, vous recevez des averti
 - Copier des fichiers
 
 Vous devez copier les fichiers de certificat à l'emplacement correct et définir les autorisations, exécutez les commandes suivantes :
-
 ```
 cp certfile.crt /etc/ssl/certs/
 ```
@@ -318,7 +315,8 @@ Testez maintenant votre connexion au serveur en dirigeant votre navigateur Web v
 Remarque : il n'y a pas d'extension nagios/ dans l'URL, vous testez simplement une connexion à Apache pour voir si le certificat fonctionne.
 
 Vous pouvez recevoir un avertissement de certificat auto-signé, mais ce n'est pas grave, vous pouvez simplement ajouter une exception de sécurité. 
-Si cela fonctionne, vous verrez la page Web de test Apache.
+
+- Si cela fonctionne, vous verrez la page Web de test Apache.
 
 Vous pourrez désormais accéder à votre serveur Nagios Core en dirigeant votre navigateur Web vers https://yourservername/nagios/.
 
