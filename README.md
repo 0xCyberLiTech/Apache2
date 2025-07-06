@@ -35,10 +35,10 @@
 
 | Catégorie | Sujet | Accès Rapide |
 |:---:|:---|:---:|
-| **VirtualHosts** | Les fondamentaux des VirtualHosts | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](Virtualhosts-fondamentaux.md) |
-| **VirtualHosts** | Créer des VirtualHosts pour HTTP & HTTPS | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](Créé-deux-VirtualHosts-HTTP-HTTPS.md) |
+| **VirtualHosts** | Les fondamentaux | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](Virtualhosts-fondamentaux.md) |
+| **VirtualHosts** | HTTP & HTTPS | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](Créé-deux-VirtualHosts-HTTP-HTTPS.md) |
 | **.htaccess** | Qu'est-ce qu'un fichier `.htaccess` ? | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](HTACCESS-C-est-quoi.md) |
-| **.htaccess** | Dix astuces `.htaccess` que tout le monde devrait connaître | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](HTACCESS-dix-astuces-que-tout-le-monde-devrait-connaître.md) |
+| **.htaccess** | Dix astuces que tout le monde devrait connaître | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](HTACCESS-dix-astuces-que-tout-le-monde-devrait-connaître.md) |
 | **.htaccess** | Sécuriser l'accès à un dossier avec `.htaccess` | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](HTACCESS-sécuriser-un-dossier.md) |
 
 </div>
