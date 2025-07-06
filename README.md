@@ -13,7 +13,7 @@
 
 ---
 
-### 👨‍💻 **À propos de moi**
+### 👨‍💻 **À propos de moi.**
 
 > Ce dépôt constitue mon laboratoire numérique où je consigne rigoureusement mes apprentissages et expérimentations.
 > Passionné par l'écosystème Linux et la cybersécurité, je documente mon parcours et mes projets sur mon GitHub.
@@ -29,7 +29,7 @@
 
 ---
 
-### 🧭 **Navigation du Dépôt**
+### 🧭 **Navigation du Dépôt.**
 
 <div align="center">
 
