@@ -33,7 +33,7 @@
   <table style="width:100%;">
     <thead>
       <tr>
-        <th style="width: 25%; text-align: center;">Catégorie</th>
+        <th style="width: 40%; text-align: center;">Catégorie</th>
         <th style="text-align: left;">Sujet</th>
         <th style="text-align: center;">Accès Rapide</th>
       </tr>
