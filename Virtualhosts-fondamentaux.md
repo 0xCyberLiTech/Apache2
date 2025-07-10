@@ -428,3 +428,14 @@ Une requête sur une URL http://www.sub1.domain.tld/ n'est servie par le serveur
 Notez qu'il y a une singularité : une requête sur http://www.sub2.domain.tld/sub1/ est également servie par le serveur sub1-vhost si le client n'envoie pas d'en-tête Host.
 
 Les directives RewriteRule sont employées pour s'assurer que le client qui envoie un en-tête Host: correct puisse utiliser d'autres variantes d'URLs, c'est-à-dire avec ou sans préfixe d'URL.
+
+---
+
+**Mise à jour :** Juillet 2025
+
+---
+
+<p align="center">
+  <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>
+</p>
+
