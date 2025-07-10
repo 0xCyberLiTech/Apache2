@@ -94,3 +94,13 @@ htpasswd -B [Nom de fichier] [Nom d'utilisateur]
 Ce qui correspond au nom d’utilisateur (login) et son mot de passe crypté.
 
 Il y aura une ligne pour chaque utilisateur.
+
+---
+
+**Mise à jour :** Juillet 2025
+
+---
+
+<p align="center">
+  <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>
+</p>
