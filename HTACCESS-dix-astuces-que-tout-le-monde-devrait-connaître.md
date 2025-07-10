@@ -171,3 +171,13 @@ Les astuces .htaccess : pratiques et simples à utiliser :
 Voici une partie de la longue liste d’astuces .htaccess possibles. Ces fichiers pratiques servent à configurer les serveurs. Toutes les directives sont directement dirigées par le serveur Web sans nécessiter de redémarrage complet.
 
 Source : https://www.ionos.fr/digitalguide/hebergement/aspects-techniques/les-meilleures-astuces-htaccess/
+
+---
+
+**Mise à jour :** Juillet 2025
+
+---
+
+<p align="center">
+  <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>
+</p>
