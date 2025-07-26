@@ -1,6 +1,6 @@
-![Apache_logo](./images/Apache_logo.png)
-
 <div align="center">
+
+  ![Apache_logo](./images/Apache_logo.png)
 
   <a href="https://github.com/0xCyberLiTech">
     <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=D14A4A&center=true&vCenter=true&width=700&lines=SERVEUR+WEB+APACHE2;VirtualHosts+•+.htaccess+•+Sécurité;Guides+et+Bonnes+Pratiques" alt="Typing SVG" />
@@ -80,10 +80,6 @@ Si le nom commence par un point, c’est qu’il s’agit d’un fichier de rép
 Celui-ci sera alors considéré comme « caché » et apparaîtra invisible lors de l’utilisation de clients FTP.
 
 Ce point peut engendrer un problème lors de la création d’un .htaccess local sur un système Windows mais se résout rapidement. Ainsi, l’éditeur n’attachera pas l’extension .txt si le fichier est enregistré sous « tout fichier ». Si le fichier .htaccess contient la bonne directive, il sera expédié dans le bon répertoire et sera tout de suite valide. Cela concerne aussi tout le sous-répertoire.
-
----
-
-**Mise à jour :** Juillet 2025
 
 ---
 
