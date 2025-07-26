@@ -46,8 +46,6 @@
 
 ---
 
-<a name="Exemple_create_VirtualHost.md"></a>
-
 ###  Créé deux VirtualHosts HTTP & HTTPS.
 
 ```
@@ -171,42 +169,55 @@ Pour devenir root lancez simplement :
 su - root
 ```
 ou
+
 ```
 su -
 ```
+
 - Conditions préalables.
 
 Effectuez ces étapes pour installer les packages prérequis.
+
 ```
 apt-get update && apt upgrade -y
 ```
+
 ```
 apt-get install -y openssl
 ```
+
 Toutes les étapes restantes seront effectuées à partir du répertoire de base de l'utilisateur root pour s'assurer que les fichiers que vous créez ne sont accessibles à personne d'autre qu'à l'utilisateur root.
 
 Accédez au répertoire personnel avec cette commande :
+
 ```
 cd ~
 ```
+
 ```
 mkdir -p Certs/
 ```
+
 ```
 cd Certs/
 ```
+
 - Générer un fichier de clé privée.
 
 La première étape consiste à générer le fichier de clé privée, exécutez la commande suivante :
+
 ```
 openssl genrsa -out keyfile.key 2048
 ```
+
 - Générer un fichier de demande de certificat.
 
 Ensuite, vous allez générer le fichier de demande de certificat en exécutant la commande suivante :
+
 ```
 openssl req -new -key keyfile.key -out certrequest.csr
 ```
+
 Vous devrez fournir certaines valeurs, certaines peuvent être laissées vides, mais la valeur la plus importante est le nom commun.
 
 Ceci est particulièrement important, si ceux-ci ne correspondent pas, vous recevrez des avertissements dans votre navigateur Web.
@@ -219,6 +230,7 @@ Ce que vous êtes sur le point d'entrer est ce qu'on appelle un nom distinctif o
 Il y a pas mal de champs mais vous pouvez en laisser des vides.
 Pour certains champs, il y aura une valeur par défaut.
 Si vous entrez '.', le champ sera laissé vide.
+
 ```
 Country Name (2 letter code) [FR]:FR
 State or Province Name (full name) [Some-State]:departement
@@ -233,6 +245,7 @@ to be sent with your certificate request
 A challenge password []:
 An optional company name []:
 ```
+
 Comme vous pouvez le voir ci-dessus un mot de passe n'a pas été fourni, il n'est pas nécessaire.
 
 - Signer la demande de certificat.
@@ -244,17 +257,23 @@ Comme vous pouvez le voir ci-dessus un mot de passe n'a pas été fourni, il n'e
 Si vous envisagez d'utiliser une société de confiance telle que VeriSign pour vous fournir un certificat, vous devrez lui envoyer une copie de la demande de certificat.
 
 - Cela peut être visualisé en exécutant la commande suivante :
+
 ```
 cat certrequest.csr
 ```
+
 You'll get a lot of random text, this is what you will need to provide to your trusted CA. You must provide the CA with everything including the -----BEGIN CERTIFICATE REQUEST----- and -----END CERTIFICATE REQUEST----- lines.
+
 ```
 Une fois qu'ils vous ont envoyé le certificat signé, vous devrez copier le certificat dans un nouveau fichier appelé certfile.crt. Le certificat que vous recevrez contiendra également beaucoup de texte aléatoire, vous pouvez donc simplement coller ce texte dans le nouveau fichier que vous pouvez ouvrir avec l'éditeur nano :
 ```
+
 nano certfile.crt
+
 ```
 You must paste everything including the -----BEGIN CERTIFICATE----- and -----END CERTIFICATE----- lines when pasting them into the file.
 ```
+
 Enregistrez le fichier et fermez nano.
 
 Vous pouvez maintenant passer à l'étape Copier les fichiers.
@@ -262,9 +281,11 @@ Vous pouvez maintenant passer à l'étape Copier les fichiers.
 - Auto-signature du certificat.
 
 Vous pouvez également auto-signer le certificat en exécutant la commande suivante :
+
 ```
 openssl x509 -req -days 365 -in certrequest.csr -signkey keyfile.key -out certfile.crt
 ```
+
 Ce qui devrait produire une sortie indiquant que la signature était OK et qu'il s'agissait d'obtenir la clé privée.
 
 Remarque : Lorsque vous signez vous-même un certificat, vous recevez des avertissements dans votre navigateur Web.
@@ -272,49 +293,65 @@ Remarque : Lorsque vous signez vous-même un certificat, vous recevez des averti
 - Copier des fichiers
 
 Vous devez copier les fichiers de certificat à l'emplacement correct et définir les autorisations, exécutez les commandes suivantes :
+
 ```
 cp certfile.crt /etc/ssl/certs/
 ```
+
 ```
 cp keyfile.key /etc/ssl/private/
 ```
+
 ```
 chmod go-rwx /etc/ssl/certs/certfile.crt
 ```
+
 ```
 chmod go-rwx /etc/ssl/private/keyfile.key
 ```
+
 - Mettre à jour la configuration d'Apache.
 
 Activez le module mod_ssl dans Apache en exécutant la commande suivante :
+
 ```
 a2enmod ssl
 ```
+
 ```
 a2enmod rewrite
 ```
+
 Vous devez maintenant indiquer au serveur Web Apache où le rechercher. 
 Ouvrez le fichier suivant dans vi en exécutant la commande suivante :
+
 ```
 nano /etc/apache2/sites-available/default-ssl.conf
 ```
+
 Trouvez ces lignes et mettez-les à jour comme suit :
+
 ```
 SSLCertificateFile    /etc/ssl/certs/certfile.crt
 SSLCertificateKeyFile /etc/ssl/private/keyfile.key
 ```
+
 Enregistrez les modifications, vous avez terminé de modifier ce fichier.
 
 Ouvrez le fichier suivant dans nano en exécutant la commande suivante :
+
 ```
 nano /etc/apache2/sites-available/000-default.conf
 ```
+
 Naviguez jusqu'à la fin du fichier et avant </VirtualHost> ajoutez ce qui suit :
+
 ```
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 ```
+
 Enregistrez les modifications, vous avez terminé de modifier ce fichier.
 
 Vous devez maintenant activer cette configuration dans Apache en exécutant la commande suivante :
@@ -322,6 +359,7 @@ Vous devez maintenant activer cette configuration dans Apache en exécutant la c
 ```
 a2ensite default-ssl.conf
 ```
+
 - Rechargez le serveur Web Apache.
 
 Vous devez recharger Apache pour que la nouvelle clé de certificat soit utilisée.
@@ -329,34 +367,45 @@ Vous devez recharger Apache pour que la nouvelle clé de certificat soit utilis�
 ```
 systemctl reload apache2.service
 ```
+
 Une petite ligne de commande fort utile qui permet de tester sa conf apache2 sans le redemarer.
+
 ```
 apachectl -t
 ```
+
 ```
 Retour :
 Syntax OK
 ```
+
 Aussi,
+
 ```
 apachectl configtest
 ```
+
 ```
 Retour :
 Syntax OK
 ```
+
 - Règles de pare-feu.
 
 Vous devez autoriser le trafic entrant du port 443 sur le pare-feu local afin de pouvoir accéder à l'interface Web de Nagios Core.
+
 ```
 iptables -I INPUT -p tcp --destination-port 443 -j ACCEPT
 ```
+
 ```
 apt-get install -y iptables-persistent
 ```
+
 ```
 If prompted, answer yes to saving existing rules
 ```
+
 - Test Certificate.
 
 Testez maintenant votre connexion au serveur en dirigeant votre navigateur Web vers https://votrenomdeserveur/.
@@ -376,10 +425,13 @@ S'il renvoie une erreur, vérifiez votre pare-feu et revenez en arrière dans ce
 Avec cette configuration, si un utilisateur tape http://yourservername dans son navigateur Web, il le redirigera vers https://yourservername, ce qui peut provoquer des avertissements de certificat. 
 
 Si vous souhaitez les rediriger vers https://votrenomdeserveur.votredomaine.com, il vous suffit de modifier la règle de réécriture.
+
 ```
 RewriteRule (.*) https://yourservername.yourdomain.com%{REQUEST_URI}
 ```
-Rechargez ensuite le service apache2.
+
+echargez ensuite le service apache2.
+
 ```
 systemctl restart apache2.service
 ```
