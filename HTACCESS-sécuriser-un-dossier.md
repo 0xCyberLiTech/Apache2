@@ -1,6 +1,6 @@
-![Apache_logo](./images/Apache_logo.png)
-
 <div align="center">
+
+  ![Apache_logo](./images/Apache_logo.png)
 
   <a href="https://github.com/0xCyberLiTech">
     <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=D14A4A&center=true&vCenter=true&width=700&lines=SERVEUR+WEB+APACHE2;VirtualHosts+•+.htaccess+•+Sécurité;Guides+et+Bonnes+Pratiques" alt="Typing SVG" />
@@ -139,10 +139,6 @@ htpasswd -B [Nom de fichier] [Nom d'utilisateur]
 Ce qui correspond au nom d’utilisateur (login) et son mot de passe crypté.
 
 Il y aura une ligne pour chaque utilisateur.
-
----
-
-**Mise à jour :** Juillet 2025
 
 ---
 
