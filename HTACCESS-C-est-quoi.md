@@ -91,12 +91,3 @@ Ce point peut engendrer un problème lors de la création d’un .htaccess local
   <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>
 </p>
 
----
-
-**Mise à jour :** Juillet 2025
-
----
-
-<p align="center">
-  <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>
-</p>
