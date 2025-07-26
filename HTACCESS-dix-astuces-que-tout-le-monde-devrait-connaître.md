@@ -1,6 +1,6 @@
-![Apache_logo](./images/Apache_logo.png)
-
 <div align="center">
+
+  ![Apache_logo](./images/Apache_logo.png)
 
   <a href="https://github.com/0xCyberLiTech">
     <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=D14A4A&center=true&vCenter=true&width=700&lines=SERVEUR+WEB+APACHE2;VirtualHosts+•+.htaccess+•+Sécurité;Guides+et+Bonnes+Pratiques" alt="Typing SVG" />
@@ -216,10 +216,6 @@ Les astuces .htaccess : pratiques et simples à utiliser :
 Voici une partie de la longue liste d’astuces .htaccess possibles. Ces fichiers pratiques servent à configurer les serveurs. Toutes les directives sont directement dirigées par le serveur Web sans nécessiter de redémarrage complet.
 
 Source : https://www.ionos.fr/digitalguide/hebergement/aspects-techniques/les-meilleures-astuces-htaccess/
-
----
-
-**Mise à jour :** Juillet 2025
 
 ---
 
