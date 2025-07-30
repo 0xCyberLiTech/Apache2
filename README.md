@@ -71,7 +71,7 @@ Légende des couleurs des boutons :
 
 | Catégorie | Sujet | Accès Rapide |
 |:---:|:---|:---:|
-| Apache2 | Les fondamentaux | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](Virtualhosts-fondamentaux.md) |
+| Apache2 | Les fondamentaux | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](APACHE2-Virtualhosts-fondamentaux.md) |
 | Virtualhost | HTTP & HTTPS (SSL) | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](APACHE2-Créé-deux-VirtualHosts-HTTP-HTTPS.md) |
 | .htaccess | Qu'est-ce que c'est ? | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](HTACCESS-C-est-quoi.md) |
 | .htaccess | Dix astuces à connaître. | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](HTACCESS-dix-astuces-que-tout-le-monde-devrait-connaître.md) |
