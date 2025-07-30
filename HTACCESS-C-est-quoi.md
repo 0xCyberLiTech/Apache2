@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/0xCyberLiTech" target="_blank" rel="noopener">
-    <img src="./images/Apache_logo.png" alt="Logo Apache" width="180">
+    <img src="./images/Apache_logo.png" alt="Logo Apache" width="360">
   </a>
 </p>
 
