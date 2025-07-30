@@ -66,6 +66,7 @@
 | 09  | Serveurs virtuels _default_                                 | [![Accéder](https://img.shields.io/badge/Accéder-09-blue?style=for-the-badge)](#balise_09)          |
 | 10  | Migration nom ➜ IP                                          | [![Accéder](https://img.shields.io/badge/Accéder-10-blue?style=for-the-badge)](#balise_10)          |
 | 11  | Configuration HTTPS/SSL avec Let's Encrypt ou auto-signé    | [![Accéder](https://img.shields.io/badge/Accéder-11-blue?style=for-the-badge)](#balise_11)          |
+| 12  | Certificat SSL gratuit avec Let's Encrypt.                  | [![Accéder](https://img.shields.io/badge/Accéder-11-blue?style=for-the-badge)](#balise_12)          |
 
 ---
 
@@ -323,7 +324,7 @@ NameVirtualHost 172.20.30.40
 <a name="balise_11"></a>
 ## 11 - HTTPS / SSL avec Apache
 
-### A. Certificat auto-signé
+### Certificat auto-signé
 
 ```bash
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
@@ -349,22 +350,59 @@ sudo systemctl reload apache2
 
 ---
 
-### B. Certificat Let's Encrypt
+<a name="balise_12"></a>
+## 12 - Certificat SSL gratuit avec Let's Encrypt.
+
+
+# 🔐 Génération d’un certificat SSL gratuit avec Let's Encrypt
+
+## Objectif
+Sécuriser un site web avec HTTPS à l’aide d’un **certificat SSL/TLS gratuit** fourni par [Let’s Encrypt](https://letsencrypt.org/), via l’outil **Certbot** et son plugin Apache.
+
+---
+
+## 📦 Étape 1 – Installer Certbot avec le plugin Apache
 
 ```bash
-sudo apt install certbot python3-certbot-apache
+sudo apt update
+sudo apt install certbot python3-certbot-apache -y
+```
+
+> ✅ Cette commande installe Certbot ainsi que le module permettant de configurer automatiquement Apache pour HTTPS.
+
+---
+
+## 🚀 Étape 2 – Générer et installer le certificat SSL
+
+```bash
 sudo certbot --apache
+```
+
+- Le script vous guide pas à pas :
+  - Choix du ou des domaines à sécuriser.
+  - Redirection HTTP vers HTTPS (optionnelle mais recommandée).
+  - Création automatique du certificat et configuration d’Apache.
+
+> ✅ À la fin, le site est accessible en **HTTPS sécurisé**, avec un certificat valide.
+
+---
+
+## 🔁 Étape 3 – Renouvellement automatique
+
+Les certificats Let’s Encrypt expirent tous les 90 jours. Heureusement, le système de renouvellement automatique est déjà mis en place via **`systemd`** ou **`cron`**.
+
+> 📌 Pour tester le renouvellement sans attendre l’expiration :
+```bash
+sudo certbot renew --dry-run
 ```
 
 ---
 
-## 📎 Voir aussi
+## 🧠 Bon à savoir
 
-| Titre | Lien |
-|-------|------|
-| 🔒 HTACCESS – Dix astuces | [HTACCESS-dix-astuces-que-tout-le-monde-devrait-connaître.md](./HTACCESS-dix-astuces-que-tout-le-monde-devrait-connaître.md) |
-| 📚 Apache vHosts doc | [https://httpd.apache.org/docs/2.4/fr/vhosts/](https://httpd.apache.org/docs/2.4/fr/vhosts/) |
-
+- Les certificats sont stockés dans `/etc/letsencrypt/`.
+- Le fichier de configuration Apache est automatiquement modifié pour inclure les directives HTTPS.
+- Pour plusieurs VirtualHosts, Certbot peut être exécuté à nouveau en ciblant chaque domaine.
 
 ---
 
