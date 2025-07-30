@@ -49,7 +49,7 @@
 
 ---
 
-# Protéger l’accès d’un répertoire ou d’une page avec (.htaccess) et (.htpasswd)
+## Protéger l’accès d’un répertoire ou d’une page avec (.htaccess) et (.htpasswd).
 
 Il est parfois nécessaire de protéger l’accès à une page ou à un répertoire sur un serveur web (par exemple, un répertoire d’administration contenant des données sensibles), afin d’éviter que n’importe qui puisse y accéder.
 
