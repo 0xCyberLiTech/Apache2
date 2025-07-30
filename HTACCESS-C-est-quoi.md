@@ -41,49 +41,77 @@
 
 ---
 
-### 🎯 **Objectif de ce dépôt.**
+# 🎯 Objectif de ce dépôt
 
-> Ce dépôt a pour vocation de centraliser un ensemble de notions clés concernant la pile LAMP (Linux, Apache, MySQL/MariaDB, PHP/Perl/Python). Il s’adresse aux passionnés, étudiants et professionnels souhaitant
-> mieux comprendre cette architecture web open-source, apprendre à déployer et gérer des applications basées sur LAMP, et se familiariser avec les concepts et outils essentiels à son bon fonctionnement et à son
-> optimisation.
+> Ce dépôt centralise des notions clés sur la pile LAMP (Linux, Apache, MySQL/MariaDB, PHP/Perl/Python).  
+> Il s’adresse aux passionnés, étudiants et professionnels souhaitant mieux comprendre cette architecture open-source, apprendre à déployer et gérer des applications LAMP, et maîtriser les outils essentiels à son bon fonctionnement.
 
 ---
 
-## C’est quoi exactement un fichier .htaccess ?
+## Sommaire rapide
 
-Le terme .htaccess désigne un fichier texte dont l’utilisateur ayant les droits d’administration se sert pour configurer un serveur Web compatible à NCSA. 
+| Nº  | Sujet                                  | Lien                                |
+|------|---------------------------------------|------------------------------------|
+| 01   | Qu’est-ce qu’un fichier `.htaccess` ? | [![Voir](https://img.shields.io/badge/Voir-01-blue)](#quest-ce-quun-fichier-htaccess)  |
+| 02   | Comment créer un fichier `.htaccess` ? | [![Voir](https://img.shields.io/badge/Voir-02-blue)](#comment-créer-un-fichier-htaccess) |
 
-Cette technique a été inventée dans les années 90 pour le serveur Web NCSA HTTPD, très innovant pour l’époque. Actuellement, elle intervient avant tout sur le serveur HTTP Apache dont l’exploitation est gérée par plusieurs fichiers centraux, les « httpd.conf ».
+---
 
-Ces données de configuration supérieures sont enregistrées en règle générale dans un répertoire du programme du serveur Web et définis par l’administrateur du serveur.
+## 01 - Qu’est-ce qu’un fichier `.htaccess` ? <a name="quest-ce-quun-fichier-htaccess"></a>
 
-Ils déterminent si un utilisateur a le droit de modifier la configuration du serveur grâce à des astuces .htaccess.
+Un fichier `.htaccess` est un fichier texte utilisé par l’administrateur d’un serveur Apache pour configurer certains paramètres de façon fine, répertoire par répertoire.
 
-Si oui, celui-ci peut alors créer et modifier des fichiers .htaccess pour chaque nouveau répertoire et écraser quelques parties de la configuration via des répertoires de niveau supérieur.
+- Cette technique date des années 90 avec le serveur NCSA HTTPD.
+- Aujourd’hui, elle est principalement utilisée avec Apache.
+- Le serveur Apache possède des fichiers de configuration principaux (`httpd.conf`), mais permet aussi aux utilisateurs autorisés de surcharger certains paramètres grâce aux fichiers `.htaccess`.
+- Ces fichiers sont placés dans des répertoires spécifiques et sont lus à chaque requête, **sans nécessiter de redémarrage du serveur**.
+- Le `.htaccess` d’un sous-répertoire remplace ou complète celui d’un répertoire supérieur.
 
-A chaque consultation de page, le serveur Web scanne la totalité de ces répertoires supérieurs sans en sauvegarder les informations (le .htaccess d’un sous répertoire écrase donc celui d’un supérieur).
+**Attention :** une erreur dans ce fichier peut provoquer des erreurs sur le site.
 
-Les réglages du serveur qui ont été réalisés avec un fichier .htaccess sont valables dès que celui-ci est déposé sur le répertoire approprié, sans nécessiter de redémarrer le serveur.
+Cette méthode facilite la gestion rapide et ciblée des paramètres du serveur.
 
-L’écriture ne doit comporter aucune erreur car elle pourrait empêcher l’accès à tout le serveur.
+---
 
-L’application de ces astuces .htaccess à la lettre peut vraiment faciliter la gestion d’un serveur. 
+## 02 - Comment créer un fichier `.htaccess` ? <a name="comment-créer-un-fichier-htaccess"></a>
 
-Étant donné l’aisance et la rapidité de leur insertion dans la structure existante, on parle aussi souvent d’astuces .htaccess.
+- Le fichier `.htaccess` est un simple fichier texte.  
+- Vous pouvez le créer/modifier avec n’importe quel éditeur (nano, vim, Notepad++, VSCode, etc.).
+- Selon vos accès serveur :
+  - En SSH ou Telnet : créez-le directement sur le serveur dans le répertoire souhaité.
+  - En FTP : créez-le localement, puis envoyez-le sur le serveur.
+- Le fichier doit **commencer par un point** (`.`), ce qui le rend caché sous Unix/Linux.
+- Sous Windows, faites attention à ne pas ajouter l’extension `.txt` en sauvegardant, sinon le serveur ne le reconnaîtra pas.
+- Le fichier `.htaccess` sera valide dès sa mise en place, sans redémarrage.
 
-## Comment créer un fichier .htaccess ?
+---
 
-Étant donné qu’il s’agit de fichiers textes purs, il est possible de les créer et de les modifier avec n’importe quel éditeur. 
+## Exemple pédagogique simple
 
-Le processus de création d’un fichier .htaccess est différent en fonction des accès disponibles sur le serveur Web.
+Imaginons que vous souhaitiez interdire l’affichage de la liste des fichiers dans un dossier `/var/www/html/mon-site/` :
 
-Les serveurs Telnet ou SSH proposent de le créer et de le modifier directement sur la plateforme serveur. Si vous n'avez qu’un accès FTP à disposition, le fichier devra alors être créé localement et ensuite être téléchargé.
+1. Créez un fichier `.htaccess` dans ce dossier.
 
-Si le nom commence par un point, c’est qu’il s’agit d’un fichier de répertoire de système Unix.
+2. Ajoutez la ligne suivante :
 
-Celui-ci sera alors considéré comme « caché » et apparaîtra invisible lors de l’utilisation de clients FTP.
+   ```apache
+   Options -Indexes
+   ```
 
-Ce point peut engendrer un problème lors de la création d’un .htaccess local sur un système Windows mais se résout rapidement. Ainsi, l’éditeur n’attachera pas l’extension .txt si le fichier est enregistré sous « tout fichier ». Si le fichier .htaccess contient la bonne directive, il sera expédié dans le bon répertoire et sera tout de suite valide. Cela concerne aussi tout le sous-répertoire.
+3. Sauvegardez et déposez le fichier sur le serveur (si localement).
+
+4. À présent, si quelqu’un visite ce dossier sans page index, il verra une erreur plutôt qu’une liste de fichiers.
+
+---
+
+**💡 Cette simplicité permet de gérer finement votre serveur web, dossier par dossier, en toute sécurité.**
+
+---
+
+## Pour aller plus loin
+
+Pour découvrir d’autres astuces pratiques avec `.htaccess`, consultez le tuto dédié :  
+[HTACCESS : dix astuces que tout le monde devrait connaître](./HTACCESS-dix-astuces-que-tout-le-monde-devrait-connaître.md)
 
 ---
 
