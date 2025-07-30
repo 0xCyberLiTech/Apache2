@@ -49,7 +49,7 @@
 
 ---
 
-# 🛠️ Configuration de VirtualHosts HTTP & HTTPS avec SSL (auto-signé) sur Apache2.
+## 🛠️ Configuration de VirtualHosts HTTP & HTTPS avec SSL (auto-signé) sur Apache2.
 ### ✅ Compatible Debian 12 (Bookworm) & Debian 13 (Trixie)
 
 > **Auteur** : 0xCyberLiTech  
