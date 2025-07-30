@@ -11,7 +11,7 @@
   </a>
 
   <p align="center">
-    <em>Guides et astuces pour la configuration du serveur web Apache2.</em><br>
+    <em>VirtualHosts Fondamentaux (Apache2).</em><br>
     <b>🌐 Web – 🔐 Sécurité – 🚀 Performance</b>
   </p>
 
@@ -49,7 +49,7 @@
 
 ---
 
-# 🌐 VirtualHosts Fondamentaux (Apache2)
+# 🌐 VirtualHosts Fondamentaux (Apache2).
 
 ## 👋 Sommaire
 
