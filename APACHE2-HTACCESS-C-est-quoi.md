@@ -11,7 +11,7 @@
   </a>
 
   <p align="center">
-    <em>Guides et astuces pour la configuration du serveur web Apache2.</em><br>
+    <em>Qu’est-ce qu’un fichier **.htaccess**.</em><br>
     <b>🌐 Web – 🔐 Sécurité – 🚀 Performance</b>
   </p>
 
