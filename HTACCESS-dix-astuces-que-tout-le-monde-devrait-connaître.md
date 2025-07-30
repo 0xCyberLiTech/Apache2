@@ -56,17 +56,6 @@
 
 ## 📑 Sommaire
 
-- [01 - Les pages d’erreur personnalisables](#balise-01)
-- [02 - Redirection](#balise-02)
-- [03 - Protection par mot de passe](#balise-03)
-- [04 - Augmenter la mémoire PHP](#balise-04)
-- [05 - Changer le fuseau horaire](#balise-05)
-- [06 - Bloquer des adresses IP](#balise-06)
-- [07 - Rediriger HTTP vers HTTPS](#balise-07)
-- [08 - Afficher un répertoire](#balise-08)
-- [09 - Bloquer le Hotlinking](#balise-09)
-- [10 - Définir la police de caractères](#balise-10)
-
 | Nº  | Astuce                                     | Lien vers la section                           |
 |-----|--------------------------------------------|-----------------------------------------------|
 | 01  | Les pages d’erreur personnalisables        | [![Voir](https://img.shields.io/badge/Voir-01-blue)](#balise-01)       |
