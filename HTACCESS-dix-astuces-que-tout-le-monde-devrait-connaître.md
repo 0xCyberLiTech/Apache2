@@ -11,7 +11,7 @@
   </a>
 
   <p align="center">
-    <em>Guides et astuces pour la configuration du serveur web Apache2.</em><br>
+    <em>HTACCESS – 10 astuces que tout le monde devrait connaître.</em><br>
     <b>🌐 Web – 🔐 Sécurité – 🚀 Performance</b>
   </p>
 
@@ -49,7 +49,7 @@
 
 ---
 
-# 🔐 HTACCESS – 10 astuces que tout le monde devrait connaître  
+# 🔐 HTACCESS – 10 astuces que tout le monde devrait connaître.
 ### ✅ Compatible Apache 2.4+ sur Debian 12 & 13
 
 ---
