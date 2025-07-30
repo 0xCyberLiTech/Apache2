@@ -51,19 +51,19 @@
 
 ###  Créé deux VirtualHosts HTTP & HTTPS.
 
-```
+```bash
 nano /etc/apache2/sites-available/000-default.conf
 ```
 
-```
+```apache
 # --------------------------------------------------------------------------
 # 0xCyberLiTech
-# Date de création : le 12-12-2023
-# Date de modification : le 12-12-2023
+# Date de création : le 30-07-2025
+# Date de modification : le 30-07-2025
 # 000-default.conf - Exemple concernant le VirtualHost 000-default.conf
 # /etc/apache2/sites-available/
 # --------------------------------------------------------------------------
-<VirtualHost x.x.x.x:80>
+<VirtualHost *:80>
 
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
@@ -77,31 +77,38 @@ nano /etc/apache2/sites-available/000-default.conf
                 AllowOverride All
                 # Apache 2.4
                 Require all granted
-                # Apache 2.2
-                # Order allow,deny
-                # Allow from all
         </Directory>
 
-        RewriteEngine On
-        RewriteCond %{HTTPS} off
-        RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+        # Commenté dans un premier temps
+        #RewriteEngine On
+        #RewriteCond %{HTTPS} off
+        #RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 
 </VirtualHost>
 ```
+🔒 Recommandations supplémentaires (facultatives) :
 
+Si ce VirtualHost est exposé sur Internet, pense à ajouter dans le fichier global /etc/apache2/conf-available/security.conf (ou dans apache2.conf) :
+
+```apache
+ServerTokens Prod
+ServerSignature Off
 ```
+Pour éviter de trop exposer la version et l’environnement Apache.
+
+```bash
 nano /etc/apache2/sites-available/default-ssl.conf
 ```
 
-```
+```apache
 # --------------------------------------------------------------------------
 # 0xCyberLiTech
-# Date de création : le 12-12-2023
-# Date de modification : le 12-12-2023
+# Date de création : le 30-07-2025
+# Date de modification : le 30-07-2025
 # default_ssl.conf - Exemple concernant le VirtualHost default-ssl.conf
 # /etc/apache2/sites-available/
 # --------------------------------------------------------------------------
-<VirtualHost x.x.x.x:443>
+<VirtualHost *:443>
 
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html
@@ -115,9 +122,6 @@ nano /etc/apache2/sites-available/default-ssl.conf
                 AllowOverride All
                 # Apache 2.4
                 Require all granted
-                # Apache 2.2
-                # Order allow,deny
-                # Allow from all
         </Directory>
 
         # SSL Engine Switch:
