@@ -110,8 +110,11 @@ Imaginons que vous souhaitiez interdire l’affichage de la liste des fichiers d
 
 ## Pour aller plus loin
 
-Pour découvrir d’autres astuces pratiques avec `.htaccess`, consultez le tuto dédié :  
-[HTACCESS : dix astuces que tout le monde devrait connaître](./HTACCESS-dix-astuces-que-tout-le-monde-devrait-connaître.md)
+Découvrez d’autres astuces pratiques avec `.htaccess` dans ce tuto complémentaire :  
+
+| Nº  | Sujet                                  | Lien                                   |
+|------|---------------------------------------|---------------------------------------|
+| 01   | Les 10 astuces `.htaccess` indispensables | [![Voir](https://img.shields.io/badge/Voir-HTACCESS--astuces-blue)](./HTACCESS-dix-astuces-que-tout-le-monde-devrait-connaître.md) |
 
 ---
 
