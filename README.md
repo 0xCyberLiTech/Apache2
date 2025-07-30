@@ -1,6 +1,7 @@
 <div align="center">
 
-![Apache_logo](./images/Apache_logo.png)
+
+![Apache_logo](<img src=".images/Apache_logo.png" alt="Mon logo" width="160">)
 
   <a href="https://github.com/0xCyberLiTech">
     <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=D14A4A&center=true&vCenter=true&width=700&lines=SERVEUR+WEB+APACHE2;VirtualHosts+•+.htaccess+•+Sécurité;Guides+et+Bonnes+Pratiques" alt="Typing SVG" />
@@ -80,3 +81,5 @@ Légende des couleurs des boutons :
 <p align="center">
   <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>
 </p>
+
+![Apache_logo](./images/Apache_logo.png)
