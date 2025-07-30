@@ -55,18 +55,18 @@
 
 | N°  | Description du sujet                                         | Lien (bouton bleu)                                              |
 |-----|-------------------------------------------------------------|----------------------------------------------------------------|
-| 01  | Serveurs virtuels par nom sur une seule IP                  | [![Accéder](https://img.shields.io/badge/Accéder-01-blue?style=for-the-badge)](#balise_01)          |
-| 02  | Serveurs virtuels par nom sur plusieurs IPs                 | [![Accéder](https://img.shields.io/badge/Accéder-02-blue?style=for-the-badge)](#balise_02)          |
-| 03  | Même contenu sur plusieurs IPs (interne/externe)            | [![Accéder](https://img.shields.io/badge/Accéder-03-blue?style=for-the-badge)](#balise_03)          |
-| 04  | Sites sur différents ports                                   | [![Accéder](https://img.shields.io/badge/Accéder-04-blue?style=for-the-badge)](#balise_04)          |
-| 05  | Hébergement virtuel basé sur IP                             | [![Accéder](https://img.shields.io/badge/Accéder-05-blue?style=for-the-badge)](#balise_05)          |
-| 06  | Hébergements mixtes (IP + port)                             | [![Accéder](https://img.shields.io/badge/Accéder-06-blue?style=for-the-badge)](#balise_06)          |
-| 07  | Hébergements mixtes (nom + IP)                              | [![Accéder](https://img.shields.io/badge/Accéder-07-blue?style=for-the-badge)](#balise_07)          |
-| 08  | VirtualHost + mod_proxy                                      | [![Accéder](https://img.shields.io/badge/Accéder-08-blue?style=for-the-badge)](#balise_08)          |
-| 09  | Serveurs virtuels _default_                                 | [![Accéder](https://img.shields.io/badge/Accéder-09-blue?style=for-the-badge)](#balise_09)          |
-| 10  | Migration nom ➜ IP                                          | [![Accéder](https://img.shields.io/badge/Accéder-10-blue?style=for-the-badge)](#balise_10)          |
-| 11  | Configuration HTTPS/SSL avec Let's Encrypt ou auto-signé    | [![Accéder](https://img.shields.io/badge/Accéder-11-blue?style=for-the-badge)](#balise_11)          |
-| 12  | Certificat SSL gratuit avec Let's Encrypt.                  | [![Accéder](https://img.shields.io/badge/Accéder-11-blue?style=for-the-badge)](#balise_12)          |
+| 01  | Serveurs virtuels par nom sur une seule IP.                  | [![Accéder](https://img.shields.io/badge/Accéder-01-blue?style=for-the-badge)](#balise_01)          |
+| 02  | Serveurs virtuels par nom sur plusieurs IPs.                 | [![Accéder](https://img.shields.io/badge/Accéder-02-blue?style=for-the-badge)](#balise_02)          |
+| 03  | Même contenu sur plusieurs IPs (interne/externe).            | [![Accéder](https://img.shields.io/badge/Accéder-03-blue?style=for-the-badge)](#balise_03)          |
+| 04  | Sites sur différents ports.                                  | [![Accéder](https://img.shields.io/badge/Accéder-04-blue?style=for-the-badge)](#balise_04)          |
+| 05  | Hébergement virtuel basé sur IP.                             | [![Accéder](https://img.shields.io/badge/Accéder-05-blue?style=for-the-badge)](#balise_05)          |
+| 06  | Hébergements mixtes (IP + port).                             | [![Accéder](https://img.shields.io/badge/Accéder-06-blue?style=for-the-badge)](#balise_06)          |
+| 07  | Hébergements mixtes (nom + IP).                              | [![Accéder](https://img.shields.io/badge/Accéder-07-blue?style=for-the-badge)](#balise_07)          |
+| 08  | VirtualHost + mod_proxy.                                     | [![Accéder](https://img.shields.io/badge/Accéder-08-blue?style=for-the-badge)](#balise_08)          |
+| 09  | Serveurs virtuels _default.                                  | [![Accéder](https://img.shields.io/badge/Accéder-09-blue?style=for-the-badge)](#balise_09)          |
+| 10  | Migration nom ➜ IP.                                         | [![Accéder](https://img.shields.io/badge/Accéder-10-blue?style=for-the-badge)](#balise_10)          |
+| 11  | Configuration HTTPS/SSL avec Let's Encrypt ou auto-signé.    | [![Accéder](https://img.shields.io/badge/Accéder-11-blue?style=for-the-badge)](#balise_11)          |
+| 12  | Certificat SSL gratuit avec Let's Encrypt.                   | [![Accéder](https://img.shields.io/badge/Accéder-11-blue?style=for-the-badge)](#balise_12)          |
 
 ---
 
