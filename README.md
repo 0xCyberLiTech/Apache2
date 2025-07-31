@@ -76,7 +76,7 @@ Légende des couleurs des boutons :
 | .htaccess | Qu'est-ce que c'est ? | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](APACHE2-HTACCESS-C-est-quoi.md) |
 | .htaccess | Dix astuces à connaître. | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](APACHE2-HTACCESS-dix-astuces-que-tout-le-monde-devrait-connaître.md) |
 | .htaccess | Sécuriser l'accès à un dossier avec `.htaccess`. | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](APACHE2-HTACCESS-sécuriser-un-dossier.md) |
-| MySQL | Qu'est-ce que c'est ? | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">]() |
+| MySQL | Qu'est-ce que c'est ? | [<img src="https://img.shields.io/badge/EXPLORER-red?style=for-the-badge&logo=github&logoColor=white">]() |
 
 
 </div>
