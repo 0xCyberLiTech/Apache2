@@ -1,14 +1,10 @@
-<p align="center">
-  <a href="https://github.com/0xCyberLiTech" target="_blank" rel="noopener">
-    <img src="./images/Apache_logo.png" alt="Logo Apache" width="360">
-  </a>
-</p>
-
 <div align="center">
 
+  <br></br>
   <a href="https://github.com/0xCyberLiTech">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=D14A4A&center=true&vCenter=true&width=700&lines=SERVEUR+WEB+APACHE2;VirtualHosts+•+.htaccess+•+Sécurité;Guides+et+Bonnes+Pratiques" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=50&duration=6000&pause=1000000000&color=FF0048&center=true&vCenter=true&width=1100&lines=%3ELAMP_" alt="Titre dynamique LAMP" />
   </a>
+  <br></br>
 
   <p align="center">
     <em>Protéger l’accès d’un répertoire ou d’une page avec (.htaccess) et (.htpasswd).</em><br>
