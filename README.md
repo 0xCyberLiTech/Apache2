@@ -74,7 +74,7 @@ Légende des couleurs des boutons :
 | .htaccess | Sécuriser l'accès à un dossier avec `.htaccess`. | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](APACHE2-HTACCESS-sécuriser-un-dossier.md) |
 | MySQL | Qu'est-ce que c'est ? | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](https://github.com/0xCyberLiTech/MySQL/blob/main/README.md) |
 | MySQL | Installation et utilisation MariaDB | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](https://github.com/0xCyberLiTech/MySQL/blob/main/MySQL-Installation-utilisation.md) |
-| PHP | Qu'est-ce que c'est ? | [<img src="https://img.shields.io/badge/EXPLORER-red?style=for-the-badge&logo=github&logoColor=white">]() |
+| PHP | Qu'est-ce que c'est ? | [<img src="https://img.shields.io/badge/EXPLORER-red?style=for-the-badge&logo=github&logoColor=white">](https://github.com/0xCyberLiTech/Apache2/blob/main/README.md) |
 
 
 </div>
