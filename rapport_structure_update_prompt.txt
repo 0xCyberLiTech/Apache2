@@ -1,0 +1,13 @@
+Rapport de mise à jour de la structure documentaire (15/08/2025)
+
+Étapes réalisées :
+1. Sauvegarde intégrale de tous les fichiers Markdown dans le dossier `backup/`.
+2. Purge du contenu des fichiers principaux pour garantir une restauration propre.
+3. Restauration de chaque fichier Markdown à partir de la sauvegarde.
+4. Harmonisation visuelle et structurelle selon le modèle README-TEST.md :
+   - Ajout d’un header dynamique, badges, liens et sommaire.
+   - Uniformisation des sections « À propos », « Objectif », « Sommaire », etc.
+   - Respect du contenu original de chaque sujet.
+5. Vérification de la cohérence et de la lisibilité sur GitHub/VS Code.
+
+Tous les fichiers sont désormais conformes au modèle défini et prêts pour publication ou contribution.
