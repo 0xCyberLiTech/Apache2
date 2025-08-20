@@ -1,53 +1,43 @@
 <div align="center">
-
-  <br></br>
-  
+  <br>
   <a href="https://github.com/0xCyberLiTech">
     <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=50&duration=6000&pause=1000000000&color=FF0048&center=true&vCenter=true&width=1100&lines=%3ELAMP_" alt="Titre dynamique LAMP" />
   </a>
-  
-  <br></br>
-
+  <br>
   <p align="center">
     <em>Configuration de VirtualHosts HTTP & HTTPS avec SSL (auto-signé) sur Apache2.</em><br>
     <b>🌐 Web – 🔐 Sécurité – 🚀 Performance</b>
   </p>
-
+  <!-- Badges -->
   [![🔗 Profil GitHub](https://img.shields.io/badge/Profil-GitHub-181717?logo=github&style=flat-square)](https://github.com/0xCyberLiTech)
   [![📦 Dernière version](https://img.shields.io/github/v/release/0xCyberLiTech/Apache2?label=version&style=flat-square&color=blue)](https://github.com/0xCyberLiTech/Apache2/releases/latest)
   [![📄 CHANGELOG](https://img.shields.io/badge/📄%20Changelog-Apache2-blue?style=flat-square)](https://github.com/0xCyberLiTech/Apache2/blob/main/CHANGELOG.md)
   [![📂 Dépôts publics](https://img.shields.io/badge/Dépôts-publics-blue?style=flat-square)](https://github.com/0xCyberLiTech?tab=repositories)
   [![👥 Contributeurs](https://img.shields.io/badge/👥%20Contributeurs-cliquez%20ici-007ec6?style=flat-square)](https://github.com/0xCyberLiTech/Apache2/graphs/contributors)
-
 </div>
 
----
 
-### 👨‍💻 **À propos de moi.**
+### 👨‍💻 À propos de moi
 
 > Bienvenue dans mon **laboratoire numérique personnel** dédié à l’apprentissage et à la vulgarisation de la cybersécurité.  
 > Passionné par **Linux**, la **cryptographie** et les **systèmes sécurisés**, je partage ici mes notes, expérimentations et fiches pratiques.  
 >  
-> Pproposer un contenu clair, structuré et accessible pour étudiants, curieux et professionnels de l’IT.  
+> Proposer un contenu clair, structuré et accessible pour étudiants, curieux et professionnels de l’IT.  
 > 🔗 [Mon GitHub principal](https://github.com/0xCyberLiTech)
 
 <p align="center">
   <a href="https://github.com/0xCyberLiTech" target="_blank" rel="noopener">
-    <img src="https://skillicons.dev/icons?i=linux,debian,bash,docker,nginx,git,vim" alt="Skills" alt="Logo techno" width="300">
+    <img src="https://skillicons.dev/icons?i=linux,debian,bash,docker,nginx,git,vim" alt="Skills" width="300">
   </a>
 </p>
 
----
 
-### 🎯 **Objectif de ce dépôt.**
+### 🎯 Objectif du dépôt
 
-> Ce dépôt a pour vocation de centraliser un ensemble de notions clés concernant la pile LAMP (Linux, Apache, MySQL/MariaDB, PHP/Perl/Python). Il s’adresse aux passionnés, étudiants et professionnels souhaitant
-> mieux comprendre cette architecture web open-source, apprendre à déployer et gérer des applications basées sur LAMP, et se familiariser avec les concepts et outils essentiels à son bon fonctionnement et à son
-> optimisation.
+> Ce dépôt a pour vocation de centraliser un ensemble de notions clés concernant la pile LAMP (Linux, Apache, MySQL/MariaDB, PHP/Perl/Python). Il s’adresse aux passionnés, étudiants et professionnels souhaitant mieux comprendre cette architecture web open-source, apprendre à déployer et gérer des applications basées sur LAMP, et se familiariser avec les concepts et outils essentiels à son bon fonctionnement et à son optimisation.
 
----
 
-## 🛠️ Configuration de VirtualHosts HTTP & HTTPS avec SSL (auto-signé) sur Apache2.
+## 🛠️ Configuration de VirtualHosts HTTP & HTTPS avec SSL (auto-signé) sur Apache2
 ### ✅ Compatible Debian 12 (Bookworm) & Debian 13 (Trixie)
 
 > **Auteur** : 0xCyberLiTech  
@@ -55,16 +45,12 @@
 > **Public visé** : administrateurs Linux, étudiants, pentesters, etc.  
 > **Objectif** : déployer Apache avec support SSL via certificat auto‑signé
 
----
 
 ## 📌 Objectif
 
 Configurer deux VirtualHosts :
 
-- 🧩 un pour **HTTP** (port 80)  
-- 🔐 un pour **HTTPS** (port 443) avec certificat **auto‑signé**
 
----
 
 ## 🧩 Prérequis
 
@@ -81,7 +67,6 @@ apt update && apt upgrade -y
 apt install -y apache2 openssl iptables-persistent
 ```
 
----
 
 ## 🏗️ Étape 1 – VirtualHost HTTP (`000‑default.conf`)
 
@@ -117,7 +102,6 @@ nano /etc/apache2/sites-available/000-default.conf
 </VirtualHost>
 ```
 
----
 
 ## 🔒 Étape 2 – Sécurisation Apache (facultatif)
 
@@ -132,7 +116,6 @@ ServerTokens Prod
 ServerSignature Off
 ```
 
----
 
 ## 🔐 Étape 3 – Génération du certificat SSL auto‑signé
 
@@ -169,7 +152,6 @@ Common Name (FQDN ou nom du serveur):tonserveur.local
 openssl x509 -req -days 365 -in certrequest.csr -signkey keyfile.key -out certfile.crt
 ```
 
----
 
 ## 📁 Étape 4 – Installation du certificat
 
@@ -180,7 +162,6 @@ chmod go-rwx /etc/ssl/certs/certfile.crt
 chmod go-rwx /etc/ssl/private/keyfile.key
 ```
 
----
 
 ## 🌐 Étape 5 – VirtualHost HTTPS (`default-ssl.conf`)
 
@@ -231,7 +212,6 @@ nano /etc/apache2/sites-available/default-ssl.conf
 </VirtualHost>
 ```
 
----
 
 ## 🔁 Étape 6 – Redirection HTTP → HTTPS
 
@@ -255,7 +235,6 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 RewriteRule (.*) https://votreserveur.tondomaine.tld%{REQUEST_URI}
 ```
 
----
 
 ## ⚙️ Étape 7 – Activation & rechargement Apache
 
@@ -264,7 +243,6 @@ a2ensite default-ssl.conf
 systemctl reload apache2.service
 ```
 
----
 
 ## 🧪 Étape 8 – Vérification de la configuration
 
@@ -276,7 +254,6 @@ apachectl -t
 
 ✅ Doit renvoyer : `Syntax OK`
 
----
 
 ## 🔥 Étape 9 – Pare‑feu : autoriser le port 443
 
@@ -287,7 +264,6 @@ apt install -y iptables-persistent
 
 ✅ Réponds **yes** pour sauvegarder les règles.
 
----
 
 ## 🌍 Étape 10 – Tester l’accès en HTTPS
 
@@ -297,8 +273,6 @@ Ouvre ton navigateur et va sur :
 https://tonserveur/
 ```
 
-- Un **avertissement** est normal avec certificat auto‑signé : ajoute une exception.
-- Si HTTP→HTTPS est activée : `http://tonserveur` redirige vers `https://...`
 
 Tu peux ensuite accéder à Nagios (ou ton application) via :
 
@@ -306,7 +280,6 @@ Tu peux ensuite accéder à Nagios (ou ton application) via :
 https://tonserveur/nagios/
 ```
 
----
 
 ## 📝 Récapitulatif des fichiers
 
@@ -318,16 +291,15 @@ https://tonserveur/nagios/
 | `/etc/ssl/private/keyfile.key`                | Clé privée SSL                |
 | `/etc/apache2/conf-available/security.conf`    | Sécurisation Apache (option) |
 
----
 
 ## ✅ Résultat final
 
-- 🌐 HTTP redirigé automatiquement vers HTTPS  
-- 🔐 Certificat SSL (auto‑signé) fonctionnel  
-- 📦 Compatible Debian 12 & Debian 13  
-- ✅ Apache validé via `configtest`
 
----
+
+<!-- ===== FOOTER ===== -->
+<p align="center">
+  <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>
+</p>
 
 <p align="center">
   <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>

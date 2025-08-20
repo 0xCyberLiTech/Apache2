@@ -1,4 +1,3 @@
-<div align="center">
 
   <br></br>
   
@@ -21,7 +20,6 @@
 
 </div>
 
----
 
 ### 👨‍💻 **À propos de moi.**
 
@@ -37,7 +35,6 @@
   </a>
 </p>
 
----
 
 ### 🎯 **Objectif de ce dépôt.**
 
@@ -45,7 +42,6 @@
 > mieux comprendre cette architecture web open-source, apprendre à déployer et gérer des applications basées sur LAMP, et se familiariser avec les concepts et outils essentiels à son bon fonctionnement et à son
 > optimisation.
 
----
 
 <div align="center" style="margin-bottom: 10px;">
 
@@ -57,7 +53,6 @@
 
 </div>
 
----
 
 <div align="center">
 
@@ -77,7 +72,6 @@
 
 </div>
 
----
 
 <p align="center">
   <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>

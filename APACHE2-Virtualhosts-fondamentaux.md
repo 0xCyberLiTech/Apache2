@@ -1,51 +1,41 @@
 <div align="center">
-
-  <br></br>
-  
+  <br>
   <a href="https://github.com/0xCyberLiTech">
     <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=50&duration=6000&pause=1000000000&color=FF0048&center=true&vCenter=true&width=1100&lines=%3ELAMP_" alt="Titre dynamique LAMP" />
   </a>
-  
-  <br></br>
-
+  <br>
   <p align="center">
     <em>VirtualHosts Fondamentaux (Apache2).</em><br>
     <b>🌐 Web – 🔐 Sécurité – 🚀 Performance</b>
   </p>
-
+  <!-- Badges -->
   [![🔗 Profil GitHub](https://img.shields.io/badge/Profil-GitHub-181717?logo=github&style=flat-square)](https://github.com/0xCyberLiTech)
   [![📦 Dernière version](https://img.shields.io/github/v/release/0xCyberLiTech/Apache2?label=version&style=flat-square&color=blue)](https://github.com/0xCyberLiTech/Apache2/releases/latest)
   [![📄 CHANGELOG](https://img.shields.io/badge/📄%20Changelog-Apache2-blue?style=flat-square)](https://github.com/0xCyberLiTech/Apache2/blob/main/CHANGELOG.md)
   [![📂 Dépôts publics](https://img.shields.io/badge/Dépôts-publics-blue?style=flat-square)](https://github.com/0xCyberLiTech?tab=repositories)
   [![👥 Contributeurs](https://img.shields.io/badge/👥%20Contributeurs-cliquez%20ici-007ec6?style=flat-square)](https://github.com/0xCyberLiTech/Apache2/graphs/contributors)
-
 </div>
 
----
 
-### 👨‍💻 **À propos de moi.**
+### 👨‍💻 À propos de moi
 
 > Bienvenue dans mon **laboratoire numérique personnel** dédié à l’apprentissage et à la vulgarisation de la cybersécurité.  
 > Passionné par **Linux**, la **cryptographie** et les **systèmes sécurisés**, je partage ici mes notes, expérimentations et fiches pratiques.  
 >  
-> Pproposer un contenu clair, structuré et accessible pour étudiants, curieux et professionnels de l’IT.  
+> Proposer un contenu clair, structuré et accessible pour étudiants, curieux et professionnels de l’IT.  
 > 🔗 [Mon GitHub principal](https://github.com/0xCyberLiTech)
 
 <p align="center">
   <a href="https://github.com/0xCyberLiTech" target="_blank" rel="noopener">
-    <img src="https://skillicons.dev/icons?i=linux,debian,bash,docker,nginx,git,vim" alt="Skills" alt="Logo techno" width="300">
+    <img src="https://skillicons.dev/icons?i=linux,debian,bash,docker,nginx,git,vim" alt="Skills" width="300">
   </a>
 </p>
 
----
 
-### 🎯 **Objectif de ce dépôt.**
+### 🎯 Objectif du dépôt
 
-> Ce dépôt a pour vocation de centraliser un ensemble de notions clés concernant la pile LAMP (Linux, Apache, MySQL/MariaDB, PHP/Perl/Python). Il s’adresse aux passionnés, étudiants et professionnels souhaitant
-> mieux comprendre cette architecture web open-source, apprendre à déployer et gérer des applications basées sur LAMP, et se familiariser avec les concepts et outils essentiels à son bon fonctionnement et à son
-> optimisation.
+> Ce dépôt a pour vocation de centraliser un ensemble de notions clés concernant la pile LAMP (Linux, Apache, MySQL/MariaDB, PHP/Perl/Python). Il s’adresse aux passionnés, étudiants et professionnels souhaitant mieux comprendre cette architecture web open-source, apprendre à déployer et gérer des applications basées sur LAMP, et se familiariser avec les concepts et outils essentiels à son bon fonctionnement et à son optimisation.
 
----
 
 # 🌐 VirtualHosts Fondamentaux (Apache2).
 
@@ -66,7 +56,6 @@
 | 11  | Configuration HTTPS/SSL avec Let's Encrypt ou auto-signé.    | [![Accéder](https://img.shields.io/badge/Accéder-11-blue?style=for-the-badge)](#balise_11)          |
 | 12  | Certificat SSL gratuit avec Let's Encrypt.                   | [![Accéder](https://img.shields.io/badge/Accéder-11-blue?style=for-the-badge)](#balise_12)          |
 
----
 
 <a name="balise_01"></a>
 ## 01 - Serveurs virtuels par nom sur une seule adresse IP
@@ -97,7 +86,6 @@ Listen 80
 
 Le premier VirtualHost sera utilisé si aucune correspondance exacte n’est trouvée.
 
----
 
 <a name="balise_02"></a>
 ## 02 - Serveurs virtuels par nom sur plusieurs IPs
@@ -125,7 +113,6 @@ NameVirtualHost 172.20.30.50
 </VirtualHost>
 ```
 
----
 
 <a name="balise_03"></a>
 ## 03 - Même contenu sur des adresses IP internes et externes
@@ -141,7 +128,6 @@ NameVirtualHost 172.20.30.40
 </VirtualHost>
 ```
 
----
 
 <a name="balise_04"></a>
 ## 04 - Différents sites sur différents ports
@@ -164,7 +150,6 @@ NameVirtualHost 172.20.30.40:8080
 </VirtualHost>
 ```
 
----
 
 <a name="balise_05"></a>
 ## 05 - Hébergement virtuel basé sur IP
@@ -183,7 +168,6 @@ Listen 80
 </VirtualHost>
 ```
 
----
 
 <a name="balise_06"></a>
 ## 06 - Hébergements virtuels mixtes (IP et ports)
@@ -215,7 +199,6 @@ Listen 172.20.30.50:8080
 </VirtualHost>
 ```
 
----
 
 <a name="balise_07"></a>
 ## 07 - Hébergements mixtes (nom et IP)
@@ -241,7 +224,6 @@ NameVirtualHost 172.20.30.40
 </VirtualHost>
 ```
 
----
 
 <a name="balise_08"></a>
 ## 08 - VirtualHost et mod_proxy
@@ -255,7 +237,6 @@ NameVirtualHost 172.20.30.40
 </VirtualHost>
 ```
 
----
 
 <a name="balise_09"></a>
 ## 09 - Serveurs virtuels _default_
@@ -270,7 +251,6 @@ NameVirtualHost 172.20.30.40
 </VirtualHost>
 ```
 
----
 
 <a name="balise_10"></a>
 ## 10 - Migration d’un VirtualHost par nom vers IP
@@ -317,7 +297,6 @@ NameVirtualHost 172.20.30.40
 </VirtualHost>
 ```
 
----
 
 <a name="balise_11"></a>
 ## 11 - HTTPS / SSL avec Apache
@@ -346,7 +325,6 @@ sudo a2enmod ssl
 sudo systemctl reload apache2
 ```
 
----
 
 <a name="balise_12"></a>
 ## 12 - Certificat SSL gratuit avec Let's Encrypt.
@@ -357,7 +335,6 @@ sudo systemctl reload apache2
 ## Objectif
 Sécuriser un site web avec HTTPS à l’aide d’un **certificat SSL/TLS gratuit** fourni par [Let’s Encrypt](https://letsencrypt.org/), via l’outil **Certbot** et son plugin Apache.
 
----
 
 ## 📦 Étape 1 – Installer Certbot avec le plugin Apache
 
@@ -368,7 +345,6 @@ sudo apt install certbot python3-certbot-apache -y
 
 > ✅ Cette commande installe Certbot ainsi que le module permettant de configurer automatiquement Apache pour HTTPS.
 
----
 
 ## 🚀 Étape 2 – Générer et installer le certificat SSL
 
@@ -376,14 +352,12 @@ sudo apt install certbot python3-certbot-apache -y
 sudo certbot --apache
 ```
 
-- Le script vous guide pas à pas :
   - Choix du ou des domaines à sécuriser.
   - Redirection HTTP vers HTTPS (optionnelle mais recommandée).
   - Création automatique du certificat et configuration d’Apache.
 
 > ✅ À la fin, le site est accessible en **HTTPS sécurisé**, avec un certificat valide.
 
----
 
 ## 🔁 Étape 3 – Renouvellement automatique
 
@@ -394,15 +368,15 @@ Les certificats Let’s Encrypt expirent tous les 90 jours. Heureusement, le sys
 sudo certbot renew --dry-run
 ```
 
----
 
 ## 🧠 Bon à savoir
 
-- Les certificats sont stockés dans `/etc/letsencrypt/`.
-- Le fichier de configuration Apache est automatiquement modifié pour inclure les directives HTTPS.
-- Pour plusieurs VirtualHosts, Certbot peut être exécuté à nouveau en ciblant chaque domaine.
 
----
+
+<!-- ===== FOOTER ===== -->
+<p align="center">
+  <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>
+</p>
 
 <p align="center">
   <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>
