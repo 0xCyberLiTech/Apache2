@@ -1,9 +1,14 @@
 
+
+<div align="center">
+
 <p align="center">
   <a href="https://github.com/0xCyberLiTech">
     <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=50&duration=6000&pause=1000000000&color=FF0048&center=true&vCenter=true&width=1100&lines=%3ELAMP_" alt="Titre dynamique LAMP" />
   </a>
 </p>
+
+<div align="center">
 
 <p align="center">
   <em>Protéger l’accès d’un répertoire ou d’une page avec (.htaccess) et (.htpasswd).</em><br>
