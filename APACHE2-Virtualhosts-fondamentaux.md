@@ -14,21 +14,21 @@
   </p>
 
   <p align="center">
-      <a href="https://github.com/0xCyberLiTech">
-          <img src="https://img.shields.io/badge/Profil-GitHub-181717?logo=github&style=flat-square" alt="Profil GitHub" />
-      </a>
-      <a href="https://github.com/0xCyberLiTech/Apache2/releases/latest">
-          <img src="https://img.shields.io/github/v/release/0xCyberLiTech/Apache2?label=version&style=flat-square&color=blue" alt="Dernière version" />
-      </a>
-      <a href="https://github.com/0xCyberLiTech/Apache2/blob/main/CHANGELOG.md">
-          <img src="https://img.shields.io/badge/📄%20Changelog-Apache2-blue?style=flat-square" alt="CHANGELOG" />
-      </a>
-      <a href="https://github.com/0xCyberLiTech?tab=repositories">
-          <img src="https://img.shields.io/badge/Dépôts-publics-blue?style=flat-square" alt="Dépôts publics" />
-      </a>
-      <a href="https://github.com/0xCyberLiTech/Apache2/graphs/contributors">
-          <img src="https://img.shields.io/badge/👥%20Contributeurs-cliquez%20ici-007ec6?style=flat-square" alt="Contributeurs" />
-      </a>
+    <a href="https://github.com/0xCyberLiTech">
+      <img src="https://img.shields.io/badge/Profil-GitHub-181717?logo=github&style=flat-square" alt="Profil GitHub" />
+    </a>
+    <a href="https://github.com/0xCyberLiTech/Apache2/releases/latest">
+      <img src="https://img.shields.io/github/v/release/0xCyberLiTech/Apache2?label=version&style=flat-square&color=blue" alt="Dernière version" />
+    </a>
+    <a href="https://github.com/0xCyberLiTech/Apache2/blob/main/CHANGELOG.md">
+      <img src="https://img.shields.io/badge/📄%20Changelog-Apache2-blue?style=flat-square" alt="CHANGELOG" />
+    </a>
+    <a href="https://github.com/0xCyberLiTech?tab=repositories">
+      <img src="https://img.shields.io/badge/Dépôts-publics-blue?style=flat-square" alt="Dépôts publics" />
+    </a>
+    <a href="https://github.com/0xCyberLiTech/Apache2/graphs/contributors">
+      <img src="https://img.shields.io/badge/👥%20Contributeurs-cliquez%20ici-007ec6?style=flat-square" alt="Contributeurs" />
+    </a>
   </p>
 
 </div>
