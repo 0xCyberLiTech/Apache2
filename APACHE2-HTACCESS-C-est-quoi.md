@@ -123,7 +123,7 @@ Découvrez d’autres astuces pratiques avec `.htaccess` dans ce tuto complémen
 
 | Nº  | Sujet                                  | Lien                                   |
 |------|---------------------------------------|---------------------------------------|
-| 01   | Les 10 astuces `.htaccess` indispensables | [![Voir](https://img.shields.io/badge/Voir-HTACCESS--astuces-blue)](./HTACCESS-dix-astuces-que-tout-le-monde-devrait-connaître.md) |
+| 01   | Les 10 astuces `.htaccess` indispensables | [![Voir](https://github.com/0xCyberLiTech/Apache2/blob/main/APACHE2-HTACCESS-dix-astuces-que-tout-le-monde-devrait-conna%C3%AEtre.md) |
 
 ---
 
