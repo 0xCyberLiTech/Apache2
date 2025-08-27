@@ -10,10 +10,7 @@
 
   <br></br>
 
-  <p align="center">
-    <em>Guides et astuces pour la configuration du serveur web Apache2.</em><br>
-    <b>🌐 Web – 🔐 Sécurité – 🚀 Performance</b>
-  </p>
+  <h2>Laboratoire numérique pour la cybersécurité, Linux & IT</h2>
 
   <p align="center">
     <a href="https://github.com/0xCyberLiTech">
