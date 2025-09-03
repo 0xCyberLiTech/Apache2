@@ -33,7 +33,7 @@
 </div>
 
 <!--
-Optimisation SEO : 0xCyberLiTech, tutoriels, guides, administration système, scripts Bash, Debian, apache, apache2, virtualhost, http, https, lamp, mysql, php, log, ressources techniques, étudiants, professionnels, formation, réseau, IT, bonnes pratiques, passionnés.
+Optimisation SEO : mots-clés LAMP, 0xCyberLiTech, tutoriels, guides, administration système, scripts Bash, Debian, apache, apache2, virtualhost, http, https, lamp, mysql, php, log, ressources techniques, étudiants, professionnels, formation, réseau, IT, bonnes pratiques, passionnés.
 -->
 
 <div align="center">
