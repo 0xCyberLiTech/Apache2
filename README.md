@@ -73,16 +73,16 @@ Le contenu est structuré, accessible et optimisé SEO pour répondre aux besoin
 
 **Catégories des projets :**
 
-| Catégorie | Sujet | Accès Rapide |
-|:---:|:---|:---:|
-| Apache2 | Les fondamentaux. | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](APACHE2-Virtualhosts-fondamentaux.md) |
-| Virtualhost | HTTP & HTTPS (SSL). | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](APACHE2-Créé-deux-VirtualHosts-HTTP-HTTPS.md) |
-| .htaccess | Qu'est-ce que c'est ? | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](APACHE2-HTACCESS-C-est-quoi.md) |
-| .htaccess | Dix astuces à connaître. | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](APACHE2-HTACCESS-dix-astuces-que-tout-le-monde-devrait-connaître.md) |
-| .htaccess | Sécuriser l'accès à un dossier avec `.htaccess`. | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](APACHE2-HTACCESS-sécuriser-un-dossier.md) |
-| MySQL | Qu'est-ce que c'est ? | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](https://github.com/0xCyberLiTech/MySQL/blob/main/README.md) |
-| MySQL | Installation et utilisation MariaDB | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](https://github.com/0xCyberLiTech/MySQL/blob/main/MySQL-Installation-utilisation.md) |
-| PHP | Qu'est-ce que c'est ? | [<img src="https://img.shields.io/badge/EXPLORER-red?style=for-the-badge&logo=github&logoColor=white">](https://github.com/0xCyberLiTech/Apache2/blob/main/README.md) |
+| Catégorie   | Sujet                                            | Accès Rapide                                                                                                                                                                                   |
+|-------------|--------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Apache2     | Les fondamentaux.                                | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](APACHE2-Virtualhosts-fondamentaux.md)                                               |
+| Virtualhost | HTTP & HTTPS (SSL).                              | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](APACHE2-Créé-deux-VirtualHosts-HTTP-HTTPS.md)                                       |
+| .htaccess   | Qu'est-ce que c'est ?                            | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](APACHE2-HTACCESS-C-est-quoi.md)                                                     |
+| .htaccess   | Dix astuces à connaître.                         | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](APACHE2-HTACCESS-dix-astuces-que-tout-le-monde-devrait-connaître.md)                |
+| .htaccess   | Sécuriser l'accès à un dossier avec `.htaccess`. | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](APACHE2-HTACCESS-sécuriser-un-dossier.md)                                           |
+| MySQL       | Qu'est-ce que c'est ?                            | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](https://github.com/0xCyberLiTech/MySQL/blob/main/README.md)                         |
+| MySQL       | Installation et utilisation MariaDB              | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](https://github.com/0xCyberLiTech/MySQL/blob/main/MySQL-Installation-utilisation.md) |
+| PHP         | Qu'est-ce que c'est ?                            | [<img src="https://img.shields.io/badge/EXPLORER-red?style=for-the-badge&logo=github&logoColor=white">](https://github.com/0xCyberLiTech/Apache2/blob/main/README.md)                          |
 
 </div>
 
