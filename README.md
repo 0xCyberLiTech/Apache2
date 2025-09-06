@@ -71,8 +71,6 @@ Le contenu est structuré, accessible et optimisé SEO pour répondre aux besoin
 
 <div align="center">
 
-**Catégories des projets :**
-
 | Catégorie   | Sujet                                            | Accès Rapide                                                                                                                                                                                   |
 |-------------|--------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Apache2     | Les fondamentaux.                                | [<img src="https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white">](APACHE2-Virtualhosts-fondamentaux.md)                                               |
