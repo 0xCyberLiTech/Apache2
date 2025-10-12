@@ -292,7 +292,7 @@ apachectl -t
 
 ---
 
-## 🔥 Étape 9 – Pare‑feu : autoriser le port 443
+## 🔥 Étape 9 – Pare‑feu : autoriser le port 443 HTTPS
 
 ```bash
 iptables -I INPUT -p tcp --dport 443 -j ACCEPT
