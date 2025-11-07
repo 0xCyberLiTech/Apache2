@@ -320,6 +320,114 @@ Tu peux ensuite accéder à Nagios (ou ton application) via :
 https://tonserveur/nagios/
 ```
 
+## 🏷️ Nouvelle section : Prise en charge de /etc/hosts (résolution locale)
+Pour des environnements de test ou lorsque tu utilises un FQDN local (ex. tonserveur.local), il est courant d’ajouter des entrées dans /etc/hosts afin que le nom résolve vers l’adresse IP du serveur sans dépendre d’un DNS externe.
+
+1. Sauvegarde le fichier avant modification :
+```bash
+cp /etc/hosts /etc/hosts.bak
+```
+
+2. Édite /etc/hosts :
+```bash
+nano /etc/hosts
+```
+
+3. Exemple d’entrées (remplace par l’IP et le nom désirés) :
+```
+# Localhost
+127.0.0.1       localhost
+
+# Serveur Apache local
+192.168.1.50    tonserveur.local tonserveur
+# IPv6 example
+::1             localhost ip6-localhost ip6-loopback
+```
+
+4. Bonnes pratiques et remarques :
+- /etc/hosts prend priorité sur la résolution DNS pour la machine locale.
+- N’ajoute pas d’entrées conflictuelles (ex. mapping d’un nom public à une IP différente).
+- Pour plusieurs hôtes, ajoute une ligne par IP.
+- Après modification, teste avec ping/dig/host :
+```bash
+ping -c1 tonserveur.local
+host tonserveur.local
+dig +short tonserveur.local
+```
+- Si Apache utilise le ServerName (ex. dans un VirtualHost), assure-toi que le nom correspond à l’entrée hosts ou à un certificat contenant ce CN/SAN.
+
+---
+
+## 🧭 Nouvelle section : Prise en charge de /etc/resolv.conf (résolution DNS)
+/etc/resolv.conf configure les serveurs DNS et les recherches de domaines. Attention : sur les systèmes modernes (systemd-resolved, NetworkManager) ce fichier peut être géré automatiquement.
+
+1. Inspecte l’origine du fichier :
+```bash
+ls -l /etc/resolv.conf
+# Par exemple, s'il est lié vers /run/systemd/resolve/stub-resolv.conf ou /run/NetworkManager/resolv.conf
+```
+
+2. Si systemd-resolved est utilisé (Debian 12/13), méthode recommandée :
+- Configure les serveurs DNS persistants via :
+  - /etc/systemd/resolved.conf (exemple) :
+    ```
+    [Resolve]
+    DNS=1.1.1.1 8.8.8.8
+    Domains=example.local
+    ```
+  - Puis redémarre :
+    ```bash
+    systemctl restart systemd-resolved
+    ```
+- Vérifie la configuration :
+```bash
+systemd-resolve --status
+```
+
+3. Exemple direct de /etc/resolv.conf (si tu gères manuellement et que tu sais qu’il ne sera pas écrasé) :
+```
+search example.local
+nameserver 192.168.1.1
+nameserver 1.1.1.1
+options ndots:1 timeout:2
+```
+
+4. Remarques importantes :
+- Ne modifie pas /etc/resolv.conf directement si NetworkManager ou systemd-resolved le gèrent ; fais-le via leurs configurations.
+- Sur des environnements cloud, le système peut réécrire resolv.conf à chaque reboot.
+- options ndots:1 accélère la résolution de noms locaux (utile pour search domain).
+- Pour tests rapides :
+```bash
+dig @1.1.1.1 example.com +short
+nslookup tonserveur.local
+```
+
+---
+
+## ✅ Tests après modifications hosts/resolv.conf
+
+1. Vérifie que le nom résout correctement :
+```bash
+getent hosts tonserveur.local
+ping -c1 tonserveur.local
+```
+
+2. Vérifie l’accès HTTP/HTTPS localement :
+```bash
+curl -vk https://tonserveur.local/
+curl -I http://tonserveur.local/
+```
+
+3. Si la résolution échoue, revérifie :
+- /etc/hosts pour une entrée correcte
+- la configuration de systemd-resolved / NetworkManager
+- l’ordre de résolution dans /etc/nsswitch.conf (la ligne hosts: doit contenir "files dns" pour que /etc/hosts soit consulté avant DNS)
+
+Exemple /etc/nsswitch.conf (ligne pertinente) :
+```
+hosts: files dns
+```
+
 ---
 
 ## 📝 Récapitulatif des fichiers
@@ -330,7 +438,9 @@ https://tonserveur/nagios/
 | `/etc/apache2/sites-available/default-ssl.conf` | VirtualHost HTTPS             |
 | `/etc/ssl/certs/certfile.crt`                 | Certificat SSL                |
 | `/etc/ssl/private/keyfile.key`                | Clé privée SSL                |
-| `/etc/apache2/conf-available/security.conf`    | Sécurisation Apache (option) |
+| `/etc/apache2/conf-available/security.conf`    | Sécurisation Apache (option)  |
+| `/etc/hosts`                                   | Résolution locale / mappage nom→IP |
+| `/etc/resolv.conf` (ou systemd-resolved conf)  | Configuration des serveurs DNS |
 
 ---
 
@@ -338,6 +448,8 @@ https://tonserveur/nagios/
 
 - 🌐 HTTP redirigé automatiquement vers HTTPS  
 - 🔐 Certificat SSL (auto‑signé) fonctionnel  
+- 🏷️ Résolution locale prise en charge via /etc/hosts  
+- 🌐 Résolution DNS configurée via /etc/resolv.conf ou systemd-resolved  
 - 📦 Compatible Debian 12 & Debian 13  
 - ✅ Apache validé via `configtest`
 
@@ -352,4 +464,3 @@ https://tonserveur/nagios/
 <div align="center">
   <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>
 </div>
-
