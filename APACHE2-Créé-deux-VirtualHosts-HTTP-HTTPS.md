@@ -335,12 +335,13 @@ nano /etc/hosts
 
 3. Exemple d’entrées (remplace par l’IP et le nom désirés) :
 ```
-# Localhost
-127.0.0.1       localhost
+# /etc/hosts - exemple
+127.0.0.1       localhost.localdomain           localhost
 
-# Serveur Apache local
-192.168.1.50    tonserveur.local tonserveur
-# IPv6 example
+# Serveur existant
+192.168.80.15   srv-cyberlitech.mondomain.local srv-cyberlitech
+
+# IPv6
 ::1             localhost ip6-localhost ip6-loopback
 ```
 
@@ -350,9 +351,7 @@ nano /etc/hosts
 - Pour plusieurs hôtes, ajoute une ligne par IP.
 - Après modification, teste avec ping/dig/host :
 ```bash
-ping -c1 tonserveur.local
-host tonserveur.local
-dig +short tonserveur.local
+ping srv-cyberlitech.mondomain.local
 ```
 - Si Apache utilise le ServerName (ex. dans un VirtualHost), assure-toi que le nom correspond à l’entrée hosts ou à un certificat contenant ce CN/SAN.
 
@@ -372,8 +371,8 @@ ls -l /etc/resolv.conf
   - /etc/systemd/resolved.conf (exemple) :
     ```
     [Resolve]
-    DNS=1.1.1.1 8.8.8.8
-    Domains=example.local
+    DNS=8.8.8.8 8.8.4.4
+    Domains=mondomain.local
     ```
   - Puis redémarre :
     ```bash
@@ -386,9 +385,9 @@ systemd-resolve --status
 
 3. Exemple direct de /etc/resolv.conf (si tu gères manuellement et que tu sais qu’il ne sera pas écrasé) :
 ```
-search example.local
-nameserver 192.168.1.1
-nameserver 1.1.1.1
+search mondomain.local
+nameserver 8.8.8.8
+nameserver 8.8.4.4
 options ndots:1 timeout:2
 ```
 
@@ -398,7 +397,7 @@ options ndots:1 timeout:2
 - options ndots:1 accélère la résolution de noms locaux (utile pour search domain).
 - Pour tests rapides :
 ```bash
-dig @1.1.1.1 example.com +short
+dig @8.8.8.8 example.com +short
 nslookup tonserveur.local
 ```
 
