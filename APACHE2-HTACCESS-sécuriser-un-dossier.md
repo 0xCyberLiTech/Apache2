@@ -140,7 +140,7 @@ htpasswd -Bc /var/www/.htpasswd utilisateur
 Exemple :
 
 ```bash
-htpasswd -Bc /var/www/.htpasswd 0xCLT
+htpasswd -Bc /var/www/.htpasswd srv-linux-01
 ```
 
 - `-B` : utilise bcrypt (plus sécurisé) pour le chiffrement du mot de passe  
@@ -161,7 +161,7 @@ cat /var/www/.htpasswd
 Exemple de ligne :
 
 ```
-0xCLT:$2y$10$RxuLau6X2SbRidfsdfzpFLKheEeXfgdylsVBWgI
+srv-linux-01:$2y$10$<HASH-BCRYPT>
 ```
 
 ---
