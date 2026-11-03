@@ -73,7 +73,6 @@ Sous **Debian 13 (Trixie — Stable)** et **Debian 14 (Forky — Next-Gen)**, l'
 - **Base de données relationnelle :** **MariaDB Server (`11.4+ LTS`)** avec authentification locale `unix_socket`.
 
 ```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#091326', 'primaryTextColor': '#f8fafc', 'primaryBorderColor': '#00d9ff', 'lineColor': '#00d9ff'}}}%%
 flowchart LR
     CLIENT["[CLIENT] Navigateur HTTPS<br/>TLS 1.3 · HTTP/2"] --> APACHE["[WEB] Apache 2.4 (mpm_event)<br/>Port 80 / 443"]
     APACHE -->|"Socket Unix (proxy_fcgi)"| PHPFPM["[APP] Pool PHP-FPM 8.4+<br/>Isolation Processus"]
